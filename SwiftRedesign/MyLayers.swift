@@ -25,7 +25,7 @@ protocol MyLayersVCDelegate: AnyObject {
 class MyLayersVC: UIViewController {
     var containerTblV: UITableView!
     var sections: [SectionInfo] = []
-    var mapStyles: [MapStyles] = [.defaultMap, .satelliteMap, .terrainMap, .greyMap, .sublimeGreyMap, .darkClassicMap]
+    var mapStyles: [MapStyles] = [.init(style: .defaultMap), .init(style: .satelliteMap), .init(style: .terrainMap), .init(style: .greyMap), .init(style: .sublimeGreyMap), .init(style: .darkClassicMap)]
     var selectedMapStyle: MapStyleItemCell?
     weak var delegate: MyLayersVCDelegate?
     
@@ -129,10 +129,8 @@ extension MyLayersVC: UITableViewDelegate, UITableViewDataSource {
 
         case MyLayersStyleComponent.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyLayersStyleComponent.identifier, for: indexPath) as? MyLayersStyleComponent else {return UITableViewCell()}
-            cell.stylesItems.register(MapStyleItemCell.self, forCellWithReuseIdentifier: MapStyleItemCell.identifier)
+            cell.setUpUI(mapStyles: mapStyles)
             cell.stylesItems.delegate = self
-            cell.stylesItems.delegate = self
-            cell.stylesItems.dataSource = self
             cell.selectionStyle = .none
             return cell
             
@@ -155,27 +153,7 @@ extension MyLayersVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MyLayersVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mapStyles.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapStyleItemCell.identifier, for: indexPath) as? MapStyleItemCell else {return UICollectionViewCell()}
-        let style = mapStyles[indexPath.row]
-        
-        cell.setUpUI(image: UIImage(systemName: "photo.fill")!, styleName: style.rawValue)
-        if indexPath.row == 0 {
-            cell.showBorder()
-            selectedMapStyle = cell
-        }
-        return cell
-    }
-    
+extension MyLayersVC: UICollectionViewDelegate {    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? MapStyleItemCell else {return}
         cell.showBorder()
@@ -264,7 +242,7 @@ class MyLayersTopComponent: UITableViewCell {
     }
 }
 
-enum MapStyles: String {
+enum Style: String {
     case defaultMap = "Default Map"
     case satelliteMap = "Satellite Map"
     case terrainMap = "Terrain Map"
@@ -273,23 +251,72 @@ enum MapStyles: String {
     case darkClassicMap = "Dark Classic Map"
 }
 
+class MapStyles: Hashable {
+    
+    var name: String
+    
+    init(style: Style) {
+        self.name = style.rawValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        return hasher.combine(name)
+    }
+    
+    static func == (lhs: MapStyles, rhs: MapStyles) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
+
 class MyLayersStyleComponent: UITableViewCell {
+    
+    enum Section: CaseIterable {
+        case one
+    }
+    
     static let identifier: String = "MyLayersStyleComponent"
     
     var stylesItems: UICollectionView!
     var threeDBtn: ToggleView!
     var visualTrafficBtn: ToggleView!
-
+    var dataSource: UICollectionViewDiffableDataSource<Section, MapStyles>!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setUpUI()
+    }
+    
+    func makeDataSource() -> UICollectionViewDiffableDataSource<Section, MapStyles> {
+        
+        let cellRegistration = UICollectionView.CellRegistration<MapStyleItemCell, MapStyles> { cell, indexPath, style in
+            
+            cell.setUpUI(image: UIImage(systemName: "photo")!, styleName: style.name)
+        }
+        
+        return UICollectionViewDiffableDataSource<Section, MapStyles>(
+            collectionView: stylesItems,
+            cellProvider: { collectionView, indexPath, item in
+                collectionView.dequeueConfiguredReusableCell(
+                    using: cellRegistration,
+                    for: indexPath,
+                    item: item
+                )
+            }
+        )
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpUI() {
+    func applyInitialSnapshot(mapStyles: [MapStyles]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MapStyles>()
+        snapshot.appendSections([.one])
+        
+        snapshot.appendItems(mapStyles, toSection: .one)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func setUpUI(mapStyles: [MapStyles]) {
         let titleLbl = UILabel()
         titleLbl.text = "Style"
         titleLbl.font = .systemFont(ofSize: 18, weight: .regular)
@@ -301,14 +328,23 @@ class MyLayersStyleComponent: UITableViewCell {
             titleLbl.topAnchor.constraint(equalTo: contentView.topAnchor)
         ])
         
-        let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = .init(width: 110, height: 130)
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 15
-        layout.scrollDirection = .vertical
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(110), heightDimension: .absolute(130))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(280))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.interItemSpacing = .fixed(20)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 20
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
     
         let stylesItems = UICollectionView(frame: .zero, collectionViewLayout: layout)
         stylesItems.translatesAutoresizingMaskIntoConstraints = false
+        stylesItems.register(MapStyleItemCell.self, forCellWithReuseIdentifier: MapStyleItemCell.identifier)
+        stylesItems.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         contentView.addSubview(stylesItems)
         
         NSLayoutConstraint.activate([
@@ -319,6 +355,8 @@ class MyLayersStyleComponent: UITableViewCell {
         ])
         
         self.stylesItems = stylesItems
+        dataSource = makeDataSource()
+        applyInitialSnapshot(mapStyles: mapStyles)
         
         let threeDBtn = ToggleView(title: "3D View")
         self.threeDBtn = threeDBtn
