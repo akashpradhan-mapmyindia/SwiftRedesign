@@ -357,6 +357,7 @@ class MyLayersStyleComponent: UITableViewCell {
         
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0/3.5), heightDimension: .absolute(130))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.edgeSpacing = .init(leading: .flexible(5), top: .fixed(0), trailing: .flexible(5), bottom: .fixed(0))
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(280))
         
