@@ -25,8 +25,7 @@ protocol MyLayersVCDelegate: AnyObject {
 class MyLayersVC: UIViewController {
     var containerTblV: UITableView!
     var sections: [SectionInfo] = []
-    var mapStyles: [MapStyles] = [.init(style: .defaultMap), .init(style: .satelliteMap), .init(style: .terrainMap), .init(style: .greyMap), .init(style: .sublimeGreyMap), .init(style: .darkClassicMap)]
-    var selectedMapStyle: MapStyleItemCell?
+    var mapStyles: [MapStyles] = [.init(style: .defaultMap, isSelected: true), .init(style: .satelliteMap), .init(style: .terrainMap), .init(style: .greyMap), .init(style: .sublimeGreyMap), .init(style: .darkClassicMap)]
     weak var delegate: MyLayersVCDelegate?
     
     override func viewDidLoad() {
@@ -136,6 +135,7 @@ extension MyLayersVC: UITableViewDelegate, UITableViewDataSource {
             
         case LayersHeaderCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: LayersHeaderCell.identifier, for: indexPath) as? LayersHeaderCell else {return UITableViewCell()}
+            cell.delegate = self
             cell.selectionStyle = .none
             return cell
         case LayersListItemCell.identifier:
@@ -153,12 +153,35 @@ extension MyLayersVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension MyLayersVC: LayersHeaderCellDelegate {
+    func layersInfoBtnClicked() {
+        
+    }
+}
+
 extension MyLayersVC: UICollectionViewDelegate {    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? MapStyleItemCell else {return}
-        cell.showBorder()
-        selectedMapStyle?.removeBorder()
-        selectedMapStyle = cell
+        guard let cell = containerTblV.cellForRow(at: .init(row: 0, section: 1)) as? MyLayersStyleComponent else {return}
+        if let selectedItem = cell.dataSource.itemIdentifier(for: indexPath) {
+            var snapshot = cell.dataSource.snapshot()
+            let cells = cell.dataSource.snapshot().itemIdentifiers(inSection: .one)
+            var cellsToRelaod: [MapStyles] = []
+            cells.forEach { style in
+                if style != selectedItem {
+                    if style.isSelected {
+                        style.isSelected = false
+                        cellsToRelaod.append(style)
+                    }else {
+                        style.isSelected = false
+                    }
+                }else{
+                    style.isSelected = true
+                    cellsToRelaod.append(style)
+                }
+            }
+            snapshot.reloadItems(cellsToRelaod)
+            cell.dataSource.apply(snapshot)
+        }
     }
 }
 
@@ -254,9 +277,13 @@ enum Style: String {
 class MapStyles: Hashable {
     
     var name: String
+    var image: UIImage
+    var isSelected: Bool
     
-    init(style: Style) {
+    init(style: Style, image: UIImage = UIImage(systemName: "photo")!, isSelected: Bool = false) {
         self.name = style.rawValue
+        self.image = image
+        self.isSelected = isSelected
     }
     
     func hash(into hasher: inout Hasher) {
@@ -289,7 +316,7 @@ class MyLayersStyleComponent: UITableViewCell {
         
         let cellRegistration = UICollectionView.CellRegistration<MapStyleItemCell, MapStyles> { cell, indexPath, style in
             
-            cell.setUpUI(image: UIImage(systemName: "photo")!, styleName: style.name)
+            cell.setUpUI(image: style.image, styleName: style.name, isSelected: style.isSelected)
         }
         
         return UICollectionViewDiffableDataSource<Section, MapStyles>(
@@ -328,13 +355,13 @@ class MyLayersStyleComponent: UITableViewCell {
             titleLbl.topAnchor.constraint(equalTo: contentView.topAnchor)
         ])
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(110), heightDimension: .absolute(130))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0/3.5), heightDimension: .absolute(130))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(280))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.interItemSpacing = .fixed(20)
+        group.interItemSpacing = .flexible(10)
         
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 20
@@ -445,12 +472,14 @@ class MyLayersStyleComponent: UITableViewCell {
     }
 }
 
-protocol MyLayersLayersComponentDelegate: AnyObject {
-    
+protocol LayersHeaderCellDelegate: AnyObject {
+    func layersInfoBtnClicked()
 }
 
 class LayersHeaderCell: UITableViewCell {
     static let identifier: String = "LayersHeaderCell"
+    
+    weak var delegate: LayersHeaderCellDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -475,17 +504,23 @@ class LayersHeaderCell: UITableViewCell {
             titleLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
         
-        let infoImgV = UIImageView(image: UIImage(systemName: "info.circle")!)
-        infoImgV.contentMode = .scaleAspectFit
-        infoImgV.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(infoImgV)
+        let infoBtn = UIButton(type: .system)
+        infoBtn.setImage(UIImage(systemName: "info.circle")!, for: .normal)
+        infoBtn.contentMode = .scaleAspectFit
+        infoBtn.translatesAutoresizingMaskIntoConstraints = false
+        infoBtn.addTarget(self, action: #selector(self.infoBtnClicked), for: .touchUpInside)
+        contentView.addSubview(infoBtn)
         
         NSLayoutConstraint.activate([
-            infoImgV.leadingAnchor.constraint(equalTo: titleLbl.trailingAnchor, constant: 10),
-            infoImgV.centerYAnchor.constraint(equalTo: titleLbl.centerYAnchor),
-            infoImgV.widthAnchor.constraint(equalToConstant: 15),
-            infoImgV.heightAnchor.constraint(equalToConstant: 15)
+            infoBtn.leadingAnchor.constraint(equalTo: titleLbl.trailingAnchor, constant: 10),
+            infoBtn.centerYAnchor.constraint(equalTo: titleLbl.centerYAnchor),
+            infoBtn.widthAnchor.constraint(equalToConstant: 15),
+            infoBtn.heightAnchor.constraint(equalToConstant: 15)
         ])
+    }
+    
+    @objc func infoBtnClicked() {
+        delegate?.layersInfoBtnClicked()
     }
 }
 
@@ -595,19 +630,20 @@ class MapStyleItemCell: UICollectionViewCell {
     static let identifier: String = "MapStyleItemCell"
     
     private var imageView: UIImageView!
+    private var styleLbl: UILabel?
 
-    func setUpUI(image: UIImage, styleName: String) {
+    func setUpUI(image: UIImage, styleName: String, isSelected: Bool) {
         let imageView = UIImageView()
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 10
-        addSubview(imageView)
+        contentView.addSubview(imageView)
         self.imageView = imageView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 110),
             imageView.widthAnchor.constraint(equalToConstant: 110)
         ])
@@ -616,14 +652,23 @@ class MapStyleItemCell: UICollectionViewCell {
         styleLbl.text = styleName
         styleLbl.font = .systemFont(ofSize: 12, weight: .light)
         styleLbl.textAlignment = .center
-        addSubview(styleLbl)
+        contentView.addSubview(styleLbl)
         styleLbl.translatesAutoresizingMaskIntoConstraints = false
+        self.styleLbl = styleLbl
         
         NSLayoutConstraint.activate([
             styleLbl.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
             styleLbl.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             styleLbl.heightAnchor.constraint(equalToConstant: 15)
         ])
+
+        if isSelected {
+            print(styleName)
+            showBorder()
+        }else{
+            print(styleName)
+            removeBorder()
+        }
     }
     
     func showBorder() {
@@ -634,5 +679,11 @@ class MapStyleItemCell: UICollectionViewCell {
     func removeBorder() {
         imageView.layer.borderColor = nil
         imageView.layer.borderWidth = 0
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        styleLbl?.text = ""
+        removeBorder()
     }
 }
