@@ -18,15 +18,30 @@ struct SectionInfo {
     var cells: [CellData]
 }
 
-protocol MyLayersVCDelegate: AnyObject {
-    func dismissSheet()
+class MyLayersTableViewHashable: Hashable {
+    
+    var cellId: String
+    var cellName: String
+    
+    init(cellId: String, cellName: String = "") {
+        self.cellId = cellId
+        self.cellName = cellName
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        return hasher.combine(cellId)
+    }
+    
+    static func == (lhs: MyLayersTableViewHashable, rhs: MyLayersTableViewHashable) -> Bool {
+        return lhs.cellId == rhs.cellId
+    }
 }
 
 class MyLayersVC: UIViewController {
     var containerTblV: UITableView!
-    var sections: [SectionInfo] = []
     var mapStyles: [MapStyles] = [.init(style: .defaultMap, isSelected: true), .init(style: .satelliteMap), .init(style: .terrainMap), .init(style: .greyMap), .init(style: .sublimeGreyMap), .init(style: .darkClassicMap)]
-    weak var delegate: MyLayersVCDelegate?
+    var dataSource: UITableViewDiffableDataSource<Section, MyLayersTableViewHashable>!
+    var sections: [[MyLayersTableViewHashable]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,22 +57,15 @@ class MyLayersVC: UIViewController {
     }
     
     func setCellData() {
-        var section = SectionInfo(header: "", cells: [])
-        var cell = CellData(cellName: "", cellId: MyLayersTopComponent.identifier)
-        section.cells.append(cell)
-        sections.append(section)
-        section.cells.removeAll()
-        cell = CellData(cellName: "", cellId: MyLayersStyleComponent.identifier)
-        section.cells.append(cell)
-        sections.append(section)
-        section.cells.removeAll()
-        cell = CellData(cellName: "", cellId: "LayersHeaderCell")
-        section.cells.append(cell)
-        cell = CellData(cellName: "My Layers", cellId: LayersListItemCell.identifier)
-        section.cells.append(cell)
-        cell = CellData(cellName: "Posts", cellId: LayersListItemCell.identifier)
-        section.cells.append(cell)
-        sections.append(section)
+        let section1: [MyLayersTableViewHashable] = [.init(cellId: MyLayersTopComponent.identifier)]
+        
+        let section2: [MyLayersTableViewHashable] = [.init(cellId: MyLayersStyleComponent.identifier)]
+        
+        let section3: [MyLayersTableViewHashable] = [.init(cellId: LayersHeaderCell.identifier), .init(cellId: LayersListItemCell.identifier, cellName: "My Layers"), .init(cellId: LayersListItemCell.identifier, cellName: "Posts")]
+        
+        sections.append(section1)
+        sections.append(section2)
+        sections.append(section3)
     }
     
     func setUpUI() {
@@ -65,7 +73,6 @@ class MyLayersVC: UIViewController {
         
         containerTblV = UITableView()
         containerTblV.delegate = self
-        containerTblV.dataSource = self
         containerTblV.register(MyLayersTopComponent.self, forCellReuseIdentifier: MyLayersTopComponent.identifier)
         containerTblV.register(MyLayersStyleComponent.self, forCellReuseIdentifier: MyLayersStyleComponent.identifier)
         containerTblV.register(LayersHeaderCell.self, forCellReuseIdentifier: LayersHeaderCell.identifier)
@@ -79,10 +86,62 @@ class MyLayersVC: UIViewController {
             containerTblV.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             containerTblV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        
+        dataSource = makeDataSource()
+        applyInitialSnapshot()
+    }
+    
+    func makeDataSource() -> UITableViewDiffableDataSource<Section, MyLayersTableViewHashable> {
+        
+        let datasource = UITableViewDiffableDataSource<Section, MyLayersTableViewHashable>(tableView: containerTblV) { tableView, indexPath, itemIdentifier in
+            let cellData = self.sections[indexPath.section][indexPath.row]
+            
+            switch cellData.cellId {
+            case MyLayersTopComponent.identifier:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: MyLayersTopComponent.identifier, for: indexPath) as? MyLayersTopComponent else {return UITableViewCell()}
+                cell.delegate = self
+                cell.selectionStyle = .none
+                return cell
+
+            case MyLayersStyleComponent.identifier:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: MyLayersStyleComponent.identifier, for: indexPath) as? MyLayersStyleComponent else {return UITableViewCell()}
+                cell.setUpUI(mapStyles: self.mapStyles)
+                cell.stylesItems.delegate = self
+                cell.selectionStyle = .none
+                return cell
+                
+            case LayersHeaderCell.identifier:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: LayersHeaderCell.identifier, for: indexPath) as? LayersHeaderCell else {return UITableViewCell()}
+                cell.delegate = self
+                cell.selectionStyle = .none
+                return cell
+            case LayersListItemCell.identifier:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: LayersListItemCell.identifier, for: indexPath) as? LayersListItemCell else {return UITableViewCell()}
+                if cellData.cellName == "My Layers" {
+                    cell.setUpUI(title: "My Layers", subtitle: "My Saves, My Favourites, My Gadgets etc.")
+                }else if cellData.cellName == "Posts" {
+                    cell.setUpUI(title: "Posts", subtitle: "Traffic, Safety and Commnunity Reports Overlays")
+                }
+                cell.selectionStyle = .none
+                return cell
+            default:
+                return UITableViewCell()
+            }
+        }
+        return datasource
+    }
+    
+    func applyInitialSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MyLayersTableViewHashable>()
+        snapshot.appendSections([.one, .two, .three])
+        snapshot.appendItems(sections[0], toSection: .one)
+        snapshot.appendItems(sections[1], toSection: .two)
+        snapshot.appendItems(sections[2], toSection: .three)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
 
-extension MyLayersVC: UITableViewDelegate, UITableViewDataSource {
+extension MyLayersVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
@@ -105,50 +164,6 @@ extension MyLayersVC: UITableViewDelegate, UITableViewDataSource {
             return 10
         }else {
             return 0
-        }
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].cells.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellData = sections[indexPath.section].cells[indexPath.row]
-        
-        switch cellData.cellId {
-        case MyLayersTopComponent.identifier:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyLayersTopComponent.identifier, for: indexPath) as? MyLayersTopComponent else {return UITableViewCell()}
-            cell.delegate = self
-            cell.selectionStyle = .none
-            return cell
-
-        case MyLayersStyleComponent.identifier:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyLayersStyleComponent.identifier, for: indexPath) as? MyLayersStyleComponent else {return UITableViewCell()}
-            cell.setUpUI(mapStyles: mapStyles)
-            cell.stylesItems.delegate = self
-            cell.selectionStyle = .none
-            return cell
-            
-        case LayersHeaderCell.identifier:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: LayersHeaderCell.identifier, for: indexPath) as? LayersHeaderCell else {return UITableViewCell()}
-            cell.delegate = self
-            cell.selectionStyle = .none
-            return cell
-        case LayersListItemCell.identifier:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: LayersListItemCell.identifier, for: indexPath) as? LayersListItemCell else {return UITableViewCell()}
-            if cellData.cellName == "My Layers" {
-                cell.setUpUI(title: "My Layers", subtitle: "My Saves, My Favourites, My Gadgets etc.")
-            }else if cellData.cellName == "Posts" {
-                cell.setUpUI(title: "Posts", subtitle: "Traffic, Safety and Commnunity Reports Overlays")
-            }
-            cell.selectionStyle = .none
-            return cell
-        default:
-            return UITableViewCell()
         }
     }
 }
@@ -191,7 +206,7 @@ extension MyLayersVC: MyLayersTopComponentDelegate {
     }
     
     func closeBtnPressed() {
-        delegate?.dismissSheet()
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -277,6 +292,7 @@ enum Style: String {
 enum Section: CaseIterable {
     case one
     case two
+    case three
 }
 
 class MapStyles: Hashable {

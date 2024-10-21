@@ -71,9 +71,7 @@ class BaseViewController: UIViewController {
         sheetOptions.useInlineMode = true
         
         let layersVC = MyLayersVC()
-        layersVC.delegate = self
-        sheet = showSheetController(options: sheetOptions, controller: layersVC, sheetSizes: [.fullscreen], from: self, in: view)
-        sheet?.cornerRadius = 0
+        self.navigationController?.pushViewController(layersVC, animated: true)
     }
     
     func setUpGadgetsTopUI() {
@@ -382,12 +380,6 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    }
-}
-
-extension BaseViewController: MyLayersVCDelegate {
-    func dismissSheet() {
-        sheet?.attemptDismiss(animated: true)
     }
 }
 
