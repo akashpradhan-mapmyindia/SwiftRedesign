@@ -274,6 +274,11 @@ enum Style: String {
     case darkClassicMap = "Dark Classic Map"
 }
 
+enum Section: CaseIterable {
+    case one
+    case two
+}
+
 class MapStyles: Hashable {
     
     var name: String
@@ -296,10 +301,6 @@ class MapStyles: Hashable {
 }
 
 class MyLayersStyleComponent: UITableViewCell {
-    
-    enum Section: CaseIterable {
-        case one
-    }
     
     static let identifier: String = "MyLayersStyleComponent"
     

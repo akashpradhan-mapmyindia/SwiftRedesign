@@ -10,6 +10,12 @@
 		3FB08AF09A83B95B22A6A7E1 /* Pods_SwiftRedesign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */; };
 		CC933EBA2CBCEB4B00F8D51E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EB92CBCEB4B00F8D51E /* BaseViewController.swift */; };
 		CC933EC22CBD179A00F8D51E /* MyLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EC12CBD179A00F8D51E /* MyLayers.swift */; };
+		CC933EC42CC0E8FE00F8D51E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EC32CC0E8FD00F8D51E /* UIColor+Extension.swift */; };
+		CC933EC72CC2179100F8D51E /* GadgetsStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EC62CC2179100F8D51E /* GadgetsStatusCell.swift */; };
+		CC933EC92CC232C200F8D51E /* GadgetsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EC82CC232C200F8D51E /* GadgetsHandler.swift */; };
+		CC933ECC2CC6356200F8D51E /* GadgetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933ECB2CC6356200F8D51E /* GadgetsTableViewCell.swift */; };
+		CC933ECE2CC6359A00F8D51E /* GadgetsTableFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933ECD2CC6359A00F8D51E /* GadgetsTableFooterCell.swift */; };
+		CC933ED02CC6626A00F8D51E /* NewGadgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933ECF2CC6626A00F8D51E /* NewGadgetView.swift */; };
 		CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */; };
 		CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */; };
 		CCF633C22CBCE700006FDE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF633C12CBCE700006FDE35 /* Assets.xcassets */; };
@@ -23,6 +29,12 @@
 		A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRedesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC933EB92CBCEB4B00F8D51E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CC933EC12CBD179A00F8D51E /* MyLayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLayers.swift; sourceTree = "<group>"; };
+		CC933EC32CC0E8FD00F8D51E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		CC933EC62CC2179100F8D51E /* GadgetsStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetsStatusCell.swift; sourceTree = "<group>"; };
+		CC933EC82CC232C200F8D51E /* GadgetsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetsHandler.swift; sourceTree = "<group>"; };
+		CC933ECB2CC6356200F8D51E /* GadgetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetsTableViewCell.swift; sourceTree = "<group>"; };
+		CC933ECD2CC6359A00F8D51E /* GadgetsTableFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetsTableFooterCell.swift; sourceTree = "<group>"; };
+		CC933ECF2CC6626A00F8D51E /* NewGadgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGadgetView.swift; sourceTree = "<group>"; };
 		CCF633B52CBCE6FF006FDE35 /* SwiftRedesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRedesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +56,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC933EC52CC2177800F8D51E /* Gadgets */ = {
+			isa = PBXGroup;
+			children = (
+				CC933ECA2CC6355700F8D51E /* cells */,
+				CC933EC62CC2179100F8D51E /* GadgetsStatusCell.swift */,
+				CC933EC82CC232C200F8D51E /* GadgetsHandler.swift */,
+				CCF633CC2CBCE7D6006FDE35 /* MyGadgetsVC.swift */,
+				CC933ECF2CC6626A00F8D51E /* NewGadgetView.swift */,
+			);
+			path = Gadgets;
+			sourceTree = "<group>";
+		};
+		CC933ECA2CC6355700F8D51E /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				CC933ECB2CC6356200F8D51E /* GadgetsTableViewCell.swift */,
+				CC933ECD2CC6359A00F8D51E /* GadgetsTableFooterCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		CCF633AC2CBCE6FF006FDE35 = {
 			isa = PBXGroup;
 			children = (
@@ -68,8 +101,9 @@
 				CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */,
 				CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */,
 				CC933EB92CBCEB4B00F8D51E /* BaseViewController.swift */,
+				CC933EC52CC2177800F8D51E /* Gadgets */,
+				CC933EC32CC0E8FD00F8D51E /* UIColor+Extension.swift */,
 				CC933EC12CBD179A00F8D51E /* MyLayers.swift */,
-				CCF633CC2CBCE7D6006FDE35 /* MyGadgetsVC.swift */,
 				CCF633C12CBCE700006FDE35 /* Assets.xcassets */,
 				CCF633C32CBCE700006FDE35 /* LaunchScreen.storyboard */,
 				CCF633C62CBCE700006FDE35 /* Info.plist */,
@@ -208,9 +242,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC933ECC2CC6356200F8D51E /* GadgetsTableViewCell.swift in Sources */,
 				CC933EC22CBD179A00F8D51E /* MyLayers.swift in Sources */,
 				CC933EBA2CBCEB4B00F8D51E /* BaseViewController.swift in Sources */,
 				CCF633CD2CBCE7D6006FDE35 /* MyGadgetsVC.swift in Sources */,
+				CC933EC42CC0E8FE00F8D51E /* UIColor+Extension.swift in Sources */,
+				CC933EC92CC232C200F8D51E /* GadgetsHandler.swift in Sources */,
+				CC933ED02CC6626A00F8D51E /* NewGadgetView.swift in Sources */,
+				CC933EC72CC2179100F8D51E /* GadgetsStatusCell.swift in Sources */,
+				CC933ECE2CC6359A00F8D51E /* GadgetsTableFooterCell.swift in Sources */,
 				CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */,
 				CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */,
 			);
