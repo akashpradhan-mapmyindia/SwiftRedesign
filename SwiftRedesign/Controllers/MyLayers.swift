@@ -331,19 +331,12 @@ class MyLayersStyleComponent: UITableViewCell {
     
     func makeDataSource() -> UICollectionViewDiffableDataSource<Section, MapStyles> {
         
-        let cellRegistration = UICollectionView.CellRegistration<MapStyleItemCell, MapStyles> { cell, indexPath, style in
-            
-            cell.setUpUI(image: style.image, styleName: style.name, isSelected: style.isSelected)
-        }
-        
         return UICollectionViewDiffableDataSource<Section, MapStyles>(
             collectionView: stylesItems,
             cellProvider: { collectionView, indexPath, item in
-                collectionView.dequeueConfiguredReusableCell(
-                    using: cellRegistration,
-                    for: indexPath,
-                    item: item
-                )
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapStyleItemCell.identifier, for: indexPath) as! MapStyleItemCell
+                cell.setUpUI(image: item.image, styleName: item.name, isSelected: item.isSelected)
+                return cell
             }
         )
     }

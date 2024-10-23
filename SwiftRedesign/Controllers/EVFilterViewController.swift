@@ -215,6 +215,10 @@ class EVFilterViewController: UIViewController {
         filtersCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         filtersCollectionView.register(EVFilterCollectionViewCell.self, forCellWithReuseIdentifier: EVFilterCollectionViewCell.identifier)
         filtersCollectionView.delegate = self
+        filtersCollectionView.register(EVFilterHeaderTitleSupplementaryView.self, forSupplementaryViewOfKind: ElementKind.sectionHeader, withReuseIdentifier: EVFilterHeaderTitleSupplementaryView.identifier)
+
+        filtersCollectionView.register(EVFilterFooterLineSupplementaryView.self, forSupplementaryViewOfKind: ElementKind.sectionFooter, withReuseIdentifier: EVFilterFooterLineSupplementaryView.identifier)
+
         view.addSubview(filtersCollectionView)
         filtersCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -236,42 +240,29 @@ class EVFilterViewController: UIViewController {
         
         dataSource.apply(snapshot, animatingDifferences: true)
         
-        let headerRegistration = UICollectionView.SupplementaryRegistration
-        <EVFilterHeaderTitleSupplementaryView>(elementKind: ElementKind.sectionHeader) {
-            (supplementaryView, string, indexPath) in
-            supplementaryView.titleLbl.text = self.sections[indexPath.section].displayName
-        }
-        
-        let footerRegistration = UICollectionView.SupplementaryRegistration
-        <EVFilterFooterLineSupplementaryView>(elementKind: ElementKind.sectionFooter) {
-            (supplementaryView, string, indexPath) in
-            if indexPath.section == self.sections.count-1 {
-                supplementaryView.lineView.backgroundColor = .clear
-            }
-        }
-        
         dataSource.supplementaryViewProvider = { (view, kind, index) in
             if kind == ElementKind.sectionFooter {
-                return self.filtersCollectionView.dequeueConfiguredReusableSupplementary(using: footerRegistration, for: index)
+                let footer = self.filtersCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EVFilterFooterLineSupplementaryView.identifier, for: index) as! EVFilterFooterLineSupplementaryView
+                if index.section == self.sections.count-1 {
+                    footer.lineView.backgroundColor = .clear
+                }
+                return footer
             }else {
-                return self.filtersCollectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: index)
+                let header = self.filtersCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EVFilterHeaderTitleSupplementaryView.identifier, for: index) as! EVFilterHeaderTitleSupplementaryView
+                header.titleLbl.text = self.sections[index.section].displayName
+                return header
             }
         }
     }
     
     func makeDataSource() -> UICollectionViewDiffableDataSource<Int, EVFilterValueHashable> {
-        let cellRegistration = UICollectionView.CellRegistration<EVFilterCollectionViewCell, EVFilterValueHashable> { cell, indexPath, filter in
-            cell.setUpUI(for: filter)
-        }
         
         return UICollectionViewDiffableDataSource<Int, EVFilterValueHashable>(
             collectionView: filtersCollectionView,
             cellProvider: { collectionView, indexPath, item in
-                collectionView.dequeueConfiguredReusableCell(
-                    using: cellRegistration,
-                    for: indexPath,
-                    item: item
-                )
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EVFilterCollectionViewCell.identifier, for: indexPath) as! EVFilterCollectionViewCell
+                cell.setUpUI(for: item)
+                return cell
             }
         )
     }

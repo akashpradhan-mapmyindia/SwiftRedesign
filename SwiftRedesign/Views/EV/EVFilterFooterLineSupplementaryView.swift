@@ -9,6 +9,8 @@ import UIKit
 
 class EVFilterFooterLineSupplementaryView: UICollectionReusableView {
     
+    static let identifier: String = "EVFilterFooterLineSupplementaryView"
+    
     var lineView: UIView!
     
     init() {

@@ -8,6 +8,8 @@
 import UIKit
 
 class EVFilterHeaderTitleSupplementaryView: UICollectionReusableView {
+    
+    static let identifier: String = "EVFilterHeaderTitleSupplementaryView"
 
     var titleLbl: UILabel!
     

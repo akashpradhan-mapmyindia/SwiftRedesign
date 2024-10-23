@@ -27,19 +27,12 @@ class GadgetsHandler: NSObject {
     
     func makeDataSource(gadgetsStatusCollectionView: UICollectionView) {
         
-        let cellRegistration = UICollectionView.CellRegistration<GadgetsStatusCell, VehicleMovingStatus> { cell, indexPath, state in
-            
-            cell.setUpUI(state: state)
-        }
-        
         dataSource = UICollectionViewDiffableDataSource<Section, VehicleMovingStatus>(
             collectionView: gadgetsStatusCollectionView,
             cellProvider: { collectionView, indexPath, item in
-                collectionView.dequeueConfiguredReusableCell(
-                    using: cellRegistration,
-                    for: indexPath,
-                    item: item
-                )
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GadgetsStatusCell.identifier, for: indexPath) as! GadgetsStatusCell
+                cell.setUpUI(state: item)
+                return cell
             }
         )
     }
