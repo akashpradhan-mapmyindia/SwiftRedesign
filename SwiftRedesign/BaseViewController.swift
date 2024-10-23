@@ -12,6 +12,7 @@ class BaseViewController: UIViewController {
     var sheet: SheetViewController?
     var myLayersButton: UIButton!
     var gadgetsViewBtn: UIButton!
+    var evFilterBtn: UIButton!
     var gadgetsHeaderV: UIView?
     var segmentControl: UISegmentedControl?
     var gadgetsHeaderVPortraitCons: [NSLayoutConstraint] = []
@@ -62,14 +63,27 @@ class BaseViewController: UIViewController {
             gadgetsViewBtn.heightAnchor.constraint(equalToConstant: 40),
             gadgetsViewBtn.widthAnchor.constraint(equalToConstant: 60)
         ])
+        
+        evFilterBtn = UIButton(type: .system)
+        evFilterBtn.addTarget(self, action: #selector(self.evFilterBtnClicked(_:)), for: .touchUpInside)
+        evFilterBtn.setTitle("EV Filter", for: .normal)
+        evFilterBtn.backgroundColor = .green
+        evFilterBtn.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(evFilterBtn)
+        
+        NSLayoutConstraint.activate([
+            evFilterBtn.topAnchor.constraint(equalTo: gadgetsViewBtn.bottomAnchor, constant: 10),
+            evFilterBtn.trailingAnchor.constraint(equalTo: myLayersButton.trailingAnchor),
+            evFilterBtn.widthAnchor.constraint(equalToConstant: 60),
+            evFilterBtn.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    @objc func evFilterBtnClicked(_ sender: UIButton) {
+        self.navigationController?.pushViewController(EVFilterViewController(), animated: true)
     }
     
     @objc func setUpMyLayersUI() {
-        var sheetOptions = SheetOptions()
-        sheetOptions.pullBarHeight = 0
-        sheetOptions.transitionAnimationOptions = .curveLinear
-        sheetOptions.useInlineMode = true
-        
         let layersVC = MyLayersVC()
         self.navigationController?.pushViewController(layersVC, animated: true)
     }
@@ -248,7 +262,7 @@ class BaseViewController: UIViewController {
         view.addSubview(gadgetsStatusCollectionView)
         GadgetsHandler.shared.setCollectionViewDelegate(collectionView: gadgetsStatusCollectionView)
         GadgetsHandler.shared.makeDataSource(gadgetsStatusCollectionView: gadgetsStatusCollectionView)
-        GadgetsHandler.shared.applyInitialSnapshot(states: [.init(state: .caution), .init(state: .idle), .init(state: .moving), .init(state: .stopped)])
+        GadgetsHandler.shared.applyInitialSnapshot(states: [.init(state: .caution, count: 3), .init(state: .idle), .init(state: .moving), .init(state: .stopped)])
         
         NSLayoutConstraint.activate([
             gadgetsStatusCollectionView.topAnchor.constraint(equalTo: gadgetsHeaderV!.bottomAnchor),

@@ -374,12 +374,11 @@ class MyLayersStyleComponent: UITableViewCell {
         
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0/3.5), heightDimension: .absolute(130))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.edgeSpacing = .init(leading: .flexible(5), top: .fixed(0), trailing: .flexible(5), bottom: .fixed(0))
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(280))
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.interItemSpacing = .flexible(10)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
+        group.interItemSpacing = .fixed(10)
         
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 20
@@ -647,8 +646,8 @@ class ToggleView: UIView {
 class MapStyleItemCell: UICollectionViewCell {
     static let identifier: String = "MapStyleItemCell"
     
-    private var imageView: UIImageView!
-    private var styleLbl: UILabel?
+    private weak var imageView: UIImageView!
+    private weak var styleLbl: UILabel?
 
     func setUpUI(image: UIImage, styleName: String, isSelected: Bool) {
         let imageView = UIImageView()
@@ -701,7 +700,8 @@ class MapStyleItemCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        styleLbl?.text = ""
+        styleLbl?.removeFromSuperview()
+        imageView.removeFromSuperview()
         removeBorder()
     }
 }

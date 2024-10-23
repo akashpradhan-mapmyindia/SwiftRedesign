@@ -29,7 +29,7 @@ class GadgetsHandler: NSObject {
         
         let cellRegistration = UICollectionView.CellRegistration<GadgetsStatusCell, VehicleMovingStatus> { cell, indexPath, state in
             
-            cell.setUpUI(state: state.state, count: state.count, isSelected: state.isSelected)
+            cell.setUpUI(state: state)
         }
         
         dataSource = UICollectionViewDiffableDataSource<Section, VehicleMovingStatus>(
@@ -47,6 +47,12 @@ class GadgetsHandler: NSObject {
 
 extension GadgetsHandler: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let selectedItem = dataSource?.itemIdentifier(for: indexPath) {
+            selectedItem.isSelected = !selectedItem.isSelected
+            if var snapshot = dataSource?.snapshot() {
+                snapshot.reloadItems([selectedItem])
+                dataSource?.apply(snapshot, animatingDifferences: false)
+            }
+        }
     }
 }

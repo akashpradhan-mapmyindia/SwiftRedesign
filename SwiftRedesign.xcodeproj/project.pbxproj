@@ -16,6 +16,10 @@
 		CC933ECC2CC6356200F8D51E /* GadgetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933ECB2CC6356200F8D51E /* GadgetsTableViewCell.swift */; };
 		CC933ECE2CC6359A00F8D51E /* GadgetsTableFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933ECD2CC6359A00F8D51E /* GadgetsTableFooterCell.swift */; };
 		CC933ED02CC6626A00F8D51E /* NewGadgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933ECF2CC6626A00F8D51E /* NewGadgetView.swift */; };
+		CC933ED32CC7826700F8D51E /* EVFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933ED22CC7826700F8D51E /* EVFilterViewController.swift */; };
+		CC933ED62CC7C93100F8D51E /* EVFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933ED52CC7C93100F8D51E /* EVFilterCollectionViewCell.swift */; };
+		CC933EDB2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EDA2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift */; };
+		CC933EDE2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EDD2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift */; };
 		CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */; };
 		CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */; };
 		CCF633C22CBCE700006FDE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF633C12CBCE700006FDE35 /* Assets.xcassets */; };
@@ -35,6 +39,10 @@
 		CC933ECB2CC6356200F8D51E /* GadgetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetsTableViewCell.swift; sourceTree = "<group>"; };
 		CC933ECD2CC6359A00F8D51E /* GadgetsTableFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetsTableFooterCell.swift; sourceTree = "<group>"; };
 		CC933ECF2CC6626A00F8D51E /* NewGadgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGadgetView.swift; sourceTree = "<group>"; };
+		CC933ED22CC7826700F8D51E /* EVFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVFilterViewController.swift; sourceTree = "<group>"; };
+		CC933ED52CC7C93100F8D51E /* EVFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVFilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		CC933EDA2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVFilterHeaderTitleSupplementaryView.swift; sourceTree = "<group>"; };
+		CC933EDD2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVFilterFooterLineSupplementaryView.swift; sourceTree = "<group>"; };
 		CCF633B52CBCE6FF006FDE35 /* SwiftRedesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRedesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +85,41 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		CC933ED12CC7824400F8D51E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC933ED22CC7826700F8D51E /* EVFilterViewController.swift */,
+				CC933EC12CBD179A00F8D51E /* MyLayers.swift */,
+				CC933ED52CC7C93100F8D51E /* EVFilterCollectionViewCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CC933ED42CC7BFC000F8D51E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CC933EC32CC0E8FD00F8D51E /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CC933ED92CC8D4B800F8D51E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC933EDC2CC8DA4500F8D51E /* EV */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC933EDC2CC8DA4500F8D51E /* EV */ = {
+			isa = PBXGroup;
+			children = (
+				CC933EDD2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift */,
+				CC933EDA2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift */,
+			);
+			path = EV;
+			sourceTree = "<group>";
+		};
 		CCF633AC2CBCE6FF006FDE35 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +144,10 @@
 				CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */,
 				CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */,
 				CC933EB92CBCEB4B00F8D51E /* BaseViewController.swift */,
+				CC933ED92CC8D4B800F8D51E /* Views */,
+				CC933ED42CC7BFC000F8D51E /* Extensions */,
+				CC933ED12CC7824400F8D51E /* Controllers */,
 				CC933EC52CC2177800F8D51E /* Gadgets */,
-				CC933EC32CC0E8FD00F8D51E /* UIColor+Extension.swift */,
-				CC933EC12CBD179A00F8D51E /* MyLayers.swift */,
 				CCF633C12CBCE700006FDE35 /* Assets.xcassets */,
 				CCF633C32CBCE700006FDE35 /* LaunchScreen.storyboard */,
 				CCF633C62CBCE700006FDE35 /* Info.plist */,
@@ -245,13 +289,17 @@
 				CC933ECC2CC6356200F8D51E /* GadgetsTableViewCell.swift in Sources */,
 				CC933EC22CBD179A00F8D51E /* MyLayers.swift in Sources */,
 				CC933EBA2CBCEB4B00F8D51E /* BaseViewController.swift in Sources */,
+				CC933EDB2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift in Sources */,
 				CCF633CD2CBCE7D6006FDE35 /* MyGadgetsVC.swift in Sources */,
 				CC933EC42CC0E8FE00F8D51E /* UIColor+Extension.swift in Sources */,
 				CC933EC92CC232C200F8D51E /* GadgetsHandler.swift in Sources */,
 				CC933ED02CC6626A00F8D51E /* NewGadgetView.swift in Sources */,
+				CC933ED32CC7826700F8D51E /* EVFilterViewController.swift in Sources */,
 				CC933EC72CC2179100F8D51E /* GadgetsStatusCell.swift in Sources */,
 				CC933ECE2CC6359A00F8D51E /* GadgetsTableFooterCell.swift in Sources */,
 				CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */,
+				CC933ED62CC7C93100F8D51E /* EVFilterCollectionViewCell.swift in Sources */,
+				CC933EDE2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift in Sources */,
 				CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

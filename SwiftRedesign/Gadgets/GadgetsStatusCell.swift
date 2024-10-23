@@ -41,13 +41,14 @@ class GadgetsStatusCell: UICollectionViewCell {
     var countLbl: UILabel?
     var movingTxt: UILabel?
     
-    func setUpUI(state: VehicleMovingStatusEnum, count: Int, isSelected: Bool) {
-        backgroundColor = .clear
+    func setUpUI(state: VehicleMovingStatus) {
+        contentView.layer.cornerRadius = 8
+        contentView.backgroundColor = .clear
         
         let vehicleCountLbl = UILabel()
         vehicleCountLbl.font = .systemFont(ofSize: 14)
-        vehicleCountLbl.text = String(count)
-        vehicleCountLbl.backgroundColor = colorForCountBg(state: state)
+        vehicleCountLbl.text = String(state.count)
+        vehicleCountLbl.backgroundColor = colorForCountBg(state: state.state)
         vehicleCountLbl.layer.cornerRadius = 3
         vehicleCountLbl.textColor = .white
         vehicleCountLbl.clipsToBounds = true
@@ -64,7 +65,7 @@ class GadgetsStatusCell: UICollectionViewCell {
         ])
         
         let stateLabel = UILabel()
-        stateLabel.text = state.rawValue
+        stateLabel.text = state.state.rawValue
         stateLabel.font = .systemFont(ofSize: 14)
         stateLabel.backgroundColor = .clear
         stateLabel.textAlignment = .left
@@ -78,14 +79,30 @@ class GadgetsStatusCell: UICollectionViewCell {
             stateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             stateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5)
         ])
+        
+        if state.isSelected {
+            if state.count > 0 {
+                setSelected()
+            }
+        }else{
+            setUnselected()
+        }
     }
     
-    func showSelectedView() {
-        
+    func setSelected() {
+        contentView.backgroundColor = #colorLiteral(red: 0.2, green: 0.6196078431, blue: 0.5098039216, alpha: 0.2)
+        contentView.layer.borderWidth = 1
     }
     
-    func hideSelectedView() {
-        
+    func setUnselected() {
+        contentView.backgroundColor = .clear
+        contentView.layer.borderWidth = 0
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        countLbl?.removeFromSuperview()
+        movingTxt?.removeFromSuperview()
     }
     
     func colorForCountBg(state: VehicleMovingStatusEnum) -> UIColor {
