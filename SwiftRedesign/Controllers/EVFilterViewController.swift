@@ -43,7 +43,7 @@ class EVFilterValueHashable: Hashable {
 
 class EVFilterViewController: UIViewController {
     
-    struct ElementKind {
+    struct SupplementaryViewKind {
         static let badge = "badge-element-kind"
         static let background = "background-element-kind"
         static let sectionHeader = "section-header-element-kind"
@@ -139,7 +139,7 @@ class EVFilterViewController: UIViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = "Filters"
-        titleLbl.font = .systemFont(ofSize: 18, weight: .medium)
+        titleLbl.font = .systemFont(ofSize: 18, weight: .semibold)
         topBar.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         
@@ -156,7 +156,7 @@ class EVFilterViewController: UIViewController {
         resetBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            resetBtn.trailingAnchor.constraint(equalTo: topBar.trailingAnchor, constant: -10),
+            resetBtn.trailingAnchor.constraint(equalTo: topBar.trailingAnchor),
             resetBtn.centerYAnchor.constraint(equalTo: topBar.centerYAnchor),
             resetBtn.heightAnchor.constraint(equalToConstant: 40),
             resetBtn.widthAnchor.constraint(equalToConstant: 80)
@@ -197,13 +197,13 @@ class EVFilterViewController: UIViewController {
         group.interItemSpacing = .fixed(spacing)
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(40))
-        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: ElementKind.sectionHeader, alignment: .top)
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: SupplementaryViewKind.sectionHeader, alignment: .top)
         sectionHeader.zIndex = 2
         sectionHeader.pinToVisibleBounds = true
 
         let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(10))
         
-        let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: ElementKind.sectionFooter, alignment: .bottom)
+        let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: SupplementaryViewKind.sectionFooter, alignment: .bottom)
         
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = spacing
@@ -215,9 +215,9 @@ class EVFilterViewController: UIViewController {
         filtersCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         filtersCollectionView.register(EVFilterCollectionViewCell.self, forCellWithReuseIdentifier: EVFilterCollectionViewCell.identifier)
         filtersCollectionView.delegate = self
-        filtersCollectionView.register(EVFilterHeaderTitleSupplementaryView.self, forSupplementaryViewOfKind: ElementKind.sectionHeader, withReuseIdentifier: EVFilterHeaderTitleSupplementaryView.identifier)
+        filtersCollectionView.register(EVFilterHeaderTitleSupplementaryView.self, forSupplementaryViewOfKind: SupplementaryViewKind.sectionHeader, withReuseIdentifier: EVFilterHeaderTitleSupplementaryView.identifier)
 
-        filtersCollectionView.register(EVFilterFooterLineSupplementaryView.self, forSupplementaryViewOfKind: ElementKind.sectionFooter, withReuseIdentifier: EVFilterFooterLineSupplementaryView.identifier)
+        filtersCollectionView.register(EVFilterFooterLineSupplementaryView.self, forSupplementaryViewOfKind: SupplementaryViewKind.sectionFooter, withReuseIdentifier: EVFilterFooterLineSupplementaryView.identifier)
 
         view.addSubview(filtersCollectionView)
         filtersCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -241,7 +241,7 @@ class EVFilterViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
         
         dataSource.supplementaryViewProvider = { (view, kind, index) in
-            if kind == ElementKind.sectionFooter {
+            if kind == SupplementaryViewKind.sectionFooter {
                 let footer = self.filtersCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EVFilterFooterLineSupplementaryView.identifier, for: index) as! EVFilterFooterLineSupplementaryView
                 if index.section == self.sections.count-1 {
                     footer.lineView.backgroundColor = .clear

@@ -20,6 +20,17 @@
 		CC933ED62CC7C93100F8D51E /* EVFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933ED52CC7C93100F8D51E /* EVFilterCollectionViewCell.swift */; };
 		CC933EDB2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EDA2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift */; };
 		CC933EDE2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EDD2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift */; };
+		CC933EE02CC923AD00F8D51E /* AddAPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EDF2CC923AD00F8D51E /* AddAPlaceViewController.swift */; };
+		CC933EE22CC9FC8800F8D51E /* BaseViewController+Gadgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EE12CC9FC8700F8D51E /* BaseViewController+Gadgets.swift */; };
+		CC933EE42CCA001D00F8D51E /* BaseViewController+AddAPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EE32CCA001D00F8D51E /* BaseViewController+AddAPlace.swift */; };
+		CC933EE62CCA124F00F8D51E /* ChooseOnMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EE52CCA124F00F8D51E /* ChooseOnMapViewController.swift */; };
+		CC933EE92CCB73D400F8D51E /* AddAPlaceCollectionViewInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EE82CCB73D300F8D51E /* AddAPlaceCollectionViewInfoCell.swift */; };
+		CC933EEB2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EEA2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift */; };
+		CC933EED2CCC82E900F8D51E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EEC2CCC82E900F8D51E /* String+Extension.swift */; };
+		CC933EF22CCF95EF00F8D51E /* AddAPlaceImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EF12CCF95EF00F8D51E /* AddAPlaceImageCell.swift */; };
+		CC933EF42CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EF32CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift */; };
+		CC933EF62CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EF52CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift */; };
+		CC933EF82CCFBCC200F8D51E /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EF72CCFBCC200F8D51E /* UIButton+Extension.swift */; };
 		CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */; };
 		CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */; };
 		CCF633C22CBCE700006FDE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF633C12CBCE700006FDE35 /* Assets.xcassets */; };
@@ -43,6 +54,17 @@
 		CC933ED52CC7C93100F8D51E /* EVFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC933EDA2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVFilterHeaderTitleSupplementaryView.swift; sourceTree = "<group>"; };
 		CC933EDD2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVFilterFooterLineSupplementaryView.swift; sourceTree = "<group>"; };
+		CC933EDF2CC923AD00F8D51E /* AddAPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceViewController.swift; sourceTree = "<group>"; };
+		CC933EE12CC9FC8700F8D51E /* BaseViewController+Gadgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+Gadgets.swift"; sourceTree = "<group>"; };
+		CC933EE32CCA001D00F8D51E /* BaseViewController+AddAPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+AddAPlace.swift"; sourceTree = "<group>"; };
+		CC933EE52CCA124F00F8D51E /* ChooseOnMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOnMapViewController.swift; sourceTree = "<group>"; };
+		CC933EE82CCB73D300F8D51E /* AddAPlaceCollectionViewInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceCollectionViewInfoCell.swift; sourceTree = "<group>"; };
+		CC933EEA2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceEditLocationOnMapCell.swift; sourceTree = "<group>"; };
+		CC933EEC2CCC82E900F8D51E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CC933EF12CCF95EF00F8D51E /* AddAPlaceImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceImageCell.swift; sourceTree = "<group>"; };
+		CC933EF32CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceAdditionalInfoCell.swift; sourceTree = "<group>"; };
+		CC933EF52CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceHeaderSupplementaryView.swift; sourceTree = "<group>"; };
+		CC933EF72CCFBCC200F8D51E /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		CCF633B52CBCE6FF006FDE35 /* SwiftRedesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRedesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +113,8 @@
 				CC933ED22CC7826700F8D51E /* EVFilterViewController.swift */,
 				CC933EC12CBD179A00F8D51E /* MyLayers.swift */,
 				CC933ED52CC7C93100F8D51E /* EVFilterCollectionViewCell.swift */,
+				CC933EDF2CC923AD00F8D51E /* AddAPlaceViewController.swift */,
+				CC933EE52CCA124F00F8D51E /* ChooseOnMapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -99,6 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				CC933EC32CC0E8FD00F8D51E /* UIColor+Extension.swift */,
+				CC933EE12CC9FC8700F8D51E /* BaseViewController+Gadgets.swift */,
+				CC933EE32CCA001D00F8D51E /* BaseViewController+AddAPlace.swift */,
+				CC933EEC2CCC82E900F8D51E /* String+Extension.swift */,
+				CC933EF72CCFBCC200F8D51E /* UIButton+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -106,6 +134,8 @@
 		CC933ED92CC8D4B800F8D51E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC933EEE2CCF54F700F8D51E /* Common */,
+				CC933EE72CCB739E00F8D51E /* AddAPlace */,
 				CC933EDC2CC8DA4500F8D51E /* EV */,
 			);
 			path = Views;
@@ -118,6 +148,25 @@
 				CC933EDA2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift */,
 			);
 			path = EV;
+			sourceTree = "<group>";
+		};
+		CC933EE72CCB739E00F8D51E /* AddAPlace */ = {
+			isa = PBXGroup;
+			children = (
+				CC933EE82CCB73D300F8D51E /* AddAPlaceCollectionViewInfoCell.swift */,
+				CC933EEA2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift */,
+				CC933EF12CCF95EF00F8D51E /* AddAPlaceImageCell.swift */,
+				CC933EF32CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift */,
+				CC933EF52CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift */,
+			);
+			path = AddAPlace;
+			sourceTree = "<group>";
+		};
+		CC933EEE2CCF54F700F8D51E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		CCF633AC2CBCE6FF006FDE35 = {
@@ -287,15 +336,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC933ECC2CC6356200F8D51E /* GadgetsTableViewCell.swift in Sources */,
+				CC933EF22CCF95EF00F8D51E /* AddAPlaceImageCell.swift in Sources */,
+				CC933EE62CCA124F00F8D51E /* ChooseOnMapViewController.swift in Sources */,
+				CC933EE42CCA001D00F8D51E /* BaseViewController+AddAPlace.swift in Sources */,
 				CC933EC22CBD179A00F8D51E /* MyLayers.swift in Sources */,
 				CC933EBA2CBCEB4B00F8D51E /* BaseViewController.swift in Sources */,
 				CC933EDB2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift in Sources */,
 				CCF633CD2CBCE7D6006FDE35 /* MyGadgetsVC.swift in Sources */,
+				CC933EF42CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift in Sources */,
 				CC933EC42CC0E8FE00F8D51E /* UIColor+Extension.swift in Sources */,
+				CC933EE02CC923AD00F8D51E /* AddAPlaceViewController.swift in Sources */,
 				CC933EC92CC232C200F8D51E /* GadgetsHandler.swift in Sources */,
+				CC933EE92CCB73D400F8D51E /* AddAPlaceCollectionViewInfoCell.swift in Sources */,
 				CC933ED02CC6626A00F8D51E /* NewGadgetView.swift in Sources */,
+				CC933EED2CCC82E900F8D51E /* String+Extension.swift in Sources */,
+				CC933EF82CCFBCC200F8D51E /* UIButton+Extension.swift in Sources */,
 				CC933ED32CC7826700F8D51E /* EVFilterViewController.swift in Sources */,
+				CC933EEB2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift in Sources */,
+				CC933EE22CC9FC8800F8D51E /* BaseViewController+Gadgets.swift in Sources */,
 				CC933EC72CC2179100F8D51E /* GadgetsStatusCell.swift in Sources */,
+				CC933EF62CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift in Sources */,
 				CC933ECE2CC6359A00F8D51E /* GadgetsTableFooterCell.swift in Sources */,
 				CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */,
 				CC933ED62CC7C93100F8D51E /* EVFilterCollectionViewCell.swift in Sources */,
