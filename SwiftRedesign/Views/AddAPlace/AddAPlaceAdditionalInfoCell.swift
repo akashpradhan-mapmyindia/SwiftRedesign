@@ -12,17 +12,19 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
     static let identifer: String = "AddAPlaceAdditionalInfoCell"
     
     weak var delegate: AddAPlaceCollectionViewInfoCellDelegate?
-    var title: String!
-    
+    var titleLbl: UILabel!
+    var txtView: UITextView!
+    var nextBtn: UIButton?
+
     func setUpUI(for item: AddAPlaceDetailsCollectionViewHashable, addNextBtn: Bool = false) {
-        self.title = item.title.string
-        
         let titleLbl = UILabel()
         titleLbl.attributedText = item.title
         titleLbl.textAlignment = .left
         titleLbl.textColor = .init(hex: "#707070")
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLbl)
+        
+        self.titleLbl = titleLbl
         
         NSLayoutConstraint.activate([
             titleLbl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
@@ -37,6 +39,8 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
         txtView.delegate = self
         contentView.addSubview(txtView)
         txtView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.txtView = txtView
     
         let heightCons = txtView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30)
         heightCons.priority = .defaultLow
@@ -69,6 +73,8 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
             nextBtn.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(nextBtn)
             
+            self.nextBtn = nextBtn
+            
             NSLayoutConstraint.activate([
                 nextBtn.centerYAnchor.constraint(equalTo: titleLbl.centerYAnchor),
                 nextBtn.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
@@ -79,12 +85,19 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
     }
     
     @objc func nextBtnClicked() {
-        delegate?.nextBtnClicked?(forTitle: title)
+        delegate?.nextBtnClicked?(forTitle: titleLbl.text ?? "")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.txtView.removeFromSuperview()
+        self.titleLbl.removeFromSuperview()
+        self.nextBtn?.removeFromSuperview()
     }
 }
 
 extension AddAPlaceAdditionalInfoCell: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        delegate?.textFieldDidChange(textView.text, forTitle: title)
+        delegate?.textFieldDidChange(textView.text, forTitle: titleLbl.text ?? "")
     }
 }

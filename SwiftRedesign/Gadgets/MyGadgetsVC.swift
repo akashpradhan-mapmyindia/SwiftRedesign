@@ -52,8 +52,6 @@ class MyGadgetsVC: UIViewController {
     }
 
     func setUpUI() {
-        setPullBar()
-        
         gadgetTblView = UITableView()
         gadgetTblView.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9529411765, alpha: 1)
         gadgetTblView.register(GadgetsTableViewCell.self, forCellReuseIdentifier: GadgetsTableViewCell.identifier)
@@ -63,7 +61,7 @@ class MyGadgetsVC: UIViewController {
         gadgetTblView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            gadgetTblView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
+            gadgetTblView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             gadgetTblView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             gadgetTblView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             gadgetTblView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -103,21 +101,6 @@ class MyGadgetsVC: UIViewController {
         snapshot.appendItems(section1, toSection: .one)
         snapshot.appendItems([.init(isFooterView: true, carStatus: "", deviceName: "", carNumber: "", batteryImage: "", viaText: "", vehicleIcon: "")], toSection: .two)
         dataSource.apply(snapshot, animatingDifferences: true)
-    }
-    
-    func setPullBar() {
-        let pullBar = UIView()
-        pullBar.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9529411765, alpha: 1)
-        pullBar.layer.cornerRadius = 5
-        view.addSubview(pullBar)
-        pullBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            pullBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            pullBar.heightAnchor.constraint(equalToConstant: 6),
-            pullBar.widthAnchor.constraint(equalToConstant: 50),
-            pullBar.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
-        ])
     }
 }
 

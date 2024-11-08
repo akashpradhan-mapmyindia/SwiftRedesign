@@ -123,6 +123,7 @@ class BaseViewController: UIViewController {
         sheet?.attemptDismiss(animated: true)
         let sheet = SheetViewController(controller: controller, sizes: sheetSizes, options: options)
         sheet.cornerRadius = 15.0
+        sheet.gripColor = .init(hex: "#DDDDDD")
         sheet.allowPullingPastMaxHeight = false
         sheet.allowPullingPastMinHeight = false
         sheet.dismissOnPull = false

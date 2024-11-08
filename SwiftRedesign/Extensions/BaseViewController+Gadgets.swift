@@ -247,7 +247,7 @@ extension BaseViewController {
         showGadgetsTopView()
         
         var sheetOptions = SheetOptions()
-        sheetOptions.pullBarHeight = 0
+        sheetOptions.pullBarHeight = 30
         sheetOptions.useInlineMode = true
         sheetOptions.transitionAnimationOptions = .curveLinear
         

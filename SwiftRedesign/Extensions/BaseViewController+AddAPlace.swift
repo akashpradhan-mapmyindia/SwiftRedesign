@@ -18,7 +18,7 @@ extension BaseViewController {
         
         var sheetOptions = SheetOptions()
         sheetOptions.transitionAnimationOptions = .curveLinear
-        sheetOptions.pullBarHeight = 10
+        sheetOptions.pullBarHeight = 30
         sheetOptions.useInlineMode = true
         
         let vc = ChooseOnMapViewController()

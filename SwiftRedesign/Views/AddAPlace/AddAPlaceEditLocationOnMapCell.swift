@@ -7,15 +7,12 @@
 
 import UIKit
 
-protocol AddAPlaceEditLocationOnMapCellDelegate: AnyObject {
-    func editOnMapBtnClicked()
-}
-
 class AddAPlaceEditLocationOnMapCell: UICollectionViewCell {
 
     static let identifier: String = "AddAPlaceEditLocationOnMapCell"
-    
-    weak var delegate: AddAPlaceEditLocationOnMapCellDelegate?
+
+    var editOnMapBtn: UIButton!
+    var mapBgView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,11 +29,14 @@ class AddAPlaceEditLocationOnMapCell: UICollectionViewCell {
     }
     
     func commonInit() {
-        let mapBgView = UIView()
+        let mapBgView = UIImageView()
+        mapBgView.contentMode = .scaleAspectFill
         mapBgView.layer.cornerRadius = 12
         mapBgView.backgroundColor = .blue
         mapBgView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(mapBgView)
+        
+        self.mapBgView = mapBgView
         
         NSLayoutConstraint.activate([
             mapBgView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -53,7 +53,9 @@ class AddAPlaceEditLocationOnMapCell: UICollectionViewCell {
         editOnMapBtn.layer.borderWidth = 1
         editOnMapBtn.layer.cornerRadius = 5
         editOnMapBtn.translatesAutoresizingMaskIntoConstraints = false
-        mapBgView.addSubview(editOnMapBtn)
+        contentView.addSubview(editOnMapBtn)
+        
+        self.editOnMapBtn = editOnMapBtn
         
         NSLayoutConstraint.activate([
             editOnMapBtn.centerYAnchor.constraint(equalTo: mapBgView.centerYAnchor),

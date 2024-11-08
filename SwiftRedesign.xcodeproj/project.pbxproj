@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3FB08AF09A83B95B22A6A7E1 /* Pods_SwiftRedesign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */; };
+		CC90A9862CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9852CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift */; };
+		CC90A9882CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9872CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift */; };
+		CC90A98A2CDB333000CF4069 /* OpenHoursSelectTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9892CDB333000CF4069 /* OpenHoursSelectTimeCell.swift */; };
+		CC90A98C2CDB472400CF4069 /* CollectionViewSupplementaryItemTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A98B2CDB472400CF4069 /* CollectionViewSupplementaryItemTextView.swift */; };
+		CC90A98E2CDB6A6500CF4069 /* TimeRangePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A98D2CDB6A6500CF4069 /* TimeRangePickerView.swift */; };
+		CC90A9902CDCC91300CF4069 /* OpenHoursCustomTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A98F2CDCC91300CF4069 /* OpenHoursCustomTimeCell.swift */; };
+		CC90A9922CDCE15600CF4069 /* AddAPlaceThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9912CDCE15600CF4069 /* AddAPlaceThankYouViewController.swift */; };
+		CC92856E2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92856D2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift */; };
 		CC933EBA2CBCEB4B00F8D51E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EB92CBCEB4B00F8D51E /* BaseViewController.swift */; };
 		CC933EC22CBD179A00F8D51E /* MyLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EC12CBD179A00F8D51E /* MyLayers.swift */; };
 		CC933EC42CC0E8FE00F8D51E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EC32CC0E8FD00F8D51E /* UIColor+Extension.swift */; };
@@ -31,6 +39,12 @@
 		CC933EF42CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EF32CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift */; };
 		CC933EF62CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EF52CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift */; };
 		CC933EF82CCFBCC200F8D51E /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EF72CCFBCC200F8D51E /* UIButton+Extension.swift */; };
+		CC933EFB2CD0C60700F8D51E /* ChooseOnMapAddressTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EFA2CD0C60700F8D51E /* ChooseOnMapAddressTypeView.swift */; };
+		CC933EFD2CD0C61700F8D51E /* ChooseOnMapSelectAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EFC2CD0C61700F8D51E /* ChooseOnMapSelectAddressView.swift */; };
+		CC933EFF2CD102E600F8D51E /* ChooseOnMapParentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EFE2CD102E600F8D51E /* ChooseOnMapParentVC.swift */; };
+		CC933F012CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933F002CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift */; };
+		CC933F032CD890C600F8D51E /* CustomSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933F022CD890C600F8D51E /* CustomSearchBarView.swift */; };
+		CC933F052CD8A15500F8D51E /* AddAPlaceCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933F042CD8A15500F8D51E /* AddAPlaceCategoryCell.swift */; };
 		CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */; };
 		CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */; };
 		CCF633C22CBCE700006FDE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF633C12CBCE700006FDE35 /* Assets.xcassets */; };
@@ -42,6 +56,14 @@
 		3AB1500F7479C27ADA22F888 /* Pods-SwiftRedesign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.release.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.release.xcconfig"; sourceTree = "<group>"; };
 		711D37F820307595B4C9FD6D /* Pods-SwiftRedesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.debug.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.debug.xcconfig"; sourceTree = "<group>"; };
 		A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRedesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC90A9852CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursSelectionViewController.swift; sourceTree = "<group>"; };
+		CC90A9872CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursWeekDayCell.swift; sourceTree = "<group>"; };
+		CC90A9892CDB333000CF4069 /* OpenHoursSelectTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursSelectTimeCell.swift; sourceTree = "<group>"; };
+		CC90A98B2CDB472400CF4069 /* CollectionViewSupplementaryItemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSupplementaryItemTextView.swift; sourceTree = "<group>"; };
+		CC90A98D2CDB6A6500CF4069 /* TimeRangePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRangePickerView.swift; sourceTree = "<group>"; };
+		CC90A98F2CDCC91300CF4069 /* OpenHoursCustomTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursCustomTimeCell.swift; sourceTree = "<group>"; };
+		CC90A9912CDCE15600CF4069 /* AddAPlaceThankYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceThankYouViewController.swift; sourceTree = "<group>"; };
+		CC92856D2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceSubCategoryViewController.swift; sourceTree = "<group>"; };
 		CC933EB92CBCEB4B00F8D51E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CC933EC12CBD179A00F8D51E /* MyLayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLayers.swift; sourceTree = "<group>"; };
 		CC933EC32CC0E8FD00F8D51E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -65,6 +87,12 @@
 		CC933EF32CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceAdditionalInfoCell.swift; sourceTree = "<group>"; };
 		CC933EF52CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		CC933EF72CCFBCC200F8D51E /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		CC933EFA2CD0C60700F8D51E /* ChooseOnMapAddressTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOnMapAddressTypeView.swift; sourceTree = "<group>"; };
+		CC933EFC2CD0C61700F8D51E /* ChooseOnMapSelectAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOnMapSelectAddressView.swift; sourceTree = "<group>"; };
+		CC933EFE2CD102E600F8D51E /* ChooseOnMapParentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOnMapParentVC.swift; sourceTree = "<group>"; };
+		CC933F002CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceCategoryViewController.swift; sourceTree = "<group>"; };
+		CC933F022CD890C600F8D51E /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
+		CC933F042CD8A15500F8D51E /* AddAPlaceCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceCategoryCell.swift; sourceTree = "<group>"; };
 		CCF633B52CBCE6FF006FDE35 /* SwiftRedesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRedesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +142,11 @@
 				CC933EC12CBD179A00F8D51E /* MyLayers.swift */,
 				CC933ED52CC7C93100F8D51E /* EVFilterCollectionViewCell.swift */,
 				CC933EDF2CC923AD00F8D51E /* AddAPlaceViewController.swift */,
+				CC933F002CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift */,
+				CC933EFE2CD102E600F8D51E /* ChooseOnMapParentVC.swift */,
 				CC933EE52CCA124F00F8D51E /* ChooseOnMapViewController.swift */,
+				CC92856D2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift */,
+				CC90A9852CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -134,6 +166,7 @@
 		CC933ED92CC8D4B800F8D51E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC933EF92CD0C5EB00F8D51E /* ChooseOnMap */,
 				CC933EEE2CCF54F700F8D51E /* Common */,
 				CC933EE72CCB739E00F8D51E /* AddAPlace */,
 				CC933EDC2CC8DA4500F8D51E /* EV */,
@@ -154,10 +187,15 @@
 			isa = PBXGroup;
 			children = (
 				CC933EE82CCB73D300F8D51E /* AddAPlaceCollectionViewInfoCell.swift */,
+				CC90A9892CDB333000CF4069 /* OpenHoursSelectTimeCell.swift */,
+				CC933F042CD8A15500F8D51E /* AddAPlaceCategoryCell.swift */,
 				CC933EEA2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift */,
 				CC933EF12CCF95EF00F8D51E /* AddAPlaceImageCell.swift */,
 				CC933EF32CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift */,
 				CC933EF52CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift */,
+				CC90A9872CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift */,
+				CC90A98F2CDCC91300CF4069 /* OpenHoursCustomTimeCell.swift */,
+				CC90A9912CDCE15600CF4069 /* AddAPlaceThankYouViewController.swift */,
 			);
 			path = AddAPlace;
 			sourceTree = "<group>";
@@ -165,8 +203,20 @@
 		CC933EEE2CCF54F700F8D51E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CC933F022CD890C600F8D51E /* CustomSearchBarView.swift */,
+				CC90A98B2CDB472400CF4069 /* CollectionViewSupplementaryItemTextView.swift */,
+				CC90A98D2CDB6A6500CF4069 /* TimeRangePickerView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CC933EF92CD0C5EB00F8D51E /* ChooseOnMap */ = {
+			isa = PBXGroup;
+			children = (
+				CC933EFA2CD0C60700F8D51E /* ChooseOnMapAddressTypeView.swift */,
+				CC933EFC2CD0C61700F8D51E /* ChooseOnMapSelectAddressView.swift */,
+			);
+			path = ChooseOnMap;
 			sourceTree = "<group>";
 		};
 		CCF633AC2CBCE6FF006FDE35 = {
@@ -335,11 +385,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC933EFB2CD0C60700F8D51E /* ChooseOnMapAddressTypeView.swift in Sources */,
 				CC933ECC2CC6356200F8D51E /* GadgetsTableViewCell.swift in Sources */,
 				CC933EF22CCF95EF00F8D51E /* AddAPlaceImageCell.swift in Sources */,
+				CC933F052CD8A15500F8D51E /* AddAPlaceCategoryCell.swift in Sources */,
 				CC933EE62CCA124F00F8D51E /* ChooseOnMapViewController.swift in Sources */,
+				CC90A98E2CDB6A6500CF4069 /* TimeRangePickerView.swift in Sources */,
+				CC933EFF2CD102E600F8D51E /* ChooseOnMapParentVC.swift in Sources */,
 				CC933EE42CCA001D00F8D51E /* BaseViewController+AddAPlace.swift in Sources */,
 				CC933EC22CBD179A00F8D51E /* MyLayers.swift in Sources */,
+				CC90A9902CDCC91300CF4069 /* OpenHoursCustomTimeCell.swift in Sources */,
 				CC933EBA2CBCEB4B00F8D51E /* BaseViewController.swift in Sources */,
 				CC933EDB2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift in Sources */,
 				CCF633CD2CBCE7D6006FDE35 /* MyGadgetsVC.swift in Sources */,
@@ -354,12 +409,21 @@
 				CC933ED32CC7826700F8D51E /* EVFilterViewController.swift in Sources */,
 				CC933EEB2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift in Sources */,
 				CC933EE22CC9FC8800F8D51E /* BaseViewController+Gadgets.swift in Sources */,
+				CC90A9882CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift in Sources */,
 				CC933EC72CC2179100F8D51E /* GadgetsStatusCell.swift in Sources */,
+				CC933F032CD890C600F8D51E /* CustomSearchBarView.swift in Sources */,
+				CC933F012CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift in Sources */,
 				CC933EF62CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift in Sources */,
 				CC933ECE2CC6359A00F8D51E /* GadgetsTableFooterCell.swift in Sources */,
 				CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */,
 				CC933ED62CC7C93100F8D51E /* EVFilterCollectionViewCell.swift in Sources */,
 				CC933EDE2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift in Sources */,
+				CC90A9922CDCE15600CF4069 /* AddAPlaceThankYouViewController.swift in Sources */,
+				CC92856E2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift in Sources */,
+				CC90A98C2CDB472400CF4069 /* CollectionViewSupplementaryItemTextView.swift in Sources */,
+				CC90A9862CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift in Sources */,
+				CC933EFD2CD0C61700F8D51E /* ChooseOnMapSelectAddressView.swift in Sources */,
+				CC90A98A2CDB333000CF4069 /* OpenHoursSelectTimeCell.swift in Sources */,
 				CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

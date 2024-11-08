@@ -128,7 +128,7 @@ class AddAPlaceViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         topBar.layer.shadowRadius = 1
-        topBar.layer.shadowOpacity = 1
+        topBar.layer.shadowOpacity = 0.7
         topBar.layer.shadowColor = UIColor.init(hex: "#0000004D").cgColor
         topBar.layer.shadowOffset = .zero
         let shadowSize: CGFloat = 20
@@ -142,7 +142,8 @@ class AddAPlaceViewController: UIViewController {
     }
     
     @objc func submitBtnClicked() {
-        
+        let vc = AddAPlaceThankYouViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func setUpSectionsData() {
@@ -197,7 +198,7 @@ class AddAPlaceViewController: UIViewController {
     func addSuperscript(to string: String, with superscript: String, font: UIFont = .systemFont(ofSize: 15)) -> NSMutableAttributedString {
         let attributedString = NSMutableAttributedString(string: string, attributes: [NSAttributedString.Key.font : font])
         
-        let superscriptAttibutedString = NSAttributedString(string: superscript, attributes: [NSAttributedString.Key.font : font, NSAttributedString.Key.baselineOffset : 2])
+        let superscriptAttibutedString = NSAttributedString(string: superscript, attributes: [NSAttributedString.Key.font : font, NSAttributedString.Key.baselineOffset : 2, NSAttributedString.Key.foregroundColor : UIColor(hex: "#F81818")])
         
         attributedString.append(superscriptAttibutedString.attributedSubstring(from: .init(location: 0, length: superscript.count)))
         return attributedString
@@ -261,13 +262,14 @@ class AddAPlaceViewController: UIViewController {
                 cell.delegate = self
                 if cellData.title.string.split(separator: .init(unicodeScalarLiteral: "*")).first ?? "" == CellTitle.category.rawValue {
                     cell.setUpUI(for: cellData, addNextBtn: true)
+                    cell.txtView.isEditable = false
                 }else{
                     cell.setUpUI(for: cellData)
                 }
                 return cell
             case  AddAPlaceEditLocationOnMapCell.identifier:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellData.cellIdentifier, for: indexPath) as? AddAPlaceEditLocationOnMapCell else {return UICollectionViewCell()}
-                cell.delegate = self
+                cell.editOnMapBtn.addTarget(self, action: #selector(self.editOnMapBtnClicked), for: .touchUpInside)
                 return cell
             case AddAPlaceImageCell.identifier:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddAPlaceImageCell.identifier, for: indexPath) as? AddAPlaceImageCell else {return UICollectionViewCell()}
@@ -278,6 +280,7 @@ class AddAPlaceViewController: UIViewController {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddAPlaceAdditionalInfoCell.identifer, for: indexPath) as? AddAPlaceAdditionalInfoCell else {return UICollectionViewCell()}
                 if cellData.title.string == CellTitle.openHours.rawValue {
                     cell.setUpUI(for: cellData, addNextBtn: true)
+                    cell.txtView.isEditable = false
                 }else {
                     cell.setUpUI(for: cellData)
                 }
@@ -307,12 +310,31 @@ class AddAPlaceViewController: UIViewController {
             }
         }
     }
+    
+    @objc func editOnMapBtnClicked() {
+        let vc = ChooseOnMapParentVC()
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
-extension AddAPlaceViewController: AddAPlaceEditLocationOnMapCellDelegate, AddAPlaceCollectionViewInfoCellDelegate, AddAPlaceImageCellDelegte {
+extension AddAPlaceViewController: AddAPlaceCollectionViewInfoCellDelegate, AddAPlaceImageCellDelegte, ChooseOnMapParentViewControllerDelegate {
+    
+    func addressSelected(with location: String) {
+        
+    }
     
     func nextBtnClicked(forTitle: String) {
-        
+        switch forTitle.split(separator: .init(unicodeScalarLiteral: "*")).first ?? "" {
+        case CellTitle.category.rawValue:
+            let vc = AddAPlaceCategoryViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case CellTitle.openHours.rawValue:
+            let vc = OpenHoursSelectionViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
     }
     
     func addImageClicked() {
@@ -324,10 +346,6 @@ extension AddAPlaceViewController: AddAPlaceEditLocationOnMapCellDelegate, AddAP
     }
     
     func textFieldDidChange(_ text: String, forTitle: String) {
-        
-    }
-    
-    func editOnMapBtnClicked() {
         
     }
 }
