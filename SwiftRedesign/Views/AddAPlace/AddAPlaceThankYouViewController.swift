@@ -43,9 +43,8 @@ class AddAPlaceThankYouViewController: UIViewController {
         
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .center
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         containerScrollView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
@@ -69,11 +68,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         thankYouLbl.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(thankYouLbl)
         
-//        NSLayoutConstraint.activate([
-//            thankYouLbl.topAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.topAnchor, constant: 60)
-//            thankYouLbl.leadingAnchor.constraint(equalTo: containerScrollView.safeAreaLayoutGuide.leadingAnchor),
-//            thankYouLbl.trailingAnchor.constraint(equalTo: containerScrollView.safeAreaLayoutGuide.trailingAnchor)
-//        ])
+        stackView.setCustomSpacing(35, after: thankYouLbl)
         
         let closeBtn = UIButton()
         closeBtn.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
@@ -97,23 +92,18 @@ class AddAPlaceThankYouViewController: UIViewController {
         mapplsPinBtn.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(mapplsPinBtn)
         
-        NSLayoutConstraint.activate([
-//            mapplsPinBtn.topAnchor.constraint(equalTo: thankYouLbl.bottomAnchor, constant: 35),
-            mapplsPinBtn.widthAnchor.constraint(equalToConstant: 170),
-            mapplsPinBtn.heightAnchor.constraint(equalToConstant: 22)
-//            mapplsPinBtn.centerXAnchor.constraint(equalTo: thankYouLbl.centerXAnchor)
-        ])
+        stackView.setCustomSpacing(18, after: mapplsPinBtn)
         
         let qrCodeImgView = UIImageView(image: UIImage(systemName: "qrcode"))
         qrCodeImgView.contentMode = .scaleAspectFit
         qrCodeImgView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(qrCodeImgView)
         
+        stackView.setCustomSpacing(18, after: qrCodeImgView)
+        
         NSLayoutConstraint.activate([
-//            qrCodeImgView.topAnchor.constraint(equalTo: mapplsPinBtn.bottomAnchor, constant: 18),
             qrCodeImgView.heightAnchor.constraint(equalToConstant: 80),
             qrCodeImgView.widthAnchor.constraint(equalToConstant: 80)
-//            qrCodeImgView.centerXAnchor.constraint(equalTo: thankYouLbl.centerXAnchor)
         ])
         
         let mapplsPinAddHeadingLbl = UILabel()
@@ -124,11 +114,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         mapplsPinAddHeadingLbl.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(mapplsPinAddHeadingLbl)
 
-//        NSLayoutConstraint.activate([
-//            mapplsPinAddHeadingLbl.topAnchor.constraint(equalTo: qrCodeImgView.bottomAnchor, constant: 18),
-//            mapplsPinAddHeadingLbl.leadingAnchor.constraint(equalTo: containerScrollView.safeAreaLayoutGuide.leadingAnchor),
-//            mapplsPinAddHeadingLbl.trailingAnchor.constraint(equalTo: containerScrollView.safeAreaLayoutGuide.trailingAnchor)
-//        ])
+        stackView.setCustomSpacing(35, after: mapplsPinAddHeadingLbl)
         
         let mapplsPinLbl = UILabel()
         mapplsPinLbl.text = mapplsPin.uppercased()
@@ -138,11 +124,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         mapplsPinLbl.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(mapplsPinLbl)
         
-//        NSLayoutConstraint.activate([
-//            mapplsPinLbl.topAnchor.constraint(equalTo: mapplsPinAddHeadingLbl.bottomAnchor, constant: 35),
-//            mapplsPinLbl.leadingAnchor.constraint(equalTo: containerScrollView.safeAreaLayoutGuide.leadingAnchor),
-//            mapplsPinLbl.trailingAnchor.constraint(equalTo: containerScrollView.safeAreaLayoutGuide.trailingAnchor)
-//        ])
+        stackView.setCustomSpacing(20, after: mapplsPinLbl)
         
         let shareBtn = UIButton()
         shareBtn.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
@@ -175,8 +157,9 @@ class AddAPlaceThankYouViewController: UIViewController {
         downloadShareStackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(downloadShareStackView)
         
+        stackView.setCustomSpacing(20, after: downloadShareStackView)
+        
         NSLayoutConstraint.activate([
-//            downloadShareStackView.topAnchor.constraint(equalTo: mapplsPinLbl.bottomAnchor, constant: 20),
             downloadShareStackView.leadingAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.leadingAnchor, constant: 25),
             downloadShareStackView.trailingAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.trailingAnchor, constant: -25),
             downloadShareStackView.heightAnchor.constraint(equalToConstant: 52)
@@ -194,27 +177,54 @@ class AddAPlaceThankYouViewController: UIViewController {
         spreadAccomplishmentBtn.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(spreadAccomplishmentBtn)
         
+        stackView.setCustomSpacing(30, after: spreadAccomplishmentBtn)
+        
         NSLayoutConstraint.activate([
-//            spreadAccomplishmentBtn.topAnchor.constraint(equalTo: downloadShareStackView.bottomAnchor, constant: 20),
             spreadAccomplishmentBtn.leadingAnchor.constraint(equalTo: downloadShareStackView.leadingAnchor),
             spreadAccomplishmentBtn.trailingAnchor.constraint(equalTo: downloadShareStackView.trailingAnchor),
             spreadAccomplishmentBtn.heightAnchor.constraint(equalToConstant: 52)
         ])
         
         let shareDescriptionLbl = UILabel()
-        let shareDescTitle = NSMutableAttributedString(string: "Feel free to share this with your friends & co-workers. Please note this submission will be professionally validate by our map data team \n\nLearn more about ", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hex: "#707070"), NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .medium)])
-        shareDescTitle.append(.init(string: "Mappls Pin", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hex: "#007BBE"), NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .medium)]))
-        shareDescriptionLbl.attributedText = shareDescTitle
+        shareDescriptionLbl.text = "Feel free to share this with your friends & co-workers. Please note this submission will be professionally validate by our map data team"
+        shareDescriptionLbl.textColor = .init(hex: "#707070")
+        shareDescriptionLbl.font = .systemFont(ofSize: 15, weight: .medium)
         shareDescriptionLbl.numberOfLines = 0
         shareDescriptionLbl.textAlignment = .center
         shareDescriptionLbl.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(shareDescriptionLbl)
         
+        stackView.setCustomSpacing(15, after: shareDescriptionLbl)
+        
         NSLayoutConstraint.activate([
-            shareDescriptionLbl.topAnchor.constraint(equalTo: spreadAccomplishmentBtn.bottomAnchor, constant: 30),
             shareDescriptionLbl.leadingAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.leadingAnchor, constant: 15),
             shareDescriptionLbl.trailingAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.trailingAnchor, constant: -15)
         ])
+        
+        let learnMoreStackView = UIStackView()
+        learnMoreStackView.axis = .horizontal
+        learnMoreStackView.distribution = .fillProportionally
+        learnMoreStackView.spacing = 5
+        learnMoreStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.addArrangedSubview(learnMoreStackView)
+        
+        let learnMoreLbl = UILabel()
+        learnMoreLbl.text = "Learn more about"
+        learnMoreLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        learnMoreLbl.textColor = .init(hex: "#707070")
+        learnMoreLbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        learnMoreStackView.addArrangedSubview(learnMoreLbl)
+        
+        let learnMoreMapplsPinBtn = UIButton(type: .system)
+        learnMoreMapplsPinBtn.setTitle("Mappls Pin", for: .normal)
+        learnMoreMapplsPinBtn.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
+        learnMoreMapplsPinBtn.setTitleColor(.init(hex: "#007BBE"), for: .normal)
+        learnMoreMapplsPinBtn.addTarget(self, action: #selector(self.learnMoreMapplsPinBtnClicked), for: .touchUpInside)
+        learnMoreMapplsPinBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        learnMoreStackView.addArrangedSubview(learnMoreMapplsPinBtn)
         
         let addAnotherPlaceBtn = UIButton(type: .system)
         addAnotherPlaceBtn.setTitle("Add Another Place", for: .normal)
@@ -234,6 +244,10 @@ class AddAPlaceThankYouViewController: UIViewController {
             addAnotherPlaceBtn.heightAnchor.constraint(equalToConstant: 52),
             addAnotherPlaceBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
+    }
+    
+    @objc func learnMoreMapplsPinBtnClicked() {
+        
     }
     
     @objc func addAnotherPlaceBtnClicked() {
