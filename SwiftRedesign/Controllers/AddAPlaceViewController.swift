@@ -346,6 +346,6 @@ extension AddAPlaceViewController: AddAPlaceCollectionViewInfoCellDelegate, AddA
     }
     
     func textFieldDidChange(_ text: String, forTitle: String) {
-        
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 }

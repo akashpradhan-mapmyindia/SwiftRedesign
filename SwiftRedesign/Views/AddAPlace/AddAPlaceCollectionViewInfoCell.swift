@@ -60,15 +60,11 @@ class AddAPlaceCollectionViewInfoCell: UICollectionViewCell {
         txtView.translatesAutoresizingMaskIntoConstraints = false
         
         self.txtView = txtView
-    
-        let heightCons = txtView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30)
-        heightCons.priority = .defaultLow
         
         NSLayoutConstraint.activate([
             txtView.topAnchor.constraint(equalTo: titleLbl.bottomAnchor),
             txtView.leadingAnchor.constraint(equalTo: titleLbl.leadingAnchor),
             txtView.trailingAnchor.constraint(equalTo: titleLbl.trailingAnchor),
-            heightCons,
             txtView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
         
