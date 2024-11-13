@@ -15,7 +15,7 @@
 		CC90A98E2CDB6A6500CF4069 /* TimeRangePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A98D2CDB6A6500CF4069 /* TimeRangePickerView.swift */; };
 		CC90A9902CDCC91300CF4069 /* OpenHoursCustomTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A98F2CDCC91300CF4069 /* OpenHoursCustomTimeCell.swift */; };
 		CC90A9922CDCE15600CF4069 /* AddAPlaceThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9912CDCE15600CF4069 /* AddAPlaceThankYouViewController.swift */; };
-		CC90A9992CE1D72E00CF4069 /* PostOnMapCategoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9982CE1D72E00CF4069 /* PostOnMapCategoryItemCell.swift */; };
+		CC90A9992CE1D72E00CF4069 /* PostOnMapFixOnMapCategoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9982CE1D72E00CF4069 /* PostOnMapFixOnMapCategoryItemCell.swift */; };
 		CC92856E2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92856D2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift */; };
 		CC933EBA2CBCEB4B00F8D51E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EB92CBCEB4B00F8D51E /* BaseViewController.swift */; };
 		CC933EC22CBD179A00F8D51E /* MyLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933EC12CBD179A00F8D51E /* MyLayers.swift */; };
@@ -46,15 +46,15 @@
 		CC933F012CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933F002CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift */; };
 		CC933F032CD890C600F8D51E /* CustomSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933F022CD890C600F8D51E /* CustomSearchBarView.swift */; };
 		CC933F052CD8A15500F8D51E /* AddAPlaceCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC933F042CD8A15500F8D51E /* AddAPlaceCategoryCell.swift */; };
-		CCDF5F9D2CE21BCB00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5F9A2CE21BCB00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */; };
-		CCDF5F9E2CE21BCB00C7B0CD /* PostOnMapSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5F9B2CE21BCB00C7B0CD /* PostOnMapSubCategoryViewController.swift */; };
-		CCDF5F9F2CE21BCB00C7B0CD /* PostOnMapCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5F9C2CE21BCB00C7B0CD /* PostOnMapCategoryViewController.swift */; };
 		CCDF5FA12CE2258A00C7B0CD /* PostOnMapSubCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FA02CE2258A00C7B0CD /* PostOnMapSubCategoryCell.swift */; };
 		CCDF5FA32CE22F3600C7B0CD /* CommonTableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FA22CE22F3600C7B0CD /* CommonTableHeaderFooterView.swift */; };
 		CCDF5FA52CE35EEC00C7B0CD /* PostReportSuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FA42CE35EEC00C7B0CD /* PostReportSuccessfulViewController.swift */; };
 		CCDF5FA72CE3642100C7B0CD /* BaseViewController+PostOnMap+FixOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FA62CE3642100C7B0CD /* BaseViewController+PostOnMap+FixOnMap.swift */; };
 		CCDF5FAF2CE36B3F00C7B0CD /* NotificationCenterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FAE2CE36B3F00C7B0CD /* NotificationCenterConstants.swift */; };
 		CCDF5FB12CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FB02CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift */; };
+		CCDF5FB82CE4715500C7B0CD /* PostOnMapCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FB72CE4715500C7B0CD /* PostOnMapCategoryViewController.swift */; };
+		CCDF5FBA2CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FB92CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */; };
+		CCDF5FBC2CE4719800C7B0CD /* PostOnMapSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FBB2CE4719800C7B0CD /* PostOnMapSubCategoryViewController.swift */; };
 		CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */; };
 		CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */; };
 		CCF633C22CBCE700006FDE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF633C12CBCE700006FDE35 /* Assets.xcassets */; };
@@ -73,7 +73,7 @@
 		CC90A98D2CDB6A6500CF4069 /* TimeRangePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRangePickerView.swift; sourceTree = "<group>"; };
 		CC90A98F2CDCC91300CF4069 /* OpenHoursCustomTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursCustomTimeCell.swift; sourceTree = "<group>"; };
 		CC90A9912CDCE15600CF4069 /* AddAPlaceThankYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceThankYouViewController.swift; sourceTree = "<group>"; };
-		CC90A9982CE1D72E00CF4069 /* PostOnMapCategoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapCategoryItemCell.swift; sourceTree = "<group>"; };
+		CC90A9982CE1D72E00CF4069 /* PostOnMapFixOnMapCategoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapFixOnMapCategoryItemCell.swift; sourceTree = "<group>"; };
 		CC92856D2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceSubCategoryViewController.swift; sourceTree = "<group>"; };
 		CC933EB92CBCEB4B00F8D51E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CC933EC12CBD179A00F8D51E /* MyLayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLayers.swift; sourceTree = "<group>"; };
@@ -104,15 +104,15 @@
 		CC933F002CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceCategoryViewController.swift; sourceTree = "<group>"; };
 		CC933F022CD890C600F8D51E /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
 		CC933F042CD8A15500F8D51E /* AddAPlaceCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPlaceCategoryCell.swift; sourceTree = "<group>"; };
-		CCDF5F9A2CE21BCB00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostOnMapFixOnMapEnterDetailsViewController.swift; path = ../../../../../Documents/PostOnMapFixOnMapEnterDetailsViewController.swift; sourceTree = "<group>"; };
-		CCDF5F9B2CE21BCB00C7B0CD /* PostOnMapSubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostOnMapSubCategoryViewController.swift; path = ../../../../../Documents/PostOnMapSubCategoryViewController.swift; sourceTree = "<group>"; };
-		CCDF5F9C2CE21BCB00C7B0CD /* PostOnMapCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostOnMapCategoryViewController.swift; path = ../../../../../Documents/PostOnMapCategoryViewController.swift; sourceTree = "<group>"; };
 		CCDF5FA02CE2258A00C7B0CD /* PostOnMapSubCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapSubCategoryCell.swift; sourceTree = "<group>"; };
 		CCDF5FA22CE22F3600C7B0CD /* CommonTableHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableHeaderFooterView.swift; sourceTree = "<group>"; };
 		CCDF5FA42CE35EEC00C7B0CD /* PostReportSuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReportSuccessfulViewController.swift; sourceTree = "<group>"; };
 		CCDF5FA62CE3642100C7B0CD /* BaseViewController+PostOnMap+FixOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+PostOnMap+FixOnMap.swift"; sourceTree = "<group>"; };
 		CCDF5FAE2CE36B3F00C7B0CD /* NotificationCenterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterConstants.swift; sourceTree = "<group>"; };
 		CCDF5FB02CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixOnMapCategoryViewController.swift; sourceTree = "<group>"; };
+		CCDF5FB72CE4715500C7B0CD /* PostOnMapCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapCategoryViewController.swift; sourceTree = "<group>"; };
+		CCDF5FB92CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapFixOnMapEnterDetailsViewController.swift; sourceTree = "<group>"; };
+		CCDF5FBB2CE4719800C7B0CD /* PostOnMapSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapSubCategoryViewController.swift; sourceTree = "<group>"; };
 		CCF633B52CBCE6FF006FDE35 /* SwiftRedesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRedesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		CC90A9972CE1D71900CF4069 /* PostOnMap */ = {
 			isa = PBXGroup;
 			children = (
-				CC90A9982CE1D72E00CF4069 /* PostOnMapCategoryItemCell.swift */,
+				CC90A9982CE1D72E00CF4069 /* PostOnMapFixOnMapCategoryItemCell.swift */,
 				CCDF5FA02CE2258A00C7B0CD /* PostOnMapSubCategoryCell.swift */,
 			);
 			path = PostOnMap;
@@ -170,10 +170,10 @@
 				CC933ED22CC7826700F8D51E /* EVFilterViewController.swift */,
 				CC933EC12CBD179A00F8D51E /* MyLayers.swift */,
 				CC933ED52CC7C93100F8D51E /* EVFilterCollectionViewCell.swift */,
-				CCDF5F9C2CE21BCB00C7B0CD /* PostOnMapCategoryViewController.swift */,
 				CCDF5FA42CE35EEC00C7B0CD /* PostReportSuccessfulViewController.swift */,
-				CCDF5F9A2CE21BCB00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */,
-				CCDF5F9B2CE21BCB00C7B0CD /* PostOnMapSubCategoryViewController.swift */,
+				CCDF5FB72CE4715500C7B0CD /* PostOnMapCategoryViewController.swift */,
+				CCDF5FB92CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */,
+				CCDF5FBB2CE4719800C7B0CD /* PostOnMapSubCategoryViewController.swift */,
 				CC933EDF2CC923AD00F8D51E /* AddAPlaceViewController.swift */,
 				CC933F002CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift */,
 				CC933EFE2CD102E600F8D51E /* ChooseOnMapParentVC.swift */,
@@ -436,7 +436,8 @@
 				CC933EF22CCF95EF00F8D51E /* AddAPlaceImageCell.swift in Sources */,
 				CC933F052CD8A15500F8D51E /* AddAPlaceCategoryCell.swift in Sources */,
 				CC933EE62CCA124F00F8D51E /* ChooseOnMapViewController.swift in Sources */,
-				CC90A9992CE1D72E00CF4069 /* PostOnMapCategoryItemCell.swift in Sources */,
+				CC90A9992CE1D72E00CF4069 /* PostOnMapFixOnMapCategoryItemCell.swift in Sources */,
+				CCDF5FB82CE4715500C7B0CD /* PostOnMapCategoryViewController.swift in Sources */,
 				CC90A98E2CDB6A6500CF4069 /* TimeRangePickerView.swift in Sources */,
 				CC933EFF2CD102E600F8D51E /* ChooseOnMapParentVC.swift in Sources */,
 				CCDF5FA12CE2258A00C7B0CD /* PostOnMapSubCategoryCell.swift in Sources */,
@@ -448,11 +449,11 @@
 				CCF633CD2CBCE7D6006FDE35 /* MyGadgetsVC.swift in Sources */,
 				CC933EF42CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift in Sources */,
 				CCDF5FB12CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift in Sources */,
+				CCDF5FBA2CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift in Sources */,
 				CC933EC42CC0E8FE00F8D51E /* UIColor+Extension.swift in Sources */,
 				CC933EE02CC923AD00F8D51E /* AddAPlaceViewController.swift in Sources */,
 				CCDF5FA32CE22F3600C7B0CD /* CommonTableHeaderFooterView.swift in Sources */,
 				CC933EC92CC232C200F8D51E /* GadgetsHandler.swift in Sources */,
-				CCDF5F9F2CE21BCB00C7B0CD /* PostOnMapCategoryViewController.swift in Sources */,
 				CC933EE92CCB73D400F8D51E /* AddAPlaceCollectionViewInfoCell.swift in Sources */,
 				CC933ED02CC6626A00F8D51E /* NewGadgetView.swift in Sources */,
 				CC933EED2CCC82E900F8D51E /* String+Extension.swift in Sources */,
@@ -462,11 +463,9 @@
 				CC933EEB2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift in Sources */,
 				CC933EE22CC9FC8800F8D51E /* BaseViewController+Gadgets.swift in Sources */,
 				CC90A9882CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift in Sources */,
-				CCDF5F9D2CE21BCB00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift in Sources */,
 				CC933EC72CC2179100F8D51E /* GadgetsStatusCell.swift in Sources */,
 				CC933F032CD890C600F8D51E /* CustomSearchBarView.swift in Sources */,
 				CC933F012CD1036A00F8D51E /* AddAPlaceCategoryViewController.swift in Sources */,
-				CCDF5F9E2CE21BCB00C7B0CD /* PostOnMapSubCategoryViewController.swift in Sources */,
 				CC933EF62CCFBBAD00F8D51E /* AddAPlaceHeaderSupplementaryView.swift in Sources */,
 				CC933ECE2CC6359A00F8D51E /* GadgetsTableFooterCell.swift in Sources */,
 				CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */,
@@ -481,6 +480,7 @@
 				CC933EFD2CD0C61700F8D51E /* ChooseOnMapSelectAddressView.swift in Sources */,
 				CC90A98A2CDB333000CF4069 /* OpenHoursSelectTimeCell.swift in Sources */,
 				CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */,
+				CCDF5FBC2CE4719800C7B0CD /* PostOnMapSubCategoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
