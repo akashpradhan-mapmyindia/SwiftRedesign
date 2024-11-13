@@ -1,20 +1,27 @@
 //
-//  CollectionViewSupplementaryItemTextView.swift
+//  CommonTableHeaderFooterView.swift
 //  SwiftRedesign
 //
-//  Created by rento on 06/11/24.
+//  Created by rento on 11/11/24.
 //
 
 import UIKit
 
-class CollectionViewSupplementaryItemTextView: UICollectionReusableView {
-    
-    static let identifier: String = "CollectionViewSupplementaryItemTextView"
+class CommonTableHeaderFooterView: UIView {
     
     var titleLbl: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        commonInit()
+    }
+    
+    init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+    
+    func commonInit() {
         titleLbl = UILabel()
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLbl)

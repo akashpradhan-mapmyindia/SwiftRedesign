@@ -7,6 +7,7 @@
 
 import UIKit
 import FittedSheets
+import SwiftUI
 
 class BaseViewController: UIViewController {
     var sheet: SheetViewController?
@@ -101,6 +102,62 @@ class BaseViewController: UIViewController {
             addPlaceBtn.widthAnchor.constraint(equalToConstant: 100),
             addPlaceBtn.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
+        let quickAccessSheetBtn = UIButton(type: .system)
+        quickAccessSheetBtn.setTitle("Open Quick Access Sheet", for: .normal)
+        quickAccessSheetBtn.backgroundColor = .green
+        quickAccessSheetBtn.addTarget(self, action: #selector(self.showQuickAccessSheet), for: .touchUpInside)
+        quickAccessSheetBtn.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(quickAccessSheetBtn)
+        
+        NSLayoutConstraint.activate([
+            quickAccessSheetBtn.topAnchor.constraint(equalTo: addPlaceBtn.bottomAnchor, constant: 10),
+            quickAccessSheetBtn.trailingAnchor.constraint(equalTo: evFilterBtn.trailingAnchor),
+            quickAccessSheetBtn.heightAnchor.constraint(equalToConstant: 40),
+            quickAccessSheetBtn.widthAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    @objc func showQuickAccessSheet() {
+        var sheetOptions = SheetOptions()
+        sheetOptions.transitionAnimationOptions = .curveLinear
+        sheetOptions.useInlineMode = true
+        
+        let view = QuickAccessView(postOnMapBtnAction: quickAccessPostOnMapBtnClicked, fixOnMapBtnAction: quickAccessFixMapBtnClicked)
+        
+        let hostingView = UIHostingController(rootView: view)
+        if #available(iOS 16.0, *) {
+            hostingView.sizingOptions = .preferredContentSize
+        }
+        sheet = showSheetController(options: sheetOptions, controller: hostingView, sheetSizes: [], from: self, in: self.view)
+        sheet?.navigationController?.isNavigationBarHidden = true
+        setDefaultSheetSize()
+    }
+    
+    func setDefaultSheetSize() {
+        if self.traitCollection.verticalSizeClass == .regular {
+            sheet?.sizes = [.percent(0.25), .percent(0.9)]
+            DispatchQueue.main.async {
+                if self.sheet?.currentSize == .percent(1.0) {
+                    self.sheet?.resize(to: .percent(0.9))
+                } else if self.sheet?.currentSize == .percent(0.16){
+                    self.sheet?.resize(to: .percent(0.25))
+                } else {
+                    self.sheet?.resize(to: .percent(0.25))
+                }
+            }
+        }else{
+            sheet?.sizes = [.percent(0.16), .percent(1.0)]
+            DispatchQueue.main.async {
+                if self.sheet?.currentSize == .percent(0.9) {
+                    self.sheet?.resize(to: .percent(1.0))
+                } else if self.sheet?.currentSize == .percent(0.25) {
+                    self.sheet?.resize(to: .percent(0.16))
+                } else {
+                    self.sheet?.resize(to: .percent(0.16))
+                }
+            }
+        }
     }
     
     @objc func evFilterBtnClicked(_ sender: UIButton) {
@@ -145,6 +202,8 @@ class BaseViewController: UIViewController {
                 gadgetsSetSheetSize()
             }else if let _ = sheet.childViewController as? ChooseOnMapViewController {
                 chooseOnMapSetSheetSize()
+            }else {
+                setDefaultSheetSize()
             }
         }
         if self.traitCollection.verticalSizeClass == .regular {
