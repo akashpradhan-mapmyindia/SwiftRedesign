@@ -55,7 +55,6 @@
 		CCDF5FA72CE3642100C7B0CD /* BaseViewController+PostOnMap+FixOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FA62CE3642100C7B0CD /* BaseViewController+PostOnMap+FixOnMap.swift */; };
 		CCDF5FAF2CE36B3F00C7B0CD /* NotificationCenterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FAE2CE36B3F00C7B0CD /* NotificationCenterConstants.swift */; };
 		CCDF5FB12CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FB02CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift */; };
-		CCDF5FB42CE4615E00C7B0CD /* FixOnMapCategoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FB32CE4615E00C7B0CD /* FixOnMapCategoryItemCell.swift */; };
 		CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */; };
 		CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */; };
 		CCF633C22CBCE700006FDE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF633C12CBCE700006FDE35 /* Assets.xcassets */; };
@@ -114,7 +113,6 @@
 		CCDF5FA62CE3642100C7B0CD /* BaseViewController+PostOnMap+FixOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+PostOnMap+FixOnMap.swift"; sourceTree = "<group>"; };
 		CCDF5FAE2CE36B3F00C7B0CD /* NotificationCenterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterConstants.swift; sourceTree = "<group>"; };
 		CCDF5FB02CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixOnMapCategoryViewController.swift; sourceTree = "<group>"; };
-		CCDF5FB32CE4615E00C7B0CD /* FixOnMapCategoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixOnMapCategoryItemCell.swift; sourceTree = "<group>"; };
 		CCF633B52CBCE6FF006FDE35 /* SwiftRedesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRedesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 		CC933ED92CC8D4B800F8D51E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CCDF5FB22CE4614600C7B0CD /* FixOnMap */,
 				CC90A9972CE1D71900CF4069 /* PostOnMap */,
 				CC933EF92CD0C5EB00F8D51E /* ChooseOnMap */,
 				CC933EEE2CCF54F700F8D51E /* Common */,
@@ -265,14 +262,6 @@
 				CCDF5FAE2CE36B3F00C7B0CD /* NotificationCenterConstants.swift */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		CCDF5FB22CE4614600C7B0CD /* FixOnMap */ = {
-			isa = PBXGroup;
-			children = (
-				CCDF5FB32CE4615E00C7B0CD /* FixOnMapCategoryItemCell.swift */,
-			);
-			path = FixOnMap;
 			sourceTree = "<group>";
 		};
 		CCF633AC2CBCE6FF006FDE35 = {
@@ -458,7 +447,6 @@
 				CC933EDB2CC8D4C500F8D51E /* EVFilterHeaderTitleSupplementaryView.swift in Sources */,
 				CCF633CD2CBCE7D6006FDE35 /* MyGadgetsVC.swift in Sources */,
 				CC933EF42CCFB82300F8D51E /* AddAPlaceAdditionalInfoCell.swift in Sources */,
-				CCDF5FB42CE4615E00C7B0CD /* FixOnMapCategoryItemCell.swift in Sources */,
 				CCDF5FB12CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift in Sources */,
 				CC933EC42CC0E8FE00F8D51E /* UIColor+Extension.swift in Sources */,
 				CC933EE02CC923AD00F8D51E /* AddAPlaceViewController.swift in Sources */,

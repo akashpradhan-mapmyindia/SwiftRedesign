@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PostOnmapCategoryItemCell: UICollectionViewCell {
+class PostOnMapFixOnMapCategoryItemCell: UICollectionViewCell {
     
-    static let identifier: String = "PostOnmapCategoryItemCell"
+    static let identifier: String = "PostOnMapFixOnMapCategoryItemCell"
     
     var imgBtn: UIImageView!
     var titleLbl: UILabel!
@@ -53,7 +53,12 @@ class PostOnmapCategoryItemCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpUI(item: PostOnMapCategoryHashable) {
+    func setUpUI(for item: PostOnMapCategoryHashable) {
+        imgBtn.image = item.image
+        titleLbl.text = item.title
+    }
+    
+    func setUpUI(for item: FixOnMapCategoryHashable) {
         imgBtn.image = item.image
         titleLbl.text = item.title
     }

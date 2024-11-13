@@ -129,7 +129,7 @@ class FixOnMapCategoryViewController: UIViewController {
         }
         
         categoryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        categoryCollectionView.register(FixOnMapCategoryItemCell.self, forCellWithReuseIdentifier: FixOnMapCategoryItemCell.identifier)
+        categoryCollectionView.register(PostOnMapFixOnMapCategoryItemCell.self, forCellWithReuseIdentifier: PostOnMapFixOnMapCategoryItemCell.identifier)
         categoryCollectionView.register(CollectionViewSupplementaryItemTextView.self, forSupplementaryViewOfKind: SupplementaryViewKind.header.rawValue, withReuseIdentifier: CollectionViewSupplementaryItemTextView.identifier)
         categoryCollectionView.delegate = self
         categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -163,8 +163,8 @@ class FixOnMapCategoryViewController: UIViewController {
         let dataSource = UICollectionViewDiffableDataSource<Int, FixOnMapCategoryHashable>(collectionView: categoryCollectionView) { collectionView, indexPath, itemIdentifier in
             let cellData = self.section[indexPath.row]
             
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FixOnMapCategoryItemCell.identifier, for: indexPath) as? FixOnMapCategoryItemCell else {return UICollectionViewCell()}
-            cell.setUpUI(item: cellData)
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostOnMapFixOnMapCategoryItemCell.identifier, for: indexPath) as? PostOnMapFixOnMapCategoryItemCell else {return UICollectionViewCell()}
+            cell.setUpUI(for: cellData)
             return cell
         }
         return dataSource
