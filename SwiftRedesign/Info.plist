@@ -2,6 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>DS-DIGIT.TTF</string>
+		<string>DS-DIGI.TTF</string>
+		<string>DS-DIGIB.TTF</string>
+		<string>DS-DIGII.TTF</string>
+		<string>HEX-Font-Regular.ttf</string>
+		<string>NotoSans-Bold.ttf</string>
+		<string>NotoSans-BoldItalic.ttf</string>
+		<string>NotoSans-Italic.ttf</string>
+		<string>NotoSans-Regular.ttf</string>
+		<string>Montserrat-Italic_0.ttf</string>
+		<string>Montserrat-Regular.otf</string>
+		<string>SFProDisplay-Bold.ttf</string>
+		<string>SFProDisplay-Black.ttf</string>
+		<string>SFProText-SemiboldItalic.ttf</string>
+		<string>SFProText-Semibold.ttf</string>
+		<string>SFProText-Medium.ttf</string>
+		<string>SFProText-Regular.ttf</string>
+		<string>GillSans-SemiBold-05.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
