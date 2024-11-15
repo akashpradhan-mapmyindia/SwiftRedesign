@@ -60,8 +60,8 @@ class AddAPlaceThankYouViewController: UIViewController {
         paraStyle.alignment = .center
         
         let thankYouLbl = UILabel()
-        let thankYouAttrTxt = NSMutableAttributedString(string: "Thank You", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 34, weight: .bold), NSAttributedString.Key.foregroundColor : UIColor.black, NSAttributedString.Key.paragraphStyle : paraStyle])
-        thankYouAttrTxt.append(NSAttributedString(string: "\nfor your contribution to Mappls", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .medium), NSAttributedString.Key.foregroundColor : UIColor(hex: "#707070")]))
+        let thankYouAttrTxt = NSMutableAttributedString(string: "Thank You", attributes: [NSAttributedString.Key.font : UIFont.sfProText.bold.ofSize(size: 34), NSAttributedString.Key.foregroundColor : UIColor.black, NSAttributedString.Key.paragraphStyle : paraStyle])
+        thankYouAttrTxt.append(NSAttributedString(string: "\nfor your contribution to Mappls", attributes: [NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small), NSAttributedString.Key.foregroundColor : UIColor(hex: "#707070")]))
         thankYouLbl.textAlignment = .center
         thankYouLbl.numberOfLines = 0
         thankYouLbl.attributedText = thankYouAttrTxt
@@ -86,7 +86,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         
         let mapplsPinBtn = UIButton(type: .system)
         mapplsPinBtn.setTitle("mappls.com/\(mapplsPin.lowercased())", for: .normal)
-        mapplsPinBtn.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
+        mapplsPinBtn.titleLabel?.font = .sfProText.medium.ofSize(size: .small)
         mapplsPinBtn.setImage(UIImage(systemName: "mappin"), for: .normal)
         mapplsPinBtn.addTarget(self, action: #selector(self.mapplsPinBtnClicked), for: .touchUpInside)
         mapplsPinBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -108,7 +108,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         
         let mapplsPinAddHeadingLbl = UILabel()
         mapplsPinAddHeadingLbl.text = "Mappls pin for your added place is"
-        mapplsPinAddHeadingLbl.font = .systemFont(ofSize: 17, weight: .medium)
+        mapplsPinAddHeadingLbl.font = .sfProText.medium.ofSize(size: .regular)
         mapplsPinAddHeadingLbl.textAlignment = .center
         mapplsPinAddHeadingLbl.textColor = .init(hex: "#707070")
         mapplsPinAddHeadingLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -120,7 +120,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         mapplsPinLbl.text = mapplsPin.uppercased()
         mapplsPinLbl.textAlignment = .center
         mapplsPinLbl.textColor = .init(hex: "#339E82")
-        mapplsPinLbl.font = .systemFont(ofSize: 27, weight: .medium)
+        mapplsPinLbl.font = .sfProDisplay.medium.ofSize(size: 26)
         mapplsPinLbl.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(mapplsPinLbl)
         
@@ -167,7 +167,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         
         let spreadAccomplishmentBtn = UIButton(type: .system)
         spreadAccomplishmentBtn.setTitle("Spread The Accomplishment", for: .normal)
-        spreadAccomplishmentBtn.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        spreadAccomplishmentBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         spreadAccomplishmentBtn.setTitleColor(.init(hex: "#339E82"), for: .normal)
         spreadAccomplishmentBtn.layer.borderWidth = 1
         spreadAccomplishmentBtn.layer.borderColor = UIColor(hex: "#339E82").cgColor
@@ -188,7 +188,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         let shareDescriptionLbl = UILabel()
         shareDescriptionLbl.text = "Feel free to share this with your friends & co-workers. Please note this submission will be professionally validate by our map data team"
         shareDescriptionLbl.textColor = .init(hex: "#707070")
-        shareDescriptionLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        shareDescriptionLbl.font = .sfProText.medium.ofSize(size: .small)
         shareDescriptionLbl.numberOfLines = 0
         shareDescriptionLbl.textAlignment = .center
         shareDescriptionLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -211,7 +211,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         
         let learnMoreLbl = UILabel()
         learnMoreLbl.text = "Learn more about"
-        learnMoreLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        learnMoreLbl.font = .sfProText.medium.ofSize(size: .small)
         learnMoreLbl.textColor = .init(hex: "#707070")
         learnMoreLbl.translatesAutoresizingMaskIntoConstraints = false
         
@@ -219,7 +219,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         
         let learnMoreMapplsPinBtn = UIButton(type: .system)
         learnMoreMapplsPinBtn.setTitle("Mappls Pin", for: .normal)
-        learnMoreMapplsPinBtn.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
+        learnMoreMapplsPinBtn.titleLabel?.font = .sfProText.medium.ofSize(size: .small)
         learnMoreMapplsPinBtn.setTitleColor(.init(hex: "#007BBE"), for: .normal)
         learnMoreMapplsPinBtn.addTarget(self, action: #selector(self.learnMoreMapplsPinBtnClicked), for: .touchUpInside)
         learnMoreMapplsPinBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -228,7 +228,7 @@ class AddAPlaceThankYouViewController: UIViewController {
         
         let addAnotherPlaceBtn = UIButton(type: .system)
         addAnotherPlaceBtn.setTitle("Add Another Place", for: .normal)
-        addAnotherPlaceBtn.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        addAnotherPlaceBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         addAnotherPlaceBtn.setTitleColor(.white, for: .normal)
         addAnotherPlaceBtn.backgroundColor = .init(hex: "#339E82")
         addAnotherPlaceBtn.layer.cornerRadius = 13

@@ -36,7 +36,7 @@ class PostOnMapFixOnMapCategoryItemCell: UICollectionViewCell {
         ])
         
         titleLbl = UILabel()
-        titleLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        titleLbl.font = .sfProText.medium.ofSize(size: .small)
         titleLbl.numberOfLines = 0
         titleLbl.textAlignment = .center
         titleLbl.translatesAutoresizingMaskIntoConstraints = false

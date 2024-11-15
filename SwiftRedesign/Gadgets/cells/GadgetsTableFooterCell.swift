@@ -42,8 +42,8 @@ class GadgetsTableFooterCell: UITableViewCell {
             gadgetsImgV.widthAnchor.constraint(equalToConstant: 200)
         ])
         
-        let attributedText = NSAttributedString(string: "Discover the world of\n", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor.black])
-        let attributedText2 = NSAttributedString(string: "Mappls IoT Devices", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 23, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor.black])
+        let attributedText = NSAttributedString(string: "Discover the world of\n", attributes: [NSAttributedString.Key.font : UIFont.sfProDisplay.regular.ofSize(size: 23), NSAttributedString.Key.foregroundColor : UIColor.black])
+        let attributedText2 = NSAttributedString(string: "Mappls IoT Devices", attributes: [NSAttributedString.Key.font : UIFont.sfProText.regular.ofSize(size: 25), NSAttributedString.Key.foregroundColor : UIColor.black])
         let mutableString = NSMutableAttributedString(attributedString: attributedText)
         mutableString.append(attributedText2)
         
@@ -61,7 +61,7 @@ class GadgetsTableFooterCell: UITableViewCell {
         
         let chkOutWideRngeLbl = UILabel()
         chkOutWideRngeLbl.text = "Check out wide range of our IoT offerings"
-        chkOutWideRngeLbl.font = .systemFont(ofSize: 14)
+        chkOutWideRngeLbl.font = .sfProText.medium.ofSize(size: .regular)
         chkOutWideRngeLbl.textAlignment = .center
         chkOutWideRngeLbl.backgroundColor = .clear
         contentView.addSubview(chkOutWideRngeLbl)
@@ -76,7 +76,7 @@ class GadgetsTableFooterCell: UITableViewCell {
         addNewGadgetBtn.setTitle("Add New Gadget", for: .normal)
         addNewGadgetBtn.backgroundColor = .clear
         addNewGadgetBtn.setTitleColor(.black, for: .normal)
-        addNewGadgetBtn.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        addNewGadgetBtn.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
         addNewGadgetBtn.layer.borderWidth = 1
         addNewGadgetBtn.layer.borderColor = UIColor.black.cgColor
         addNewGadgetBtn.layer.cornerRadius = 5

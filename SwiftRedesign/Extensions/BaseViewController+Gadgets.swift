@@ -31,7 +31,7 @@ extension BaseViewController {
         self.gadgetsHeaderV = headerV
         
         let titleLbl = UILabel()
-        titleLbl.font = .systemFont(ofSize: 16, weight: .medium)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.text = "My Gadgets"
         titleLbl.textAlignment = .center
         titleLbl.translatesAutoresizingMaskIntoConstraints = false

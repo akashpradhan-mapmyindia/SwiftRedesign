@@ -95,7 +95,7 @@ class PostOnMapCategoryViewController: UIViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = "Post on Map"
-        titleLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         topView.addSubview(titleLbl)
         
@@ -185,7 +185,7 @@ class PostOnMapCategoryViewController: UIViewController {
         dataSource.supplementaryViewProvider = { (collectionView, kind, index) in
             if index.section == 0 {
                 let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionViewSupplementaryItemTextView.identifier, for: index) as! CollectionViewSupplementaryItemTextView
-                cell.setUpUI(for: "Select Category", font: .systemFont(ofSize: 17, weight: .medium))
+                cell.setUpUI(for: "Select Category", font: .sfProText.medium.ofSize(size: .regular))
                 return cell
             }
             return nil

@@ -34,8 +34,8 @@ class ChooseOnMapAddressTypeView: UIView {
         segmentCtrl.selectedSegmentTintColor = .init(hex: "#339E82")
         segmentCtrl.backgroundColor = .white
         segmentCtrl.selectedSegmentIndex = 0
-        segmentCtrl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.black], for: .normal)
-        segmentCtrl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected)
+        segmentCtrl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.black, NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small)], for: .normal)
+        segmentCtrl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small)], for: .selected)
         segmentCtrl.translatesAutoresizingMaskIntoConstraints = false
         addSubview(segmentCtrl)
         self.addAPlaceLocTypeSegCtrl = segmentCtrl
@@ -48,7 +48,8 @@ class ChooseOnMapAddressTypeView: UIView {
         ])
         
         let addressLbl = UILabel()
-        addressLbl.font = .systemFont(ofSize: 16, weight: .regular)
+        addressLbl.font = .sfProText.medium.ofSize(size: .small)
+        addressLbl.textColor = .init(hex: "#707070")
         addressLbl.numberOfLines = 0
         addressLbl.translatesAutoresizingMaskIntoConstraints = false
         addSubview(addressLbl)
@@ -65,7 +66,7 @@ class ChooseOnMapAddressTypeView: UIView {
         let nextBtn = UIButton(type: .system)
         nextBtn.setTitle("Next", for: .normal)
         nextBtn.setTitleColor(.white, for: .normal)
-        nextBtn.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        nextBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         nextBtn.backgroundColor = .init(hex: "#339E82")
         nextBtn.layer.cornerRadius = 10
         nextBtn.translatesAutoresizingMaskIntoConstraints = false

@@ -51,7 +51,7 @@ class NewGadgetView: UIView {
         newGadgetHeaderLbl.text = "Got a new Mappls IoT Gadget?\nAdd it here! or Buy one Today!!"
         newGadgetHeaderLbl.numberOfLines = 0
         newGadgetHeaderLbl.textAlignment = .center
-        newGadgetHeaderLbl.font = .systemFont(ofSize: 19, weight: .regular)
+        newGadgetHeaderLbl.font = .sfProText.regular.ofSize(size: 19)
         newGadgetHeaderLbl.backgroundColor = .clear
         newGadgetHeaderLbl.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(newGadgetHeaderLbl)
@@ -78,7 +78,7 @@ class NewGadgetView: UIView {
         checkOutLbl.text = "Check out wide range of\nour IoT offerings"
         checkOutLbl.numberOfLines = 0
         checkOutLbl.textAlignment = .center
-        checkOutLbl.font = .systemFont(ofSize: 23, weight: .regular)
+        checkOutLbl.font = .sfProDisplay.regular.ofSize(size: 23)
         contentView.addSubview(checkOutLbl)
         checkOutLbl.translatesAutoresizingMaskIntoConstraints = false
         
@@ -89,7 +89,7 @@ class NewGadgetView: UIView {
         
         let addNewGadgetBtn = UIButton(type: .system)
         addNewGadgetBtn.setTitle("Add New Gadget", for: .normal)
-        addNewGadgetBtn.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        addNewGadgetBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: 16)
         addNewGadgetBtn.addTarget(self, action: #selector(self.addNewBtnClicked), for: .touchUpInside)
         addNewGadgetBtn.layer.borderColor = UIColor.black.cgColor
         addNewGadgetBtn.layer.borderWidth = 1
@@ -100,7 +100,7 @@ class NewGadgetView: UIView {
         let buyNowBtn = UIButton(type: .system)
         buyNowBtn.setTitle("Buy Now", for: .normal)
         buyNowBtn.addTarget(self, action: #selector(self.buyNowClicked), for: .touchUpInside)
-        buyNowBtn.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        buyNowBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: 17)
         buyNowBtn.layer.borderColor = UIColor.black.cgColor
         buyNowBtn.layer.borderWidth = 1
         buyNowBtn.layer.cornerRadius = 8
@@ -125,14 +125,14 @@ class NewGadgetView: UIView {
         callSupportBtn.setTitle("Call Support", for: .normal)
         callSupportBtn.backgroundColor = .clear
         callSupportBtn.addTarget(self, action: #selector(self.callSupportClicked), for: .touchUpInside)
-        callSupportBtn.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
+        callSupportBtn.titleLabel?.font = .sfProText.medium.ofSize(size: .regular)
         callSupportBtn.translatesAutoresizingMaskIntoConstraints = false
         
         let writeToUsBtn = UIButton(type: .system)
         writeToUsBtn.setTitle("Write To Us", for: .normal)
         writeToUsBtn.backgroundColor = .clear
         writeToUsBtn.addTarget(self, action: #selector(self.writeToUsClicked), for: .touchUpInside)
-        writeToUsBtn.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
+        writeToUsBtn.titleLabel?.font = .sfProText.medium.ofSize(size: .regular)
         writeToUsBtn.translatesAutoresizingMaskIntoConstraints = false
 
         let btnStkView2 = UIStackView(arrangedSubviews: [callSupportBtn, writeToUsBtn])

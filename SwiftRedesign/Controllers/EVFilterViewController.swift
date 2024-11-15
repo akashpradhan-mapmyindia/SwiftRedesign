@@ -85,7 +85,7 @@ class EVFilterViewController: UIViewController {
     func setHeaderLbl() {
         let headerLbl = UILabel()
         headerLbl.text = "Please select one or more options."
-        headerLbl.font = .systemFont(ofSize: 13, weight: .medium)
+        headerLbl.font = .sfProText.medium.ofSize(size: .small)
         headerLbl.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         view.addSubview(headerLbl)
         headerLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -104,7 +104,7 @@ class EVFilterViewController: UIViewController {
         btn.setTitle("Apply", for: .normal)
         btn.addTarget(self, action: #selector(self.applyBtnClicked), for: .touchUpInside)
         btn.layer.cornerRadius = 8
-        btn.titleLabel?.font = .systemFont(ofSize: 18)
+        btn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         btn.layer.masksToBounds = true
         btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = UIColor(red: 0.20, green: 0.62, blue: 0.51, alpha: 1.00)
@@ -139,7 +139,7 @@ class EVFilterViewController: UIViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = "Filters"
-        titleLbl.font = .systemFont(ofSize: 18, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         topBar.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         
@@ -150,7 +150,7 @@ class EVFilterViewController: UIViewController {
         
         let resetBtn = UIButton(type: .roundedRect)
         resetBtn.setTitle("Reset", for: .normal)
-        resetBtn.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
+        resetBtn.titleLabel?.font = .sfProText.regular.ofSize(size: .medium)
         resetBtn.addTarget(self, action: #selector(self.resetBtnClicked), for: .touchUpInside)
         topBar.addSubview(resetBtn)
         resetBtn.translatesAutoresizingMaskIntoConstraints = false

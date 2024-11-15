@@ -30,7 +30,7 @@ class CollectionViewSupplementaryItemTextView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpUI(for title: String, font: UIFont = .systemFont(ofSize: 17, weight: .medium), textAlignment: NSTextAlignment = .left, titleTextColor: UIColor = .black) {
+    func setUpUI(for title: String, font: UIFont = .sfProText.medium.ofSize(size: .small), textAlignment: NSTextAlignment = .left, titleTextColor: UIColor = .black) {
         titleLbl.text = title
         titleLbl.font = font
         titleLbl.textAlignment = textAlignment

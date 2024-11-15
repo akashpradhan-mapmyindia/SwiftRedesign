@@ -53,7 +53,7 @@ extension BaseViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = "Choose on map"
-        titleLbl.font = .systemFont(ofSize: 18, weight: .medium)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         topView.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         

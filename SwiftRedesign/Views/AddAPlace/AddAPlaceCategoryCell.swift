@@ -27,7 +27,7 @@ class AddAPlaceCategoryCell: UITableViewCell {
             titleLbl = UILabel()
             titleLbl.text = item.title
             titleLbl.textColor = .init(hex: "#212121")
-            titleLbl.font = .systemFont(ofSize: 17, weight: .medium)
+            titleLbl.font = .sfProText.medium.ofSize(size: .regular)
             titleLbl.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(titleLbl)
             
@@ -46,7 +46,7 @@ class AddAPlaceCategoryCell: UITableViewCell {
             titleLbl = UILabel()
             titleLbl.text = item.title
             titleLbl.textColor = .init(hex: "#212121")
-            titleLbl.font = .systemFont(ofSize: 17, weight: .medium)
+            titleLbl.font = .sfProText.medium.ofSize(size: .regular)
             titleLbl.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(titleLbl)
             

@@ -76,6 +76,7 @@ class CustomSearchBarView: UIView {
         
         searchTextField = UITextField()
         searchTextField.placeholder = "Search..."
+        searchTextField.font = .sfProText.regular.ofSize(size: .medium)
         searchTextField.backgroundColor = .clear
         searchTextField.textColor = .black
         searchTextField.translatesAutoresizingMaskIntoConstraints = false

@@ -19,7 +19,7 @@ class OpenHoursSelectTimeCell: UICollectionViewCell {
         if titleLbl == nil {
             titleLbl = UILabel()
             titleLbl.text = item.timeType.rawValue
-            titleLbl.font = .systemFont(ofSize: 15, weight: .medium)
+            titleLbl.font = .sfProText.medium.ofSize(size: .small)
             titleLbl.textAlignment = .center
             titleLbl.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(titleLbl)

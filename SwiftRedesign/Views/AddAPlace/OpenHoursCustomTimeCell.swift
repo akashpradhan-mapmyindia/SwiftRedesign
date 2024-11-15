@@ -13,7 +13,7 @@ class OpenHoursCustomTimeCell: UICollectionViewCell {
     
     func setUpUI(with item: CustomTime) {
         let fromLbl = UILabel()
-        fromLbl.attributedText = item.fromTime.attributedTime(hourMinuteAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 26, weight: .bold), NSAttributedString.Key.foregroundColor : UIColor(hex: "#212121")], meridiemAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 26, weight: .bold), NSAttributedString.Key.foregroundColor : UIColor(hex: "#707070")])
+        fromLbl.attributedText = item.fromTime.attributedTime(hourMinuteAttributes: [NSAttributedString.Key.font : UIFont.sfProText.bold.ofSize(size: 25), NSAttributedString.Key.foregroundColor : UIColor(hex: "#212121")], meridiemAttributes: [NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: 25), NSAttributedString.Key.foregroundColor : UIColor(hex: "#707070")])
         fromLbl.textAlignment = .left
         fromLbl.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(fromLbl)

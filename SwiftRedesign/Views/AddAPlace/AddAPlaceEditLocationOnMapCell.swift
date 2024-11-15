@@ -47,7 +47,7 @@ class AddAPlaceEditLocationOnMapCell: UICollectionViewCell {
         
         let editOnMapBtn = UIButton(type: .system)
         editOnMapBtn.setTitle("Edit location on map", for: .normal)
-        editOnMapBtn.titleLabel?.font = .systemFont(ofSize: 16)
+        editOnMapBtn.titleLabel?.font = .sfProText.medium.ofSize(size: .small)
         editOnMapBtn.setTitleColor(.white, for: .normal)
         editOnMapBtn.layer.borderColor = UIColor.white.cgColor
         editOnMapBtn.layer.borderWidth = 1
@@ -68,7 +68,7 @@ class AddAPlaceEditLocationOnMapCell: UICollectionViewCell {
         editPublishNote.text = "Note: Your edits will be published on Mappls shortly. Mappls will email you about the status of your edits and may contact you for furthers details."
         editPublishNote.textAlignment = .left
         editPublishNote.numberOfLines = 0
-        editPublishNote.font = .systemFont(ofSize: 15)
+        editPublishNote.font = .sfProText.regular.ofSize(size: .extra_small)
         editPublishNote.textColor = .init(hex: "#707070")
         editPublishNote.backgroundColor = .clear
         editPublishNote.translatesAutoresizingMaskIntoConstraints = false

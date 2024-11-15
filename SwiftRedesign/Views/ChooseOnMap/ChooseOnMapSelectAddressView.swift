@@ -28,7 +28,7 @@ class ChooseOnMapSelectAddressView: UIView {
     
     func commonInit() {
         let addressLbl = UILabel()
-        addressLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+        addressLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         addressLbl.numberOfLines = 0
         addressLbl.textAlignment = .left
         addressLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +45,7 @@ class ChooseOnMapSelectAddressView: UIView {
         let moveMarkerDescLbl = UILabel()
         moveMarkerDescLbl.text = "Move the map/marker to point the exact location of the place on map"
         moveMarkerDescLbl.numberOfLines = 0
-        moveMarkerDescLbl.font = .systemFont(ofSize: 15, weight: .regular)
+        moveMarkerDescLbl.font = .sfProText.regular.ofSize(size: .small)
         moveMarkerDescLbl.textAlignment = .left
         moveMarkerDescLbl.translatesAutoresizingMaskIntoConstraints = false
         addSubview(moveMarkerDescLbl)
@@ -60,6 +60,7 @@ class ChooseOnMapSelectAddressView: UIView {
         
         let doneBtn = UIButton(type: .system)
         doneBtn.setTitle("Done", for: .normal)
+        doneBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         doneBtn.layer.cornerRadius = 10
         doneBtn.backgroundColor = .init(hex: "#339E82")
         doneBtn.setTitleColor(.white, for: .normal)

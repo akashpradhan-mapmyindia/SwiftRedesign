@@ -17,7 +17,7 @@ class AddAPlaceHeaderSupplementaryView: UICollectionReusableView {
         let titleLbl = UILabel()
         titleLbl.text = title
         titleLbl.textAlignment = .left
-        titleLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLbl)
         

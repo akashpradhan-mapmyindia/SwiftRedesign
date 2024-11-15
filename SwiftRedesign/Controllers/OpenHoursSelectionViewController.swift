@@ -265,7 +265,7 @@ class OpenHoursSelectionViewController: UIViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = "Select days & time"
-        titleLbl.font = .systemFont(ofSize: 18, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.textAlignment = .center
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(titleLbl)
@@ -426,7 +426,7 @@ class OpenHoursSelectionViewController: UIViewController {
     
     func setAddHoursBtn() {
         addHoursBtn = UIButton(type: .system)
-        let attributedTitle = NSAttributedString(string: "Add Hours", attributes: [NSAttributedString.Key.underlineStyle : NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor : UIColor(hex: "#339E82"), NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17, weight: .semibold)])
+        let attributedTitle = NSAttributedString(string: "Add Hours", attributes: [NSAttributedString.Key.underlineStyle : NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor : UIColor(hex: "#339E82"), NSAttributedString.Key.font : UIFont.sfProText.semiBold.ofSize(size: .regular)])
         addHoursBtn.setAttributedTitle(attributedTitle, for: .normal)
         addHoursBtn.addTarget(self, action: #selector(self.showCustomTimeView), for: .touchUpInside)
         addHoursBtn.setTitleColor(.init(hex: "#339E82"), for: .normal)
@@ -448,7 +448,7 @@ class OpenHoursSelectionViewController: UIViewController {
         let cancelBtn = UIButton(type: .system)
         cancelBtn.setTitle("Cancel", for: .normal)
         cancelBtn.layer.cornerRadius = 8
-        cancelBtn.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        cancelBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         cancelBtn.backgroundColor = .white
         cancelBtn.setTitleColor(.black, for: .normal)
         cancelBtn.layer.borderWidth = 1
@@ -457,7 +457,7 @@ class OpenHoursSelectionViewController: UIViewController {
         
         let doneBtn = UIButton(type: .system)
         doneBtn.setTitle("Done", for: .normal)
-        doneBtn.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        doneBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         doneBtn.setTitleColor(.white, for: .normal)
         doneBtn.backgroundColor = .init(hex: "#339E82")
         doneBtn.layer.cornerRadius = 8

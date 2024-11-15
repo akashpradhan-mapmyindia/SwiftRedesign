@@ -19,7 +19,7 @@ class OpenHoursWeekDayCell: UICollectionViewCell {
         if titleLbl == nil {
             titleLbl = UILabel()
             titleLbl.text = item.day.abbreviation
-            titleLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+            titleLbl.font = .sfProText.semiBold.ofSize(size: 21)
             titleLbl.textAlignment = .center
             titleLbl.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(titleLbl)

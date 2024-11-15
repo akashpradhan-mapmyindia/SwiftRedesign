@@ -70,7 +70,7 @@ class PostOnMapFixOnMapEnterDetailsViewController: UIViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = isForPostOnMap ? "Post on Map" : "Fix Map"
-        titleLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         topView.addSubview(titleLbl)
         
@@ -144,7 +144,7 @@ class PostOnMapFixOnMapEnterDetailsViewController: UIViewController {
         let parentCategoryLbl = UILabel()
         parentCategoryLbl.numberOfLines = 0
         parentCategoryLbl.text = isForPostOnMap ? postOnMapCategory?.title : "Map"
-        parentCategoryLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        parentCategoryLbl.font = .sfProText.medium.ofSize(size: .small)
         parentCategoryLbl.translatesAutoresizingMaskIntoConstraints = false
         backView.addSubview(parentCategoryLbl)
         
@@ -189,7 +189,7 @@ class PostOnMapFixOnMapEnterDetailsViewController: UIViewController {
         let subCatLbl = UILabel()
         subCatLbl.numberOfLines = 0
         subCatLbl.text = isForPostOnMap ? subCategory?.title : fixOnMapCategory?.title
-        subCatLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        subCatLbl.font = .sfProText.medium.ofSize(size: .small)
         subCatLbl.translatesAutoresizingMaskIntoConstraints = false
         backView.addSubview(subCatLbl)
         
@@ -216,8 +216,7 @@ class PostOnMapFixOnMapEnterDetailsViewController: UIViewController {
         
         let searchLocationTF = UITextField()
         searchLocationTF.placeholder = "Search or choose location from map"
-        searchLocationTF.font = .systemFont(ofSize: 17, weight: .regular)
-        searchLocationTF.textColor = .init(hex: "#707070")
+        searchLocationTF.font = .sfProText.regular.ofSize(size: .regular)
         searchLocationTF.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(searchLocationTF)
         
@@ -243,6 +242,7 @@ class PostOnMapFixOnMapEnterDetailsViewController: UIViewController {
         let addImgBtn = UIButton()
         addImgBtn.setImage(UIImage(systemName: "photo"), for: .normal)
         addImgBtn.setTitle("Add image", for: .normal)
+        addImgBtn.titleLabel?.font = .sfProText.medium.ofSize(size: .small)
         addImgBtn.setTitleColor(.black, for: .normal)
         addImgBtn.layer.borderColor = UIColor(hex: "#DDDDDD").cgColor
         addImgBtn.addTarget(self, action: #selector(self.addImgBtnClicked), for: .touchUpInside)
@@ -263,6 +263,7 @@ class PostOnMapFixOnMapEnterDetailsViewController: UIViewController {
         let addCommentBtn = UIButton()
         addCommentBtn.setImage(UIImage(systemName: "text.bubble.fill"), for: .normal)
         addCommentBtn.setTitle("Add a comment", for: .normal)
+        addCommentBtn.titleLabel?.font = .sfProText.medium.ofSize(size: .small)
         addCommentBtn.setTitleColor(.black, for: .normal)
         addCommentBtn.layer.cornerRadius = 10
         addCommentBtn.layer.borderWidth = 1
@@ -296,7 +297,7 @@ class PostOnMapFixOnMapEnterDetailsViewController: UIViewController {
         
         let hideMyNameLbl = UILabel()
         hideMyNameLbl.text = "Hide My Name"
-        hideMyNameLbl.font = .systemFont(ofSize: 17, weight: .regular)
+        hideMyNameLbl.font = .sfProText.regular.ofSize(size: .regular)
         hideMyNameLbl.textColor = .init(hex: "#707070")
         hideMyNameLbl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(hideMyNameLbl)
@@ -310,7 +311,7 @@ class PostOnMapFixOnMapEnterDetailsViewController: UIViewController {
         doneBtn.setTitle("Done", for: .normal)
         doneBtn.setTitleColor(.white, for: .normal)
         doneBtn.titleLabel?.textAlignment = .center
-        doneBtn.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        doneBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         doneBtn.backgroundColor = .init(hex: "#339E82")
         doneBtn.layer.cornerRadius = 12
         doneBtn.addTarget(self, action: #selector(self.doneBtnClicked), for: .touchUpInside)

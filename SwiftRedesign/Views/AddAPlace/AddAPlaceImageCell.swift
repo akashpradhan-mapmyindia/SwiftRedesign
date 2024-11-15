@@ -31,7 +31,7 @@ class AddAPlaceImageCell: UICollectionViewCell {
             button.setImage(UIImage(systemName: "photo")!, for: .normal)
             button.setTitle("Add image", for: .normal)
             button.setTitleColor(.black, for: .normal)
-            button.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
+            button.titleLabel?.font = .sfProText.medium.ofSize(size: .small)
             button.addTarget(self, action: #selector(self.addImageClicked), for: .touchUpInside)
             button.contentMode = .scaleAspectFit
             button.translatesAutoresizingMaskIntoConstraints = false

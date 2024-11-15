@@ -84,7 +84,7 @@ class PostReportSuccessfulViewController: UIViewController {
         let successfulLbl = UILabel()
         successfulLbl.text = isForPost ? "Post Successfully" : "Reported Successfully"
         successfulLbl.textAlignment = .center
-        successfulLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+        successfulLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         successfulLbl.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(successfulLbl)
         
@@ -102,7 +102,7 @@ class PostReportSuccessfulViewController: UIViewController {
         submittedLbl.text = isForPost ? "Your post has been submitted successfully." : "Your report has been submitted successfully."
         submittedLbl.textAlignment = .center
         submittedLbl.textColor = .init(hex: "#707070")
-        submittedLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        submittedLbl.font = .sfProText.medium.ofSize(size: .small)
         submittedLbl.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(submittedLbl)
         
@@ -120,7 +120,7 @@ class PostReportSuccessfulViewController: UIViewController {
         viewBtn.addTarget(self, action: #selector(self.viewBtnClicked), for: .touchUpInside)
         viewBtn.backgroundColor = .white
         viewBtn.setTitleColor(.init(hex: "#007BBE"), for: .normal)
-        viewBtn.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+        viewBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .small)
         viewBtn.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(viewBtn)
         
@@ -136,6 +136,7 @@ class PostReportSuccessfulViewController: UIViewController {
         
         let shareBtn = UIButton(type: .system)
         shareBtn.setTitle("Share", for: .normal)
+        shareBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         shareBtn.layer.borderWidth = 1
         shareBtn.layer.borderColor = UIColor(hex: "#339E82").cgColor
         shareBtn.backgroundColor = .white
@@ -146,6 +147,7 @@ class PostReportSuccessfulViewController: UIViewController {
         
         let continueBtn = UIButton(type: .system)
         continueBtn.setTitle("Continue", for: .normal)
+        continueBtn.titleLabel?.font = .sfProText.semiBold.ofSize(size: .regular)
         continueBtn.setTitleColor(.white, for: .normal)
         continueBtn.backgroundColor = .init(hex: "#339E82")
         continueBtn.layer.cornerRadius = 10

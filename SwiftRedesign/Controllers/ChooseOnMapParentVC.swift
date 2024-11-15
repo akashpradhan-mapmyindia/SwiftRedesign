@@ -49,7 +49,7 @@ class ChooseOnMapParentVC: UIViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = "Choose On Map"
-        titleLbl.font = .systemFont(ofSize: 18, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.textAlignment = .center
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(titleLbl)

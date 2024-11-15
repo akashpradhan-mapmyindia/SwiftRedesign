@@ -33,7 +33,7 @@ class EVFilterHeaderTitleSupplementaryView: UICollectionReusableView {
         let titleLbl = UILabel()
         addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
-        titleLbl.font = .systemFont(ofSize: 18, weight: .medium)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.textAlignment = .left
         self.titleLbl = titleLbl
         

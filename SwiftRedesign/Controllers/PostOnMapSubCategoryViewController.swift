@@ -62,7 +62,7 @@ class PostOnMapSubCategoryViewController: UIViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = "Post on Map"
-        titleLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         topView.addSubview(titleLbl)
         
@@ -148,7 +148,7 @@ extension PostOnMapSubCategoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = CommonTableHeaderFooterView()
-        header.setUpUI(for: "Select Category", font: .systemFont(ofSize: 17, weight: .medium))
+        header.setUpUI(for: "Select Category", font: .sfProText.medium.ofSize(size: .regular))
         header.backgroundColor = .white
         return header
     }

@@ -55,32 +55,33 @@
 		CCDF5FB82CE4715500C7B0CD /* PostOnMapCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FB72CE4715500C7B0CD /* PostOnMapCategoryViewController.swift */; };
 		CCDF5FBA2CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FB92CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */; };
 		CCDF5FBC2CE4719800C7B0CD /* PostOnMapSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF5FBB2CE4719800C7B0CD /* PostOnMapSubCategoryViewController.swift */; };
-		CCDF5FF22CE5F35E00C7B0CD /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FD82CE5F35E00C7B0CD /* SFProText-Medium.ttf */; };
-		CCDF5FF32CE5F35E00C7B0CD /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FD92CE5F35E00C7B0CD /* NotoSans-Regular.ttf */; };
-		CCDF5FF42CE5F35E00C7B0CD /* SFProText-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FDA2CE5F35E00C7B0CD /* SFProText-RegularItalic.ttf */; };
-		CCDF5FF52CE5F35E00C7B0CD /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FDB2CE5F35E00C7B0CD /* SFProText-Semibold.ttf */; };
-		CCDF5FF62CE5F35E00C7B0CD /* DS-DIGIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FDC2CE5F35E00C7B0CD /* DS-DIGIT.TTF */; };
-		CCDF5FF72CE5F35E00C7B0CD /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FDD2CE5F35E00C7B0CD /* NotoSans-Bold.ttf */; };
-		CCDF5FF82CE5F35E00C7B0CD /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FDE2CE5F35E00C7B0CD /* SFProText-Regular.ttf */; };
-		CCDF5FF92CE5F35E00C7B0CD /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FDF2CE5F35E00C7B0CD /* SFProDisplay-Medium.ttf */; };
-		CCDF5FFA2CE5F35E00C7B0CD /* SFProDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE02CE5F35E00C7B0CD /* SFProDisplay-Black.ttf */; };
-		CCDF5FFB2CE5F35E00C7B0CD /* AntennaCond-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE12CE5F35E00C7B0CD /* AntennaCond-Regular.otf */; };
-		CCDF5FFC2CE5F35E00C7B0CD /* SFProText-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE22CE5F35E00C7B0CD /* SFProText-MediumItalic.ttf */; };
-		CCDF5FFD2CE5F35E00C7B0CD /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE32CE5F35E00C7B0CD /* SFProText-Light.ttf */; };
-		CCDF5FFE2CE5F35E00C7B0CD /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE42CE5F35E00C7B0CD /* SFProDisplay-Regular.ttf */; };
-		CCDF5FFF2CE5F35E00C7B0CD /* DS-DIGII.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE52CE5F35E00C7B0CD /* DS-DIGII.TTF */; };
-		CCDF60002CE5F35E00C7B0CD /* HEX-Font-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE62CE5F35E00C7B0CD /* HEX-Font-Regular.ttf */; };
-		CCDF60012CE5F35E00C7B0CD /* SFProText-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE72CE5F35E00C7B0CD /* SFProText-SemiboldItalic.ttf */; };
-		CCDF60022CE5F35E00C7B0CD /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE82CE5F35E00C7B0CD /* Montserrat-Regular.otf */; };
-		CCDF60032CE5F35E00C7B0CD /* Montserrat-Italic_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FE92CE5F35E00C7B0CD /* Montserrat-Italic_0.ttf */; };
-		CCDF60042CE5F35E00C7B0CD /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FEA2CE5F35E00C7B0CD /* NotoSans-BoldItalic.ttf */; };
-		CCDF60052CE5F35E00C7B0CD /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FEB2CE5F35E00C7B0CD /* SFProDisplay-Bold.ttf */; };
-		CCDF60062CE5F35E00C7B0CD /* CallingHeart.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FEC2CE5F35E00C7B0CD /* CallingHeart.otf */; };
-		CCDF60072CE5F35E00C7B0CD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FED2CE5F35E00C7B0CD /* SFProText-Bold.ttf */; };
-		CCDF60082CE5F35E00C7B0CD /* GillSans-SemiBold-05.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FEE2CE5F35E00C7B0CD /* GillSans-SemiBold-05.ttf */; };
-		CCDF60092CE5F35E00C7B0CD /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FEF2CE5F35E00C7B0CD /* SFProDisplay-Semibold.ttf */; };
-		CCDF600A2CE5F35E00C7B0CD /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FF02CE5F35E00C7B0CD /* Montserrat-SemiBold.otf */; };
-		CCDF600B2CE5F35E00C7B0CD /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF5FF12CE5F35E00C7B0CD /* NotoSans-Italic.ttf */; };
+		CCDF602B2CE6000400C7B0CD /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF602A2CE6000400C7B0CD /* UIFont+Extension.swift */; };
+		CCDF602C2CE608CF00C7B0CD /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60102CE5F36C00C7B0CD /* SFProText-Medium.ttf */; };
+		CCDF602D2CE608D200C7B0CD /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF600E2CE5F36C00C7B0CD /* NotoSans-Regular.ttf */; };
+		CCDF602E2CE608E300C7B0CD /* GillSans-SemiBold-05.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60142CE5F36D00C7B0CD /* GillSans-SemiBold-05.ttf */; };
+		CCDF602F2CE608E300C7B0CD /* Montserrat-Italic_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF601F2CE5F36E00C7B0CD /* Montserrat-Italic_0.ttf */; };
+		CCDF60302CE608E300C7B0CD /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60252CE5F36E00C7B0CD /* NotoSans-BoldItalic.ttf */; };
+		CCDF60312CE608E300C7B0CD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60272CE5F36F00C7B0CD /* SFProText-Bold.ttf */; };
+		CCDF60322CE608E300C7B0CD /* DS-DIGII.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60122CE5F36D00C7B0CD /* DS-DIGII.TTF */; };
+		CCDF60332CE608E300C7B0CD /* SFProText-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60172CE5F36D00C7B0CD /* SFProText-RegularItalic.ttf */; };
+		CCDF60342CE608E300C7B0CD /* CallingHeart.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF601B2CE5F36E00C7B0CD /* CallingHeart.otf */; };
+		CCDF60352CE608E300C7B0CD /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60262CE5F36F00C7B0CD /* SFProDisplay-Semibold.ttf */; };
+		CCDF60362CE608E300C7B0CD /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60152CE5F36D00C7B0CD /* NotoSans-Italic.ttf */; };
+		CCDF60372CE608E300C7B0CD /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60212CE5F36E00C7B0CD /* NotoSans-Bold.ttf */; };
+		CCDF60382CE608E300C7B0CD /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60232CE5F36E00C7B0CD /* Montserrat-Regular.otf */; };
+		CCDF60392CE608E300C7B0CD /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60112CE5F36C00C7B0CD /* SFProDisplay-Medium.ttf */; };
+		CCDF603A2CE608E300C7B0CD /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF601D2CE5F36E00C7B0CD /* SFProDisplay-Regular.ttf */; };
+		CCDF603B2CE608E300C7B0CD /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF601E2CE5F36E00C7B0CD /* Montserrat-SemiBold.otf */; };
+		CCDF603C2CE608E300C7B0CD /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60222CE5F36E00C7B0CD /* SFProText-Regular.ttf */; };
+		CCDF603D2CE608E300C7B0CD /* SFProText-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60162CE5F36D00C7B0CD /* SFProText-MediumItalic.ttf */; };
+		CCDF603E2CE608E300C7B0CD /* SFProDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60132CE5F36D00C7B0CD /* SFProDisplay-Black.ttf */; };
+		CCDF603F2CE608E300C7B0CD /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF601C2CE5F36E00C7B0CD /* SFProText-Light.ttf */; };
+		CCDF60402CE608E300C7B0CD /* AntennaCond-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF601A2CE5F36D00C7B0CD /* AntennaCond-Regular.otf */; };
+		CCDF60412CE608E300C7B0CD /* DS-DIGIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CCDF600F2CE5F36C00C7B0CD /* DS-DIGIT.TTF */; };
+		CCDF60422CE608E300C7B0CD /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60202CE5F36E00C7B0CD /* SFProText-Semibold.ttf */; };
+		CCDF60432CE608E300C7B0CD /* HEX-Font-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60192CE5F36D00C7B0CD /* HEX-Font-Regular.ttf */; };
+		CCDF60442CE608E300C7B0CD /* SFProText-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60182CE5F36D00C7B0CD /* SFProText-SemiboldItalic.ttf */; };
+		CCDF60452CE608E300C7B0CD /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDF60242CE5F36E00C7B0CD /* SFProDisplay-Bold.ttf */; };
 		CCF633B92CBCE6FF006FDE35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */; };
 		CCF633BB2CBCE6FF006FDE35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */; };
 		CCF633C22CBCE700006FDE35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF633C12CBCE700006FDE35 /* Assets.xcassets */; };
@@ -139,32 +140,6 @@
 		CCDF5FB72CE4715500C7B0CD /* PostOnMapCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapCategoryViewController.swift; sourceTree = "<group>"; };
 		CCDF5FB92CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapFixOnMapEnterDetailsViewController.swift; sourceTree = "<group>"; };
 		CCDF5FBB2CE4719800C7B0CD /* PostOnMapSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapSubCategoryViewController.swift; sourceTree = "<group>"; };
-		CCDF5FD82CE5F35E00C7B0CD /* SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.ttf"; sourceTree = "<group>"; };
-		CCDF5FD92CE5F35E00C7B0CD /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
-		CCDF5FDA2CE5F35E00C7B0CD /* SFProText-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-RegularItalic.ttf"; sourceTree = "<group>"; };
-		CCDF5FDB2CE5F35E00C7B0CD /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
-		CCDF5FDC2CE5F35E00C7B0CD /* DS-DIGIT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIT.TTF"; sourceTree = "<group>"; };
-		CCDF5FDD2CE5F35E00C7B0CD /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
-		CCDF5FDE2CE5F35E00C7B0CD /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
-		CCDF5FDF2CE5F35E00C7B0CD /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
-		CCDF5FE02CE5F35E00C7B0CD /* SFProDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Black.ttf"; sourceTree = "<group>"; };
-		CCDF5FE12CE5F35E00C7B0CD /* AntennaCond-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AntennaCond-Regular.otf"; sourceTree = "<group>"; };
-		CCDF5FE22CE5F35E00C7B0CD /* SFProText-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-MediumItalic.ttf"; sourceTree = "<group>"; };
-		CCDF5FE32CE5F35E00C7B0CD /* SFProText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.ttf"; sourceTree = "<group>"; };
-		CCDF5FE42CE5F35E00C7B0CD /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
-		CCDF5FE52CE5F35E00C7B0CD /* DS-DIGII.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGII.TTF"; sourceTree = "<group>"; };
-		CCDF5FE62CE5F35E00C7B0CD /* HEX-Font-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HEX-Font-Regular.ttf"; sourceTree = "<group>"; };
-		CCDF5FE72CE5F35E00C7B0CD /* SFProText-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-SemiboldItalic.ttf"; sourceTree = "<group>"; };
-		CCDF5FE82CE5F35E00C7B0CD /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
-		CCDF5FE92CE5F35E00C7B0CD /* Montserrat-Italic_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic_0.ttf"; sourceTree = "<group>"; };
-		CCDF5FEA2CE5F35E00C7B0CD /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
-		CCDF5FEB2CE5F35E00C7B0CD /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
-		CCDF5FEC2CE5F35E00C7B0CD /* CallingHeart.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CallingHeart.otf; sourceTree = "<group>"; };
-		CCDF5FED2CE5F35E00C7B0CD /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
-		CCDF5FEE2CE5F35E00C7B0CD /* GillSans-SemiBold-05.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GillSans-SemiBold-05.ttf"; sourceTree = "<group>"; };
-		CCDF5FEF2CE5F35E00C7B0CD /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
-		CCDF5FF02CE5F35E00C7B0CD /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
-		CCDF5FF12CE5F35E00C7B0CD /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
 		CCDF600E2CE5F36C00C7B0CD /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		CCDF600F2CE5F36C00C7B0CD /* DS-DIGIT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIT.TTF"; sourceTree = "<group>"; };
 		CCDF60102CE5F36C00C7B0CD /* SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.ttf"; sourceTree = "<group>"; };
@@ -191,6 +166,7 @@
 		CCDF60252CE5F36E00C7B0CD /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		CCDF60262CE5F36F00C7B0CD /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		CCDF60272CE5F36F00C7B0CD /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
+		CCDF602A2CE6000400C7B0CD /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		CCF633B52CBCE6FF006FDE35 /* SwiftRedesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRedesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF633B82CBCE6FF006FDE35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +248,7 @@
 				CC933EE32CCA001D00F8D51E /* BaseViewController+AddAPlace.swift */,
 				CC933EEC2CCC82E900F8D51E /* String+Extension.swift */,
 				CC933EF72CCFBCC200F8D51E /* UIButton+Extension.swift */,
+				CCDF602A2CE6000400C7B0CD /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -342,40 +319,6 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		CCDF5FD72CE5F35E00C7B0CD /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				CCDF5FD82CE5F35E00C7B0CD /* SFProText-Medium.ttf */,
-				CCDF5FD92CE5F35E00C7B0CD /* NotoSans-Regular.ttf */,
-				CCDF5FDA2CE5F35E00C7B0CD /* SFProText-RegularItalic.ttf */,
-				CCDF5FDB2CE5F35E00C7B0CD /* SFProText-Semibold.ttf */,
-				CCDF5FDC2CE5F35E00C7B0CD /* DS-DIGIT.TTF */,
-				CCDF5FDD2CE5F35E00C7B0CD /* NotoSans-Bold.ttf */,
-				CCDF5FDE2CE5F35E00C7B0CD /* SFProText-Regular.ttf */,
-				CCDF5FDF2CE5F35E00C7B0CD /* SFProDisplay-Medium.ttf */,
-				CCDF5FE02CE5F35E00C7B0CD /* SFProDisplay-Black.ttf */,
-				CCDF5FE12CE5F35E00C7B0CD /* AntennaCond-Regular.otf */,
-				CCDF5FE22CE5F35E00C7B0CD /* SFProText-MediumItalic.ttf */,
-				CCDF5FE32CE5F35E00C7B0CD /* SFProText-Light.ttf */,
-				CCDF5FE42CE5F35E00C7B0CD /* SFProDisplay-Regular.ttf */,
-				CCDF5FE52CE5F35E00C7B0CD /* DS-DIGII.TTF */,
-				CCDF5FE62CE5F35E00C7B0CD /* HEX-Font-Regular.ttf */,
-				CCDF5FE72CE5F35E00C7B0CD /* SFProText-SemiboldItalic.ttf */,
-				CCDF5FE82CE5F35E00C7B0CD /* Montserrat-Regular.otf */,
-				CCDF5FE92CE5F35E00C7B0CD /* Montserrat-Italic_0.ttf */,
-				CCDF5FEA2CE5F35E00C7B0CD /* NotoSans-BoldItalic.ttf */,
-				CCDF5FEB2CE5F35E00C7B0CD /* SFProDisplay-Bold.ttf */,
-				CCDF5FEC2CE5F35E00C7B0CD /* CallingHeart.otf */,
-				CCDF5FED2CE5F35E00C7B0CD /* SFProText-Bold.ttf */,
-				CCDF5FEE2CE5F35E00C7B0CD /* GillSans-SemiBold-05.ttf */,
-				CCDF5FEF2CE5F35E00C7B0CD /* SFProDisplay-Semibold.ttf */,
-				CCDF5FF02CE5F35E00C7B0CD /* Montserrat-SemiBold.otf */,
-				CCDF5FF12CE5F35E00C7B0CD /* NotoSans-Italic.ttf */,
-			);
-			name = fonts;
-			path = ../../../../Downloads/Mappls_iOS/common/fonts;
-			sourceTree = "<group>";
-		};
 		CCDF600C2CE5F36900C7B0CD /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,7 +385,6 @@
 				CCF633BA2CBCE6FF006FDE35 /* SceneDelegate.swift */,
 				CC933EB92CBCEB4B00F8D51E /* BaseViewController.swift */,
 				CCDF600C2CE5F36900C7B0CD /* Common */,
-				CCDF5FD72CE5F35E00C7B0CD /* fonts */,
 				CCDF5FAD2CE36B3300C7B0CD /* Utility */,
 				CC933ED92CC8D4B800F8D51E /* Views */,
 				CC933ED42CC7BFC000F8D51E /* Extensions */,
@@ -532,34 +474,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCDF60022CE5F35E00C7B0CD /* Montserrat-Regular.otf in Resources */,
-				CCDF5FF72CE5F35E00C7B0CD /* NotoSans-Bold.ttf in Resources */,
-				CCDF5FF32CE5F35E00C7B0CD /* NotoSans-Regular.ttf in Resources */,
-				CCDF60092CE5F35E00C7B0CD /* SFProDisplay-Semibold.ttf in Resources */,
-				CCDF60042CE5F35E00C7B0CD /* NotoSans-BoldItalic.ttf in Resources */,
-				CCDF5FFF2CE5F35E00C7B0CD /* DS-DIGII.TTF in Resources */,
-				CCDF5FFA2CE5F35E00C7B0CD /* SFProDisplay-Black.ttf in Resources */,
-				CCDF5FFE2CE5F35E00C7B0CD /* SFProDisplay-Regular.ttf in Resources */,
-				CCDF5FF22CE5F35E00C7B0CD /* SFProText-Medium.ttf in Resources */,
+				CCDF60432CE608E300C7B0CD /* HEX-Font-Regular.ttf in Resources */,
+				CCDF60342CE608E300C7B0CD /* CallingHeart.otf in Resources */,
+				CCDF60392CE608E300C7B0CD /* SFProDisplay-Medium.ttf in Resources */,
+				CCDF60352CE608E300C7B0CD /* SFProDisplay-Semibold.ttf in Resources */,
+				CCDF603B2CE608E300C7B0CD /* Montserrat-SemiBold.otf in Resources */,
+				CCDF602F2CE608E300C7B0CD /* Montserrat-Italic_0.ttf in Resources */,
+				CCDF603F2CE608E300C7B0CD /* SFProText-Light.ttf in Resources */,
+				CCDF603C2CE608E300C7B0CD /* SFProText-Regular.ttf in Resources */,
+				CCDF60322CE608E300C7B0CD /* DS-DIGII.TTF in Resources */,
+				CCDF602D2CE608D200C7B0CD /* NotoSans-Regular.ttf in Resources */,
+				CCDF602C2CE608CF00C7B0CD /* SFProText-Medium.ttf in Resources */,
+				CCDF60452CE608E300C7B0CD /* SFProDisplay-Bold.ttf in Resources */,
+				CCDF60362CE608E300C7B0CD /* NotoSans-Italic.ttf in Resources */,
+				CCDF60312CE608E300C7B0CD /* SFProText-Bold.ttf in Resources */,
+				CCDF60442CE608E300C7B0CD /* SFProText-SemiboldItalic.ttf in Resources */,
+				CCDF60382CE608E300C7B0CD /* Montserrat-Regular.otf in Resources */,
+				CCDF60412CE608E300C7B0CD /* DS-DIGIT.TTF in Resources */,
+				CCDF60302CE608E300C7B0CD /* NotoSans-BoldItalic.ttf in Resources */,
+				CCDF602E2CE608E300C7B0CD /* GillSans-SemiBold-05.ttf in Resources */,
+				CCDF60372CE608E300C7B0CD /* NotoSans-Bold.ttf in Resources */,
 				CCF633C52CBCE700006FDE35 /* LaunchScreen.storyboard in Resources */,
-				CCDF60062CE5F35E00C7B0CD /* CallingHeart.otf in Resources */,
-				CCDF600B2CE5F35E00C7B0CD /* NotoSans-Italic.ttf in Resources */,
-				CCDF60002CE5F35E00C7B0CD /* HEX-Font-Regular.ttf in Resources */,
-				CCDF600A2CE5F35E00C7B0CD /* Montserrat-SemiBold.otf in Resources */,
+				CCDF60422CE608E300C7B0CD /* SFProText-Semibold.ttf in Resources */,
+				CCDF603A2CE608E300C7B0CD /* SFProDisplay-Regular.ttf in Resources */,
+				CCDF603E2CE608E300C7B0CD /* SFProDisplay-Black.ttf in Resources */,
+				CCDF603D2CE608E300C7B0CD /* SFProText-MediumItalic.ttf in Resources */,
 				CCF633C22CBCE700006FDE35 /* Assets.xcassets in Resources */,
-				CCDF5FF42CE5F35E00C7B0CD /* SFProText-RegularItalic.ttf in Resources */,
-				CCDF5FF52CE5F35E00C7B0CD /* SFProText-Semibold.ttf in Resources */,
-				CCDF5FF82CE5F35E00C7B0CD /* SFProText-Regular.ttf in Resources */,
-				CCDF5FF62CE5F35E00C7B0CD /* DS-DIGIT.TTF in Resources */,
-				CCDF60012CE5F35E00C7B0CD /* SFProText-SemiboldItalic.ttf in Resources */,
-				CCDF5FFC2CE5F35E00C7B0CD /* SFProText-MediumItalic.ttf in Resources */,
-				CCDF60032CE5F35E00C7B0CD /* Montserrat-Italic_0.ttf in Resources */,
-				CCDF60072CE5F35E00C7B0CD /* SFProText-Bold.ttf in Resources */,
-				CCDF5FFD2CE5F35E00C7B0CD /* SFProText-Light.ttf in Resources */,
-				CCDF60052CE5F35E00C7B0CD /* SFProDisplay-Bold.ttf in Resources */,
-				CCDF60082CE5F35E00C7B0CD /* GillSans-SemiBold-05.ttf in Resources */,
-				CCDF5FFB2CE5F35E00C7B0CD /* AntennaCond-Regular.otf in Resources */,
-				CCDF5FF92CE5F35E00C7B0CD /* SFProDisplay-Medium.ttf in Resources */,
+				CCDF60332CE608E300C7B0CD /* SFProText-RegularItalic.ttf in Resources */,
+				CCDF60402CE608E300C7B0CD /* AntennaCond-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +581,7 @@
 				CC933ED02CC6626A00F8D51E /* NewGadgetView.swift in Sources */,
 				CC933EED2CCC82E900F8D51E /* String+Extension.swift in Sources */,
 				CC933EF82CCFBCC200F8D51E /* UIButton+Extension.swift in Sources */,
+				CCDF602B2CE6000400C7B0CD /* UIFont+Extension.swift in Sources */,
 				CCDF5FA72CE3642100C7B0CD /* BaseViewController+PostOnMap+FixOnMap.swift in Sources */,
 				CC933ED32CC7826700F8D51E /* EVFilterViewController.swift in Sources */,
 				CC933EEB2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift in Sources */,

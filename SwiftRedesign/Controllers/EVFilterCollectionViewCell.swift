@@ -22,7 +22,7 @@ class EVFilterCollectionViewCell: UICollectionViewCell {
         
         let valueLbl = UILabel()
         valueLbl.text = value.name
-        valueLbl.font = .systemFont(ofSize: 13, weight: .regular)
+        valueLbl.font = .sfProText.medium.ofSize(size: .small)
         contentView.addSubview(valueLbl)
         valueLbl.translatesAutoresizingMaskIntoConstraints = false
         

@@ -52,7 +52,7 @@ class AddAPlaceCollectionViewInfoCell: UICollectionViewCell {
         ])
         
         let txtView = UITextView()
-        txtView.font = .systemFont(ofSize: 17, weight: .regular)
+        txtView.font = .sfProText.regular.ofSize(size: .regular)
         txtView.isScrollEnabled = false
         txtView.textContainer.heightTracksTextView = true
         txtView.delegate = self

@@ -51,7 +51,7 @@ class TimeRangePickerView: UIViewController {
         
         let toLbl = UILabel()
         toLbl.text = "to"
-        toLbl.font = .systemFont(ofSize: 20, weight: .medium)
+        toLbl.font = .sfProText.regular.ofSize(size: .medium)
         toLbl.textColor = .init(hex: "#77767E")
         toLbl.textAlignment = .center
         toLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -91,7 +91,7 @@ class TimeRangePickerView: UIViewController {
         let finishedBtn = UIButton(type: .system)
         finishedBtn.setTitle("Finished", for: .normal)
         finishedBtn.setTitleColor(.init(hex: "#007BBE"), for: .normal)
-        finishedBtn.titleLabel?.font = .systemFont(ofSize: 22, weight: .regular)
+        finishedBtn.titleLabel?.font = .sfProText.regular.ofSize(size: 21)
         finishedBtn.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(finishedBtn)
         
@@ -109,7 +109,7 @@ class TimeRangePickerView: UIViewController {
         cancelBtn.setTitle("Cancel", for: .normal)
         cancelBtn.backgroundColor = .white
         cancelBtn.setTitleColor(.init(hex: "#007BBE"), for: .normal)
-        cancelBtn.titleLabel?.font = .systemFont(ofSize: 22, weight: .regular)
+        cancelBtn.titleLabel?.font = .sfProText.regular.ofSize(size: 21)
         cancelBtn.addTarget(self, action: #selector(self.cancelBtnClicked), for: .touchUpInside)
         cancelBtn.layer.cornerRadius = 13
         cancelBtn.translatesAutoresizingMaskIntoConstraints = false

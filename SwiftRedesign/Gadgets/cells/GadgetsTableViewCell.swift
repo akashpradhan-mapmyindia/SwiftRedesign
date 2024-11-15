@@ -56,7 +56,7 @@ class GadgetsTableViewCell: UITableViewCell {
         
         deviceNameLabel = UILabel()
         deviceNameLabel.text = gadget.deviceName
-        deviceNameLabel.font = .systemFont(ofSize: 14, weight: .bold)
+        deviceNameLabel.font = .sfProText.semiBold.ofSize(size: .regular)
         deviceNameLabel.backgroundColor = .clear
         deviceNameLabel.textColor = .init(hex: "#797979")
         deviceNameLabel.numberOfLines = 0
@@ -72,7 +72,7 @@ class GadgetsTableViewCell: UITableViewCell {
         carNumberLabel = UILabel()
         carNumberLabel.text = gadget.carNumber
         carNumberLabel.backgroundColor = .clear
-        carNumberLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        carNumberLabel.font = .sfProText.regular.ofSize(size: .small)
         contentView.addSubview(carNumberLabel)
         carNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -84,7 +84,7 @@ class GadgetsTableViewCell: UITableViewCell {
         
         carStatusLabel = UILabel()
         carStatusLabel.text = gadget.carStatus
-        carStatusLabel.font = .systemFont(ofSize: 13, weight: .light)
+        carStatusLabel.font = .sfProText.regular.ofSize(size: .small)
         carStatusLabel.textAlignment = .center
         carStatusLabel.textColor = .white
         carStatusLabel.layer.cornerRadius = 11

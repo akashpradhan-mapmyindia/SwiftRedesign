@@ -36,7 +36,7 @@ class PostOnMapSubCategoryCell: UITableViewCell {
         ])
         
         titleLbl = UILabel()
-        titleLbl.font = .systemFont(ofSize: 17, weight: .medium)
+        titleLbl.font = .sfProText.medium.ofSize(size: .regular)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLbl)
         

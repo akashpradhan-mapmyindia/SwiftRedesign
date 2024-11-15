@@ -116,7 +116,7 @@ class AddAPlaceCategoryViewController: UIViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = "Category"
-        titleLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         topView.addSubview(titleLbl)
         

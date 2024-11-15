@@ -233,7 +233,7 @@ class MyLayersTopComponent: UITableViewCell {
     func setUpUI() {
         let titleLbl = UILabel()
         titleLbl.text = "My Map"
-        titleLbl.font = .systemFont(ofSize: 17, weight: .medium)
+        titleLbl.font = .systemFont(ofSize: 17, weight: .semibold)
         contentView.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         
@@ -356,7 +356,7 @@ class MyLayersStyleComponent: UITableViewCell {
     func setUpUI(mapStyles: [MapStyles]) {
         let titleLbl = UILabel()
         titleLbl.text = "Style"
-        titleLbl.font = .systemFont(ofSize: 18, weight: .regular)
+        titleLbl.font = .systemFont(ofSize: 15, weight: .semibold)
         contentView.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         
@@ -419,13 +419,13 @@ class MyLayersStyleComponent: UITableViewCell {
         let earthTitle = UILabel()
         earthTitle.textAlignment = .left
         earthTitle.text = "Earth Observation Data"
-        earthTitle.font = .systemFont(ofSize: 15, weight: .medium)
+        earthTitle.font = .systemFont(ofSize: 15, weight: .semibold)
         earthTitle.translatesAutoresizingMaskIntoConstraints = false
         
         let sourceLbl = UILabel()
         sourceLbl.textAlignment = .left
         sourceLbl.text = "Source: ISRO"
-        sourceLbl.font = .systemFont(ofSize: 13, weight: .regular)
+        sourceLbl.font = .systemFont(ofSize: 13, weight: .medium)
         sourceLbl.translatesAutoresizingMaskIntoConstraints = false
         
         let earthImgV = UIImageView(image: UIImage(systemName: "globe.asia.australia")!)
@@ -503,7 +503,7 @@ class LayersHeaderCell: UITableViewCell {
     func setUpUI() {
         let titleLbl = UILabel()
         titleLbl.textAlignment = .left
-        titleLbl.font = .systemFont(ofSize: 18, weight: .medium)
+        titleLbl.font = .systemFont(ofSize: 17, weight: .semibold)
         titleLbl.text = "Layers"
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLbl)
@@ -548,7 +548,7 @@ class LayersListItemCell: UITableViewCell {
     func setUpUI(title: String, subtitle: String) {
         let titleLbl = UILabel()
         titleLbl.text = title
-        titleLbl.font = .systemFont(ofSize: 16, weight: .medium)
+        titleLbl.font = .systemFont(ofSize: 15, weight: .semibold)
         titleLbl.textAlignment = .left
         contentView.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -560,7 +560,7 @@ class LayersListItemCell: UITableViewCell {
         
         let subtitleLbl = UILabel()
         subtitleLbl.textAlignment = .left
-        subtitleLbl.font = .systemFont(ofSize: 13, weight: .regular)
+        subtitleLbl.font = .systemFont(ofSize: 13, weight: .medium)
         subtitleLbl.text = subtitle
         contentView.addSubview(subtitleLbl)
         subtitleLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -608,7 +608,7 @@ class ToggleView: UIView {
     func setUpUI() {
         let titleLbl = UILabel()
         titleLbl.text = self.title
-        titleLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        titleLbl.font = .systemFont(ofSize: 15, weight: .semibold)
         titleLbl.textAlignment = .left
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         
@@ -660,7 +660,7 @@ class MapStyleItemCell: UICollectionViewCell {
         
         let styleLbl = UILabel()
         styleLbl.text = styleName
-        styleLbl.font = .systemFont(ofSize: 12, weight: .light)
+        styleLbl.font = .sfProText.medium.ofSize(size: .small)
         styleLbl.textAlignment = .center
         contentView.addSubview(styleLbl)
         styleLbl.translatesAutoresizingMaskIntoConstraints = false

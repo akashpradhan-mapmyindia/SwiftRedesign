@@ -86,7 +86,7 @@ class AddAPlaceViewController: UIViewController {
         
         let titleLbl = UILabel()
         titleLbl.text = "Add a Place"
-        titleLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.textAlignment = .center
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(titleLbl)
@@ -112,7 +112,7 @@ class AddAPlaceViewController: UIViewController {
         
         let submitBtn = UIButton(type: .system)
         submitBtn.setTitle("Submit", for: .normal)
-        submitBtn.titleLabel?.font = .systemFont(ofSize: 17, weight: .regular)
+        submitBtn.titleLabel?.font = .sfProText.regular.ofSize(size: .medium)
         submitBtn.addTarget(self, action: #selector(self.submitBtnClicked), for: .touchUpInside)
         submitBtn.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(submitBtn)
@@ -121,7 +121,7 @@ class AddAPlaceViewController: UIViewController {
             submitBtn.centerYAnchor.constraint(equalTo: titleLbl.centerYAnchor),
             submitBtn.trailingAnchor.constraint(equalTo: topBar.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             submitBtn.heightAnchor.constraint(equalToConstant: 20),
-            submitBtn.widthAnchor.constraint(equalToConstant: 56)
+            submitBtn.widthAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -168,14 +168,14 @@ class AddAPlaceViewController: UIViewController {
         sections.append(section)
         
         section = []
-        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.popularlyKnownAs.rawValue, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)])))
+        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.popularlyKnownAs.rawValue, attributes: [NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small)])))
         sections.append(section)
 
         section = []
-        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.mobileNumber.rawValue, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)])))
-        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.phoneNumber.rawValue, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)])))
-        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.email.rawValue, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)])))
-        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.openHours.rawValue, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)])))
+        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.mobileNumber.rawValue, attributes: [NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small)])))
+        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.phoneNumber.rawValue, attributes: [NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small)])))
+        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.email.rawValue, attributes: [NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small)])))
+        section.append(.init(cellIdentifier: AddAPlaceAdditionalInfoCell.identifer, title: .init(string: CellTitle.openHours.rawValue, attributes: [NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small)])))
         
         sections.append(section)
     }
@@ -195,7 +195,7 @@ class AddAPlaceViewController: UIViewController {
         }
     }
     
-    func addSuperscript(to string: String, with superscript: String, font: UIFont = .systemFont(ofSize: 15)) -> NSMutableAttributedString {
+    func addSuperscript(to string: String, with superscript: String, font: UIFont = .sfProText.medium.ofSize(size: .regular)) -> NSMutableAttributedString {
         let attributedString = NSMutableAttributedString(string: string, attributes: [NSAttributedString.Key.font : font])
         
         let superscriptAttibutedString = NSAttributedString(string: superscript, attributes: [NSAttributedString.Key.font : font, NSAttributedString.Key.baselineOffset : 2, NSAttributedString.Key.foregroundColor : UIColor(hex: "#F81818")])

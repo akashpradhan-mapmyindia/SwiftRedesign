@@ -46,7 +46,7 @@ class GadgetsStatusCell: UICollectionViewCell {
         contentView.backgroundColor = .clear
         
         let vehicleCountLbl = UILabel()
-        vehicleCountLbl.font = .systemFont(ofSize: 14)
+        vehicleCountLbl.font = .sfProText.medium.ofSize(size: .extra_small)
         vehicleCountLbl.text = String(state.count)
         vehicleCountLbl.backgroundColor = colorForCountBg(state: state.state)
         vehicleCountLbl.layer.cornerRadius = 3
@@ -66,7 +66,7 @@ class GadgetsStatusCell: UICollectionViewCell {
         
         let stateLabel = UILabel()
         stateLabel.text = state.state.rawValue
-        stateLabel.font = .systemFont(ofSize: 14)
+        stateLabel.font = .sfProText.regular.ofSize(size: .small)
         stateLabel.backgroundColor = .clear
         stateLabel.textAlignment = .left
         contentView.addSubview(stateLabel)

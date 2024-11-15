@@ -38,7 +38,7 @@ class AddAPlaceSubCategoryViewController: UIViewController {
     func setUpUI() {
         titleLbl = UILabel()
         titleLbl.text = category.title
-        titleLbl.font = .systemFont(ofSize: 19, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         titleLbl.textAlignment = .left
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLbl)
