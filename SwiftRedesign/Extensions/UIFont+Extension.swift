@@ -34,6 +34,7 @@ extension UIFont {
         case medium = "SFProText-Medium"
         case regular = "SFProText-Regular"
         case semiBold = "SFProText-Semibold"
+        case regularItalic = "SFProText-RegularItalic"
         case mediumItalic = "SFProText-MediumItalic" // Info.plist
         
         func ofSize(size: fontSize) -> UIFont {

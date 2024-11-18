@@ -103,7 +103,7 @@ class GadgetsTableViewCell: UITableViewCell {
         viaLabel = UILabel()
         viaLabel.text = gadget.viaText
         viaLabel.backgroundColor = .clear
-        viaLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        viaLabel.font = .sfProText.regularItalic.ofSize(size: .extra_small)
         contentView.addSubview(viaLabel)
         viaLabel.translatesAutoresizingMaskIntoConstraints = false
         

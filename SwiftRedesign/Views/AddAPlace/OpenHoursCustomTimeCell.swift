@@ -36,7 +36,7 @@ class OpenHoursCustomTimeCell: UICollectionViewCell {
         ])
         
         let toTimeLbl = UILabel()
-        toTimeLbl.attributedText = item.toTime.attributedTime(hourMinuteAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 26, weight: .bold), NSAttributedString.Key.foregroundColor : UIColor(hex: "#212121")], meridiemAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 26, weight: .bold), NSAttributedString.Key.foregroundColor : UIColor(hex: "#707070")])
+        toTimeLbl.attributedText = item.toTime.attributedTime(hourMinuteAttributes: [NSAttributedString.Key.font : UIFont.sfProText.bold.ofSize(size: 25), NSAttributedString.Key.foregroundColor : UIColor(hex: "#212121")], meridiemAttributes: [NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: 25), NSAttributedString.Key.foregroundColor : UIColor(hex: "#707070")])
         toTimeLbl.textAlignment = .right
         toTimeLbl.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(toTimeLbl)
