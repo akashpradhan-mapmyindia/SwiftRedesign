@@ -96,8 +96,8 @@ class AddAPlaceViewController: UIViewController {
             titleLbl.centerXAnchor.constraint(equalTo: topBar.safeAreaLayoutGuide.centerXAnchor)
         ])
         
-        let backBtn = UIButton()
-        backBtn.setImage(UIImage(systemName: "chevron.left")!, for: .normal)
+        let backBtn = CustomButton()
+        backBtn.setImage(UIImage(named: "back")!, for: .normal)
         backBtn.contentMode = .scaleAspectFit
         backBtn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
         backBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -112,6 +112,7 @@ class AddAPlaceViewController: UIViewController {
         
         let submitBtn = UIButton(type: .system)
         submitBtn.setTitle("Submit", for: .normal)
+        submitBtn.setTitleColor(.init(hex: "#212121"), for: .normal)
         submitBtn.titleLabel?.font = .sfProText.regular.ofSize(size: .medium)
         submitBtn.addTarget(self, action: #selector(self.submitBtnClicked), for: .touchUpInside)
         submitBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -148,9 +149,9 @@ class AddAPlaceViewController: UIViewController {
     
     func setUpSectionsData() {
         var section: [AddAPlaceDetailsCollectionViewHashable] = []
-        section.append(.init(cellIdentifier: AddAPlaceCollectionViewInfoCell.identifier, title: addSuperscript(to: CellTitle.placeName.rawValue, with: "*"), icon: UIImage(systemName: "building.2")!))
-        section.append(.init(cellIdentifier: AddAPlaceCollectionViewInfoCell.identifier, title: addSuperscript(to: CellTitle.category.rawValue, with: "*"), icon: UIImage(systemName: "tag.fill")!))
-        section.append(.init(cellIdentifier: AddAPlaceCollectionViewInfoCell.identifier, title: addSuperscript(to: CellTitle.address.rawValue, with: "*"), icon: UIImage(systemName: "mappin.and.ellipse")!))
+        section.append(.init(cellIdentifier: AddAPlaceCollectionViewInfoCell.identifier, title: addSuperscript(to: CellTitle.placeName.rawValue, with: "*"), icon: UIImage(named: "business")!))
+        section.append(.init(cellIdentifier: AddAPlaceCollectionViewInfoCell.identifier, title: addSuperscript(to: CellTitle.category.rawValue, with: "*"), icon: UIImage(named: "Group 37588")!))
+        section.append(.init(cellIdentifier: AddAPlaceCollectionViewInfoCell.identifier, title: addSuperscript(to: CellTitle.address.rawValue, with: "*"), icon: UIImage(named: "location")!))
         section.append(.init(cellIdentifier: AddAPlaceEditLocationOnMapCell.identifier))
         section.append(.init(cellIdentifier: AddAPlaceCollectionViewInfoCell.identifier, title: addSuperscript(to: CellTitle.description.rawValue, with: "*"), icon: UIImage(systemName: "doc.text.fill")!))
         

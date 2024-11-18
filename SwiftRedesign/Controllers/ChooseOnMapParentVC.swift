@@ -59,8 +59,8 @@ class ChooseOnMapParentVC: UIViewController {
             titleLbl.centerXAnchor.constraint(equalTo: topBar.centerXAnchor)
         ])
         
-        let backBtn = UIButton()
-        backBtn.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        let backBtn = CustomButton()
+        backBtn.setImage(UIImage(named: "back"), for: .normal)
         backBtn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
         backBtn.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(backBtn)
@@ -72,8 +72,8 @@ class ChooseOnMapParentVC: UIViewController {
             backBtn.centerYAnchor.constraint(equalTo: topBar.centerYAnchor)
         ])
         
-        let searchBtn = UIButton()
-        searchBtn.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        let searchBtn = CustomButton()
+        searchBtn.setImage(UIImage(named: "search"), for: .normal)
         searchBtn.addTarget(self, action: #selector(self.searchBtnClicked), for: .touchUpInside)
         searchBtn.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(searchBtn)

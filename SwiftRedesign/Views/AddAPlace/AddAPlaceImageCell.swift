@@ -18,8 +18,75 @@ class AddAPlaceImageCell: UICollectionViewCell {
     
     weak var delegate: AddAPlaceImageCellDelegte?
     
-    var imageView: UIImageView?
-    var button: UIButton?
+    var imageView: UIImageView!
+    var eraseBtn: UIButton!
+    var addImgBtn: UIButton!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func commonInit() {
+        contentView.layer.cornerRadius = 10
+        contentView.layer.borderColor = UIColor(hex: "#DDDDDD").cgColor
+        contentView.layer.borderWidth = 1
+        
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "add image")!, for: .normal)
+        button.setTitle("Add image", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = .sfProText.medium.ofSize(size: .small)
+        button.addTarget(self, action: #selector(self.addImageClicked), for: .touchUpInside)
+        button.contentMode = .scaleAspectFit
+        button.isHidden = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(button)
+        self.addImgBtn = button
+        
+        NSLayoutConstraint.activate([
+            button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            button.topAnchor.constraint(equalTo: contentView.topAnchor)
+        ])
+        
+        button.alignVerticalCenter(padding: 10)
+        
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.isHidden = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(imageView)
+        self.imageView = imageView
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+        
+        let eraseBtn = UIButton()
+        eraseBtn.setImage(UIImage(named: "clear")!, for: .normal)
+        eraseBtn.addTarget(self, action: #selector(self.deleteImageClicked), for: .touchUpInside)
+        eraseBtn.contentMode = .scaleAspectFit
+        eraseBtn.isHidden = true
+        eraseBtn.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(eraseBtn)
+        self.eraseBtn = eraseBtn
+        
+        NSLayoutConstraint.activate([
+            eraseBtn.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            eraseBtn.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+            eraseBtn.widthAnchor.constraint(equalToConstant: 30),
+            eraseBtn.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
     
     func setUpUI(for item: AddAPlaceDetailsCollectionViewHashable, isAddImageCell: Bool = false) {
         contentView.layer.cornerRadius = 10
@@ -27,53 +94,17 @@ class AddAPlaceImageCell: UICollectionViewCell {
         contentView.layer.borderWidth = 1
         
         if isAddImageCell {
-            let button = UIButton(type: .system)
-            button.setImage(UIImage(systemName: "photo")!, for: .normal)
-            button.setTitle("Add image", for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            button.titleLabel?.font = .sfProText.medium.ofSize(size: .small)
-            button.addTarget(self, action: #selector(self.addImageClicked), for: .touchUpInside)
-            button.contentMode = .scaleAspectFit
-            button.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(button)
-            self.button = button
+            addImgBtn.isHidden = false
             
-            NSLayoutConstraint.activate([
-                button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                button.topAnchor.constraint(equalTo: contentView.topAnchor)
-            ])
-            
-            button.alignVerticalCenter(padding: 10)
+            imageView.isHidden = true
+            eraseBtn.isHidden = true
         }else {
-            let imageView = UIImageView(image: item.icon!)
-            imageView.contentMode = .scaleAspectFit
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(imageView)
-            self.imageView = imageView
+            imageView.isHidden = false
+            imageView.image = item.icon!
             
-            NSLayoutConstraint.activate([
-                imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-            ])
+            eraseBtn.isHidden = false
             
-            let button = UIButton()
-            button.setImage(UIImage(systemName: "x.circle.fill")!, for: .normal)
-            button.addTarget(self, action: #selector(self.deleteImageClicked), for: .touchUpInside)
-            button.contentMode = .scaleAspectFit
-            button.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(button)
-            self.button = button
-            
-            NSLayoutConstraint.activate([
-                button.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-                button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-                button.widthAnchor.constraint(equalToConstant: 30),
-                button.heightAnchor.constraint(equalToConstant: 30)
-            ])
+            addImgBtn.isHidden = true
         }
     }
     
@@ -83,11 +114,5 @@ class AddAPlaceImageCell: UICollectionViewCell {
     
     @objc func addImageClicked() {
         delegate?.addImageClicked()
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageView?.removeFromSuperview()
-        button?.removeFromSuperview()
     }
 }

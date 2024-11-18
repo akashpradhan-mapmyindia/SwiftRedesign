@@ -62,8 +62,8 @@ extension BaseViewController {
             titleLbl.centerXAnchor.constraint(equalTo: topView.centerXAnchor)
         ])
         
-        let backBtn = UIButton()
-        backBtn.setImage(UIImage(systemName: "chevron.left")!, for: .normal)
+        let backBtn = CustomButton()
+        backBtn.setImage(UIImage(named: "back")!, for: .normal)
         backBtn.addTarget(self, action: #selector(self.addAPlaceBackBtnClicked), for: .touchUpInside)
         topView.addSubview(backBtn)
         backBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -74,9 +74,9 @@ extension BaseViewController {
             backBtn.heightAnchor.constraint(equalToConstant: 40),
             backBtn.widthAnchor.constraint(equalToConstant: 40)
         ])
-                
-        let searchBtn = UIButton()
-        searchBtn.setImage(UIImage(systemName: "magnifyingglass")!, for: .normal)
+        
+        let searchBtn = CustomButton()
+        searchBtn.setImage(UIImage(named: "search"), for: .normal)
         searchBtn.addTarget(self, action: #selector(self.addAPlaceSearchBtnClicked), for: .touchUpInside)
         topView.addSubview(searchBtn)
         searchBtn.translatesAutoresizingMaskIntoConstraints = false

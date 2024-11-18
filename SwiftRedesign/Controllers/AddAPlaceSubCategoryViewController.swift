@@ -49,8 +49,8 @@ class AddAPlaceSubCategoryViewController: UIViewController {
             titleLbl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
         
-        let cancelBtn = UIButton()
-        cancelBtn.setImage(UIImage(systemName: "xmark"), for: .normal)
+        let cancelBtn = CustomButton()
+        cancelBtn.setImage(UIImage(named: "clear 1"), for: .normal)
         cancelBtn.addTarget(self, action: #selector(self.cancelBtnClicked), for: .touchUpInside)
         cancelBtn.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cancelBtn)

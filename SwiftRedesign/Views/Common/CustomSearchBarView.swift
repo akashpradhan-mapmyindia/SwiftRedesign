@@ -46,10 +46,11 @@ class CustomSearchBarView: UIView {
         layer.borderColor = UIColor(hex: "#DDDDDD").cgColor
         layer.borderWidth = 1
         
-        cancelBtn = UIButton()
-        cancelBtn.setImage(UIImage(systemName: "xmark"), for: .normal)
+        cancelBtn = CustomButton()
+        cancelBtn.setImage(UIImage(named: "clear 1"), for: .normal)
         cancelBtn.backgroundColor = .clear
         cancelBtn.addTarget(self, action: #selector(self.clearBtnClicked), for: .touchUpInside)
+        cancelBtn.isHidden = true
         cancelBtn.translatesAutoresizingMaskIntoConstraints = false
         addSubview(cancelBtn)
         
@@ -60,7 +61,7 @@ class CustomSearchBarView: UIView {
             cancelBtn.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         ])
         
-        searchLeadingIcon = UIImageView(image: UIImage(systemName: "magnifyingglass")!.withRenderingMode(.alwaysTemplate))
+        searchLeadingIcon = UIImageView(image: UIImage(named: "search")!.withRenderingMode(.alwaysTemplate))
         searchLeadingIcon.backgroundColor = .clear
         searchLeadingIcon.contentMode = .scaleAspectFit
         searchLeadingIcon.tintColor = .black

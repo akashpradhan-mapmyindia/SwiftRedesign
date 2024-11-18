@@ -100,8 +100,8 @@ class AddAPlaceCategoryViewController: UIViewController {
             topView.heightAnchor.constraint(equalToConstant: 50)
         ])
         
-        let backBtn = UIButton()
-        backBtn.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        let backBtn = CustomButton()
+        backBtn.setImage(UIImage(named: "back"), for: .normal)
         backBtn.contentMode = .scaleAspectFit
         backBtn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
         backBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -247,7 +247,9 @@ extension AddAPlaceCategoryViewController: UITextFieldDelegate {
         var snapshot = NSDiffableDataSourceSnapshot<Int, AddAPlaceCategoryTableViewHashable>()
         if textField.text == "" {
             filterSectionsData = sections
+            searchBar.cancelBtn.isHidden = true
         } else {
+            searchBar.cancelBtn.isHidden = false
             filterSectionsData = []
             for (_, section) in sections.enumerated() {
                 let section = section.filter { $0.title.lowercased().contains(textField.text?.lowercased() ?? "") }

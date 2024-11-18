@@ -71,8 +71,8 @@ class AddAPlaceThankYouViewController: UIViewController {
         stackView.setCustomSpacing(35, after: thankYouLbl)
         
         let closeBtn = UIButton()
-        closeBtn.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
-        closeBtn.imageView?.contentMode = .scaleAspectFit
+        closeBtn.setImage(UIImage(named: "clear"), for: .normal)
+        closeBtn.contentMode = .scaleAspectFit
         closeBtn.addTarget(self, action: #selector(self.closeBtnClicked), for: .touchUpInside)
         closeBtn.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(closeBtn)
@@ -80,14 +80,14 @@ class AddAPlaceThankYouViewController: UIViewController {
         NSLayoutConstraint.activate([
             closeBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             closeBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            closeBtn.heightAnchor.constraint(equalToConstant: 40),
-            closeBtn.widthAnchor.constraint(equalToConstant: 40)
+            closeBtn.heightAnchor.constraint(equalToConstant: 33),
+            closeBtn.widthAnchor.constraint(equalToConstant: 33)
         ])
         
         let mapplsPinBtn = UIButton(type: .system)
         mapplsPinBtn.setTitle("mappls.com/\(mapplsPin.lowercased())", for: .normal)
         mapplsPinBtn.titleLabel?.font = .sfProText.medium.ofSize(size: .small)
-        mapplsPinBtn.setImage(UIImage(systemName: "mappin"), for: .normal)
+        mapplsPinBtn.setImage(UIImage(named: "icon-mappls-pin")?.withRenderingMode(.alwaysOriginal), for: .normal)
         mapplsPinBtn.addTarget(self, action: #selector(self.mapplsPinBtnClicked), for: .touchUpInside)
         mapplsPinBtn.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(mapplsPinBtn)
@@ -126,8 +126,8 @@ class AddAPlaceThankYouViewController: UIViewController {
         
         stackView.setCustomSpacing(20, after: mapplsPinLbl)
         
-        let shareBtn = UIButton()
-        shareBtn.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        let shareBtn = CustomButton()
+        shareBtn.setImage(UIImage(named: "share"), for: .normal)
         shareBtn.addTarget(self, action: #selector(self.shareBtnClicked), for: .touchUpInside)
         shareBtn.translatesAutoresizingMaskIntoConstraints = false
         
@@ -140,8 +140,8 @@ class AddAPlaceThankYouViewController: UIViewController {
             lineSeparator.widthAnchor.constraint(equalToConstant: 1)
         ])
         
-        let downloadBtn = UIButton()
-        downloadBtn.setImage(UIImage(systemName: "arrow.down"), for: .normal)
+        let downloadBtn = CustomButton()
+        downloadBtn.setImage(UIImage(named: "download"), for: .normal)
         downloadBtn.addTarget(self, action: #selector(self.downloadBtnClicked), for: .touchUpInside)
         downloadBtn.translatesAutoresizingMaskIntoConstraints = false
         

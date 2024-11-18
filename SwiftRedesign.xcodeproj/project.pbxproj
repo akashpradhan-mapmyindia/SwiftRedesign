@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FB08AF09A83B95B22A6A7E1 /* Pods_SwiftRedesign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */; };
+		CC5DFC982CEB4B6200988E35 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC972CEB4B6200988E35 /* CustomButton.swift */; };
 		CC90A9862CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9852CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift */; };
 		CC90A9882CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9872CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift */; };
 		CC90A98A2CDB333000CF4069 /* OpenHoursSelectTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9892CDB333000CF4069 /* OpenHoursSelectTimeCell.swift */; };
@@ -93,6 +94,7 @@
 		3AB1500F7479C27ADA22F888 /* Pods-SwiftRedesign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.release.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.release.xcconfig"; sourceTree = "<group>"; };
 		711D37F820307595B4C9FD6D /* Pods-SwiftRedesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.debug.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.debug.xcconfig"; sourceTree = "<group>"; };
 		A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRedesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC5DFC972CEB4B6200988E35 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CC90A9852CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursSelectionViewController.swift; sourceTree = "<group>"; };
 		CC90A9872CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursWeekDayCell.swift; sourceTree = "<group>"; };
 		CC90A9892CDB333000CF4069 /* OpenHoursSelectTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursSelectTimeCell.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				CC90A98B2CDB472400CF4069 /* CollectionViewSupplementaryItemTextView.swift */,
 				CC90A98D2CDB6A6500CF4069 /* TimeRangePickerView.swift */,
 				CCDF5FA22CE22F3600C7B0CD /* CommonTableHeaderFooterView.swift */,
+				CC5DFC972CEB4B6200988E35 /* CustomButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC5DFC982CEB4B6200988E35 /* CustomButton.swift in Sources */,
 				CC933EFB2CD0C60700F8D51E /* ChooseOnMapAddressTypeView.swift in Sources */,
 				CC933ECC2CC6356200F8D51E /* GadgetsTableViewCell.swift in Sources */,
 				CC933EF22CCF95EF00F8D51E /* AddAPlaceImageCell.swift in Sources */,

@@ -15,10 +15,18 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
     var titleLbl: UILabel!
     var txtView: UITextView!
     var nextBtn: UIButton?
-
-    func setUpUI(for item: AddAPlaceDetailsCollectionViewHashable, addNextBtn: Bool = false) {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func commonInit() {
         let titleLbl = UILabel()
-        titleLbl.attributedText = item.title
         titleLbl.textAlignment = .left
         titleLbl.textColor = .init(hex: "#707070")
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +49,7 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
         txtView.translatesAutoresizingMaskIntoConstraints = false
         
         self.txtView = txtView
-    
+        
         let heightCons = txtView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30)
         heightCons.priority = .defaultLow
         
@@ -52,7 +60,7 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
             heightCons,
             txtView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
-
+        
         let border = UIView()
         border.backgroundColor = .init(hex: "#DDDDDD")
         border.translatesAutoresizingMaskIntoConstraints = false
@@ -65,34 +73,36 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
             border.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
         
+        let nextBtn = CustomButton()
+        nextBtn.setImage(UIImage(named: "forward")!, for: .normal)
+        nextBtn.contentMode = .scaleAspectFit
+        nextBtn.addTarget(self, action: #selector(self.nextBtnClicked), for: .touchUpInside)
+        nextBtn.isHidden = true
+        nextBtn.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(nextBtn)
+        
+        self.nextBtn = nextBtn
+        
+        NSLayoutConstraint.activate([
+            nextBtn.centerYAnchor.constraint(equalTo: titleLbl.centerYAnchor),
+            nextBtn.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            nextBtn.heightAnchor.constraint(equalToConstant: 25),
+            nextBtn.widthAnchor.constraint(equalToConstant: 25)
+        ])
+    }
+
+    func setUpUI(for item: AddAPlaceDetailsCollectionViewHashable, addNextBtn: Bool = false) {
+        titleLbl.attributedText = item.title
+
         if addNextBtn {
-            let nextBtn = UIButton()
-            nextBtn.setImage(UIImage(systemName: "chevron.right")!, for: .normal)
-            nextBtn.contentMode = .scaleAspectFit
-            nextBtn.addTarget(self, action: #selector(self.nextBtnClicked), for: .touchUpInside)
-            nextBtn.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(nextBtn)
-            
-            self.nextBtn = nextBtn
-            
-            NSLayoutConstraint.activate([
-                nextBtn.centerYAnchor.constraint(equalTo: titleLbl.centerYAnchor),
-                nextBtn.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-                nextBtn.heightAnchor.constraint(equalToConstant: 25),
-                nextBtn.widthAnchor.constraint(equalToConstant: 25)
-            ])
+            nextBtn?.isHidden = false
+        }else {
+            nextBtn?.isHidden = true
         }
     }
     
     @objc func nextBtnClicked() {
         delegate?.nextBtnClicked?(forTitle: titleLbl.text ?? "")
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.txtView.removeFromSuperview()
-        self.titleLbl.removeFromSuperview()
-        self.nextBtn?.removeFromSuperview()
     }
 }
 
