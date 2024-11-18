@@ -22,10 +22,12 @@ class MyLayersTableViewHashable: Hashable {
     
     var cellId: String
     var cellName: String
+    var subtitle: String?
     
-    init(cellId: String, cellName: String = "") {
+    init(cellId: String, cellName: String = "", subtitle: String? = nil) {
         self.cellId = cellId
         self.cellName = cellName
+        self.subtitle = subtitle
     }
     
     func hash(into hasher: inout Hasher) {
@@ -39,7 +41,7 @@ class MyLayersTableViewHashable: Hashable {
 
 class MyLayersVC: UIViewController {
     var containerTblV: UITableView!
-    var mapStyles: [MapStyles] = [.init(style: .defaultMap, isSelected: true), .init(style: .satelliteMap), .init(style: .terrainMap), .init(style: .greyMap), .init(style: .sublimeGreyMap), .init(style: .darkClassicMap)]
+    var mapStyles: [MapStyles] = [.init(style: .defaultMap, image: UIImage(named: "Image 31")!, isSelected: true), .init(style: .hybridSatelliteMap, image: UIImage(named: "Map-3")!), .init(style: .indicMap, image: UIImage(named: "Map-2")!), .init(style: .greyMap, image: UIImage(named: "Map-1")!), .init(style: .sublimeGreyMap, image: UIImage(named: "Map-1")!), .init(style: .darkClassicMap, image: UIImage(named: "Map")!)]
     var dataSource: UITableViewDiffableDataSource<Section, MyLayersTableViewHashable>!
     var sections: [[MyLayersTableViewHashable]] = []
     
@@ -61,7 +63,7 @@ class MyLayersVC: UIViewController {
         
         let section2: [MyLayersTableViewHashable] = [.init(cellId: MyLayersStyleComponent.identifier)]
         
-        let section3: [MyLayersTableViewHashable] = [.init(cellId: LayersHeaderCell.identifier), .init(cellId: LayersListItemCell.identifier, cellName: "My Layers"), .init(cellId: LayersListItemCell.identifier, cellName: "Posts")]
+        let section3: [MyLayersTableViewHashable] = [.init(cellId: MyLayersTopComponent.identifier), .init(cellId: LayersListItemCell.identifier, cellName: "My Layers", subtitle: "My Saves, My Gadgets,My Trips etc."), .init(cellId: LayersListItemCell.identifier, cellName: "Posts", subtitle: "Traffic, Safety and Community Reports Overlays"), .init(cellId: LayersListItemCell.identifier, cellName: "Map Layers", subtitle: "Monuments")]
         
         sections.append(section1)
         sections.append(section2)
@@ -69,13 +71,14 @@ class MyLayersVC: UIViewController {
     }
     
     func setUpUI() {
+        view.backgroundColor = .white
+        
         setCellData()
         
         containerTblV = UITableView()
         containerTblV.delegate = self
         containerTblV.register(MyLayersTopComponent.self, forCellReuseIdentifier: MyLayersTopComponent.identifier)
         containerTblV.register(MyLayersStyleComponent.self, forCellReuseIdentifier: MyLayersStyleComponent.identifier)
-        containerTblV.register(LayersHeaderCell.self, forCellReuseIdentifier: LayersHeaderCell.identifier)
         containerTblV.register(LayersListItemCell.self, forCellReuseIdentifier: LayersListItemCell.identifier)
         containerTblV.separatorStyle = .none
         view.addSubview(containerTblV)
@@ -99,6 +102,13 @@ class MyLayersVC: UIViewController {
             switch cellData.cellId {
             case MyLayersTopComponent.identifier:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: MyLayersTopComponent.identifier, for: indexPath) as? MyLayersTopComponent else {return UITableViewCell()}
+                if indexPath.section == 0 {
+                    cell.setUpUI(title: "My Map")
+                }else {
+                    cell.setUpUI(title: "Layers")
+                    cell.closeBtn.isHidden = true
+                }
+                cell.setUpUI(title: indexPath.section == 0 ? "My Map" : "Layers")
                 cell.delegate = self
                 cell.selectionStyle = .none
                 return cell
@@ -109,19 +119,10 @@ class MyLayersVC: UIViewController {
                 cell.stylesItems.delegate = self
                 cell.selectionStyle = .none
                 return cell
-                
-            case LayersHeaderCell.identifier:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: LayersHeaderCell.identifier, for: indexPath) as? LayersHeaderCell else {return UITableViewCell()}
-                cell.delegate = self
-                cell.selectionStyle = .none
-                return cell
+
             case LayersListItemCell.identifier:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: LayersListItemCell.identifier, for: indexPath) as? LayersListItemCell else {return UITableViewCell()}
-                if cellData.cellName == "My Layers" {
-                    cell.setUpUI(title: "My Layers", subtitle: "My Saves, My Favourites, My Gadgets etc.")
-                }else if cellData.cellName == "Posts" {
-                    cell.setUpUI(title: "Posts", subtitle: "Traffic, Safety and Commnunity Reports Overlays")
-                }
+                cell.setUpUI(title: cellData.cellName, subtitle: cellData.subtitle ?? "")
                 cell.selectionStyle = .none
                 return cell
             default:
@@ -154,23 +155,17 @@ extension MyLayersVC: UITableViewDelegate {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         if section == 2 {
-            view.backgroundColor = .lightGray
+            view.backgroundColor = .init(hex: "#F3F3F3")
         }
         return view
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         if section == 2 {
             return 10
         }else {
             return 0
         }
-    }
-}
-
-extension MyLayersVC: LayersHeaderCellDelegate {
-    func layersInfoBtnClicked() {
-        
     }
 }
 
@@ -195,13 +190,13 @@ extension MyLayersVC: UICollectionViewDelegate {
                 }
             }
             snapshot.reloadItems(cellsToRelaod)
-            cell.dataSource.apply(snapshot)
+            cell.dataSource.apply(snapshot, animatingDifferences: false)
         }
     }
 }
 
 extension MyLayersVC: MyLayersTopComponentDelegate {
-    func infoBtnPressed() {
+    func infoBtnPressed(for title: String) {
         
     }
     
@@ -211,7 +206,7 @@ extension MyLayersVC: MyLayersTopComponentDelegate {
 }
 
 protocol MyLayersTopComponentDelegate: AnyObject {
-    func infoBtnPressed()
+    func infoBtnPressed(for title: String)
     func closeBtnPressed()
 }
 
@@ -220,48 +215,53 @@ class MyLayersTopComponent: UITableViewCell {
     
     weak var delegate: MyLayersTopComponentDelegate?
     
+    var titleLbl: UILabel!
+    var closeBtn: UIButton!
+    var infoBtn: UIButton!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        setUpUI()
+        commonInit()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setUpUI() {
+    func commonInit() {
         let titleLbl = UILabel()
-        titleLbl.text = "My Map"
-        titleLbl.font = .systemFont(ofSize: 17, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .medium)
         contentView.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            titleLbl.topAnchor.constraint(equalTo: contentView.topAnchor),
-            titleLbl.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            titleLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
-        ])
+        self.titleLbl = titleLbl
         
+        NSLayoutConstraint.activate([
+            titleLbl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            titleLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            titleLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
+        ])
+
         let infoBtn = UIButton(type: .system)
-        infoBtn.setImage(UIImage(systemName: "info.circle"), for: .normal)
+        infoBtn.contentMode = .scaleAspectFit
+        infoBtn.tintColor = .init(hex: "#707070")
         infoBtn.addTarget(self, action: #selector(self.infoBtnPressed), for: .touchUpInside)
         contentView.addSubview(infoBtn)
         infoBtn.translatesAutoresizingMaskIntoConstraints = false
         
+        self.infoBtn = infoBtn
+        
         NSLayoutConstraint.activate([
             infoBtn.leadingAnchor.constraint(equalTo: titleLbl.trailingAnchor, constant: 10),
             infoBtn.centerYAnchor.constraint(equalTo: titleLbl.centerYAnchor),
-            infoBtn.heightAnchor.constraint(equalToConstant: 30),
-            infoBtn.widthAnchor.constraint(equalToConstant: 30)
+            infoBtn.heightAnchor.constraint(equalToConstant: 22),
+            infoBtn.widthAnchor.constraint(equalToConstant: 22)
         ])
         
         let closeBtn = UIButton()
-        closeBtn.setBackgroundImage(UIImage(systemName: "xmark.circle.fill")!, for: .normal)
+        closeBtn.setBackgroundImage(UIImage(named: "clear")!, for: .normal)
         closeBtn.imageView?.contentMode = .scaleAspectFit
         closeBtn.addTarget(self, action: #selector(self.closeBtnPressed), for: .touchUpInside)
         contentView.addSubview(closeBtn)
         closeBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.closeBtn = closeBtn
         
         NSLayoutConstraint.activate([
             closeBtn.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
@@ -271,8 +271,17 @@ class MyLayersTopComponent: UITableViewCell {
         ])
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUpUI(title: String) {
+        titleLbl.text = title
+        infoBtn.setImage(UIImage(named: "info")?.withRenderingMode(.alwaysTemplate), for: .normal)
+    }
+    
     @objc func infoBtnPressed() {
-        delegate?.infoBtnPressed()
+        delegate?.infoBtnPressed(for: titleLbl.text ?? "")
     }
     
     @objc func closeBtnPressed() {
@@ -282,11 +291,11 @@ class MyLayersTopComponent: UITableViewCell {
 
 enum Style: String {
     case defaultMap = "Default Map"
-    case satelliteMap = "Satellite Map"
-    case terrainMap = "Terrain Map"
-    case greyMap = "Grey Map"
-    case sublimeGreyMap = "Sublime Grey Map"
-    case darkClassicMap = "Dark Classic Map"
+    case hybridSatelliteMap = "Hybrid Satellite Map"
+    case indicMap = "Indic Map"
+    case greyMap = "Grey Mode"
+    case sublimeGreyMap = "Sublime Grey"
+    case darkClassicMap = "Dark Classic"
 }
 
 enum Section: CaseIterable {
@@ -301,7 +310,7 @@ class MapStyles: Hashable {
     var image: UIImage
     var isSelected: Bool
     
-    init(style: Style, image: UIImage = UIImage(systemName: "photo")!, isSelected: Bool = false) {
+    init(style: Style, image: UIImage, isSelected: Bool = false) {
         self.name = style.rawValue
         self.image = image
         self.isSelected = isSelected
@@ -323,10 +332,176 @@ class MyLayersStyleComponent: UITableViewCell {
     var stylesItems: UICollectionView!
     var threeDBtn: ToggleView!
     var visualTrafficBtn: ToggleView!
+    var titleLbl: UILabel!
+    var modesSelector: UISegmentedControl!
     var dataSource: UICollectionViewDiffableDataSource<Section, MapStyles>!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
+    }
+    
+    func commonInit() {
+        let titleLbl = UILabel()
+        titleLbl.text = "Style"
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .regular)
+        contentView.addSubview(titleLbl)
+        titleLbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.titleLbl = titleLbl
+        
+        NSLayoutConstraint.activate([
+            titleLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            titleLbl.topAnchor.constraint(equalTo: contentView.topAnchor)
+        ])
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33), heightDimension: .estimated(130))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(130))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+    
+        let stylesItems = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        stylesItems.translatesAutoresizingMaskIntoConstraints = false
+        stylesItems.register(MapStyleItemCell.self, forCellWithReuseIdentifier: MapStyleItemCell.identifier)
+        stylesItems.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        contentView.addSubview(stylesItems)
+        
+        NSLayoutConstraint.activate([
+            stylesItems.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 10),
+            stylesItems.leadingAnchor.constraint(equalTo: titleLbl.leadingAnchor),
+            stylesItems.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            stylesItems.heightAnchor.constraint(equalToConstant: 280)
+        ])
+        
+        self.stylesItems = stylesItems
+        dataSource = makeDataSource()
+        
+        let modesLbl = UILabel()
+        modesLbl.text = "Modes"
+        modesLbl.textColor = .init(hex: "#212121")
+        modesLbl.font = .sfProText.semiBold.ofSize(size: .regular)
+        modesLbl.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(modesLbl)
+        
+        NSLayoutConstraint.activate([
+            modesLbl.topAnchor.constraint(equalTo: stylesItems.bottomAnchor, constant: 5),
+            modesLbl.leadingAnchor.constraint(equalTo: stylesItems.leadingAnchor)
+        ])
+        
+        let modeSelector = UISegmentedControl()
+        modeSelector.insertSegment(withTitle: "Auto", at: 0, animated: false)
+        modeSelector.insertSegment(withTitle: "Day Mode", at: 1, animated: false)
+        modeSelector.insertSegment(withTitle: "Night Mode", at: 2, animated: false)
+        modeSelector.selectedSegmentTintColor = .init(hex: "#339E82")
+        modeSelector.backgroundColor = .white
+        modeSelector.selectedSegmentIndex = 0
+        modeSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.black, NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small)], for: .normal)
+        modeSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont.sfProText.medium.ofSize(size: .small)], for: .selected)
+        modeSelector.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(modeSelector)
+        
+        self.modesSelector = modeSelector
+        
+        NSLayoutConstraint.activate([
+            modeSelector.topAnchor.constraint(equalTo: modesLbl.bottomAnchor, constant: 15),
+            modeSelector.leadingAnchor.constraint(equalTo: stylesItems.leadingAnchor),
+            modeSelector.trailingAnchor.constraint(equalTo: stylesItems.trailingAnchor),
+            modeSelector.heightAnchor.constraint(equalToConstant: 34)
+        ])
+        
+        let threeDBtn = ToggleView(title: "3D View")
+        self.threeDBtn = threeDBtn
+        threeDBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        let visualTrafficBtn = ToggleView(title: "Visual Traffic")
+        self.visualTrafficBtn = visualTrafficBtn
+        visualTrafficBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        let btnStack = UIStackView(arrangedSubviews: [threeDBtn, visualTrafficBtn])
+        btnStack.axis = .vertical
+        btnStack.distribution = .fillEqually
+        btnStack.spacing = 5
+        contentView.addSubview(btnStack)
+        btnStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            btnStack.topAnchor.constraint(equalTo: modeSelector.bottomAnchor, constant: 15),
+            btnStack.leadingAnchor.constraint(equalTo: stylesItems.leadingAnchor),
+            btnStack.trailingAnchor.constraint(equalTo: stylesItems.trailingAnchor),
+            btnStack.heightAnchor.constraint(equalToConstant: 100)
+        ])
+        
+        let earthTitle = UILabel()
+        earthTitle.textAlignment = .left
+        earthTitle.text = "Earth Observation Data"
+        earthTitle.font = .sfProText.semiBold.ofSize(size: .regular)
+        earthTitle.translatesAutoresizingMaskIntoConstraints = false
+        
+        let sourceLbl = UILabel()
+        sourceLbl.textAlignment = .left
+        sourceLbl.text = "Source: ISRO"
+        sourceLbl.font = .sfProText.medium.ofSize(size: .small)
+        sourceLbl.textColor = .init(hex: "#707070")
+        sourceLbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        let earthImgV = UIImageView(image: UIImage(named: "New")!)
+        earthImgV.contentMode = .scaleAspectFit
+        earthImgV.translatesAutoresizingMaskIntoConstraints = false
+        
+        let rightIconImgV = UIImageView(image: UIImage(named: "forward")!)
+        rightIconImgV.contentMode = .scaleAspectFit
+        rightIconImgV.translatesAutoresizingMaskIntoConstraints = false
+    
+        let titleStack = UIStackView(arrangedSubviews: [earthTitle, sourceLbl])
+        titleStack.axis = .vertical
+        titleStack.spacing = 5
+        titleStack.alignment = .leading
+        titleStack.distribution = .equalSpacing
+        titleStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        let earthObsrvBgView = UIView()
+        contentView.addSubview(earthObsrvBgView)
+        earthObsrvBgView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            earthObsrvBgView.topAnchor.constraint(equalTo: btnStack.bottomAnchor, constant: 10),
+            earthObsrvBgView.leadingAnchor.constraint(equalTo: btnStack.leadingAnchor),
+            earthObsrvBgView.trailingAnchor.constraint(equalTo: btnStack.trailingAnchor),
+            earthObsrvBgView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+        
+        earthObsrvBgView.addSubview(titleStack)
+        
+        NSLayoutConstraint.activate([
+            titleStack.leadingAnchor.constraint(equalTo: earthObsrvBgView.leadingAnchor),
+            titleStack.topAnchor.constraint(equalTo: earthObsrvBgView.topAnchor),
+            titleStack.bottomAnchor.constraint(equalTo: earthObsrvBgView.bottomAnchor)
+        ])
+
+        earthObsrvBgView.addSubview(earthImgV)
+        
+        NSLayoutConstraint.activate([
+            earthImgV.leadingAnchor.constraint(equalTo: titleStack.trailingAnchor, constant: 10),
+            earthImgV.topAnchor.constraint(equalTo: titleStack.topAnchor),
+            earthImgV.heightAnchor.constraint(equalToConstant: 24),
+            earthImgV.widthAnchor.constraint(equalToConstant: 24)
+        ])
+        
+        earthObsrvBgView.addSubview(rightIconImgV)
+        
+        NSLayoutConstraint.activate([
+            rightIconImgV.trailingAnchor.constraint(equalTo: earthObsrvBgView.trailingAnchor),
+            rightIconImgV.centerYAnchor.constraint(equalTo: titleStack.centerYAnchor),
+            rightIconImgV.heightAnchor.constraint(equalToConstant: 22),
+            rightIconImgV.widthAnchor.constraint(equalToConstant: 22)
+        ])
     }
     
     func makeDataSource() -> UICollectionViewDiffableDataSource<Section, MapStyles> {
@@ -354,204 +529,33 @@ class MyLayersStyleComponent: UITableViewCell {
     }
     
     func setUpUI(mapStyles: [MapStyles]) {
-        let titleLbl = UILabel()
-        titleLbl.text = "Style"
-        titleLbl.font = .systemFont(ofSize: 15, weight: .semibold)
-        contentView.addSubview(titleLbl)
-        titleLbl.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            titleLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            titleLbl.topAnchor.constraint(equalTo: contentView.topAnchor)
-        ])
-        
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0/3.5), heightDimension: .absolute(130))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(280))
-        
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
-        group.interItemSpacing = .fixed(10)
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 20
-        
-        let layout = UICollectionViewCompositionalLayout(section: section)
-    
-        let stylesItems = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        stylesItems.translatesAutoresizingMaskIntoConstraints = false
-        stylesItems.register(MapStyleItemCell.self, forCellWithReuseIdentifier: MapStyleItemCell.identifier)
-        stylesItems.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        contentView.addSubview(stylesItems)
-        
-        NSLayoutConstraint.activate([
-            stylesItems.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 10),
-            stylesItems.leadingAnchor.constraint(equalTo: titleLbl.leadingAnchor),
-            stylesItems.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            stylesItems.heightAnchor.constraint(equalToConstant: 280)
-        ])
-        
-        self.stylesItems = stylesItems
-        dataSource = makeDataSource()
         applyInitialSnapshot(mapStyles: mapStyles)
-        
-        let threeDBtn = ToggleView(title: "3D View")
-        self.threeDBtn = threeDBtn
-        threeDBtn.translatesAutoresizingMaskIntoConstraints = false
-        
-        let visualTrafficBtn = ToggleView(title: "Visual Traffic")
-        self.visualTrafficBtn = visualTrafficBtn
-        visualTrafficBtn.translatesAutoresizingMaskIntoConstraints = false
-        
-        let btnStack = UIStackView(arrangedSubviews: [threeDBtn, visualTrafficBtn])
-        btnStack.axis = .vertical
-        btnStack.distribution = .fillEqually
-        btnStack.spacing = 5
-        contentView.addSubview(btnStack)
-        btnStack.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            btnStack.topAnchor.constraint(equalTo: stylesItems.bottomAnchor, constant: 10),
-            btnStack.leadingAnchor.constraint(equalTo: stylesItems.leadingAnchor),
-            btnStack.trailingAnchor.constraint(equalTo: stylesItems.trailingAnchor),
-            btnStack.heightAnchor.constraint(equalToConstant: 100)
-        ])
-        
-        let earthTitle = UILabel()
-        earthTitle.textAlignment = .left
-        earthTitle.text = "Earth Observation Data"
-        earthTitle.font = .systemFont(ofSize: 15, weight: .semibold)
-        earthTitle.translatesAutoresizingMaskIntoConstraints = false
-        
-        let sourceLbl = UILabel()
-        sourceLbl.textAlignment = .left
-        sourceLbl.text = "Source: ISRO"
-        sourceLbl.font = .systemFont(ofSize: 13, weight: .medium)
-        sourceLbl.translatesAutoresizingMaskIntoConstraints = false
-        
-        let earthImgV = UIImageView(image: UIImage(systemName: "globe.asia.australia")!)
-        earthImgV.contentMode = .scaleAspectFit
-        earthImgV.translatesAutoresizingMaskIntoConstraints = false
-        
-        let rightIconImgV = UIImageView(image: UIImage(systemName: "chevron.right")!)
-        rightIconImgV.contentMode = .scaleAspectFit
-        rightIconImgV.translatesAutoresizingMaskIntoConstraints = false
-    
-        let titleStack = UIStackView(arrangedSubviews: [earthTitle, sourceLbl])
-        titleStack.axis = .vertical
-        titleStack.spacing = 5
-        titleStack.alignment = .leading
-        titleStack.distribution = .equalSpacing
-        titleStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        let earthObsrvButton = UIView()
-        contentView.addSubview(earthObsrvButton)
-        earthObsrvButton.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            earthObsrvButton.topAnchor.constraint(equalTo: btnStack.bottomAnchor, constant: 10),
-            earthObsrvButton.leadingAnchor.constraint(equalTo: btnStack.leadingAnchor),
-            earthObsrvButton.trailingAnchor.constraint(equalTo: btnStack.trailingAnchor),
-            earthObsrvButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
-        
-        earthObsrvButton.addSubview(titleStack)
-        
-        NSLayoutConstraint.activate([
-            titleStack.leadingAnchor.constraint(equalTo: earthObsrvButton.leadingAnchor),
-            titleStack.topAnchor.constraint(equalTo: earthObsrvButton.topAnchor),
-            titleStack.bottomAnchor.constraint(equalTo: earthObsrvButton.bottomAnchor)
-        ])
-
-        earthObsrvButton.addSubview(earthImgV)
-        
-        NSLayoutConstraint.activate([
-            earthImgV.leadingAnchor.constraint(equalTo: titleStack.trailingAnchor, constant: 10),
-            earthImgV.centerYAnchor.constraint(equalTo: titleStack.centerYAnchor),
-            earthImgV.heightAnchor.constraint(equalToConstant: 25),
-            earthImgV.widthAnchor.constraint(equalToConstant: 25)
-        ])
-        
-        earthObsrvButton.addSubview(rightIconImgV)
-        
-        NSLayoutConstraint.activate([
-            rightIconImgV.trailingAnchor.constraint(equalTo: earthObsrvButton.trailingAnchor),
-            rightIconImgV.centerYAnchor.constraint(equalTo: titleStack.centerYAnchor),
-            rightIconImgV.heightAnchor.constraint(equalToConstant: 16),
-            rightIconImgV.widthAnchor.constraint(equalToConstant: 16)
-        ])
-    }
-}
-
-protocol LayersHeaderCellDelegate: AnyObject {
-    func layersInfoBtnClicked()
-}
-
-class LayersHeaderCell: UITableViewCell {
-    static let identifier: String = "LayersHeaderCell"
-    
-    weak var delegate: LayersHeaderCellDelegate?
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setUpUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setUpUI() {
-        let titleLbl = UILabel()
-        titleLbl.textAlignment = .left
-        titleLbl.font = .systemFont(ofSize: 17, weight: .semibold)
-        titleLbl.text = "Layers"
-        titleLbl.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(titleLbl)
-        
-        NSLayoutConstraint.activate([
-            titleLbl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            titleLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            titleLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
-        ])
-        
-        let infoBtn = UIButton(type: .system)
-        infoBtn.setImage(UIImage(systemName: "info.circle")!, for: .normal)
-        infoBtn.contentMode = .scaleAspectFit
-        infoBtn.translatesAutoresizingMaskIntoConstraints = false
-        infoBtn.addTarget(self, action: #selector(self.infoBtnClicked), for: .touchUpInside)
-        contentView.addSubview(infoBtn)
-        
-        NSLayoutConstraint.activate([
-            infoBtn.leadingAnchor.constraint(equalTo: titleLbl.trailingAnchor, constant: 10),
-            infoBtn.centerYAnchor.constraint(equalTo: titleLbl.centerYAnchor),
-            infoBtn.widthAnchor.constraint(equalToConstant: 15),
-            infoBtn.heightAnchor.constraint(equalToConstant: 15)
-        ])
-    }
-    
-    @objc func infoBtnClicked() {
-        delegate?.layersInfoBtnClicked()
     }
 }
 
 class LayersListItemCell: UITableViewCell {
     static let identifier: String = "LayersListItemCell"
     
+    var titleLbl: UILabel!
+    var subtitleLbl: UILabel!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpUI(title: String, subtitle: String) {
+    func commonInit() {
         let titleLbl = UILabel()
-        titleLbl.text = title
-        titleLbl.font = .systemFont(ofSize: 15, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .regular)
         titleLbl.textAlignment = .left
         contentView.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.titleLbl = titleLbl
         
         NSLayoutConstraint.activate([
             titleLbl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
@@ -560,18 +564,20 @@ class LayersListItemCell: UITableViewCell {
         
         let subtitleLbl = UILabel()
         subtitleLbl.textAlignment = .left
-        subtitleLbl.font = .systemFont(ofSize: 13, weight: .medium)
-        subtitleLbl.text = subtitle
+        subtitleLbl.font = .sfProText.medium.ofSize(size: .small)
+        subtitleLbl.textColor = .init(hex: "#707070")
         contentView.addSubview(subtitleLbl)
         subtitleLbl.translatesAutoresizingMaskIntoConstraints = false
         
+        self.subtitleLbl = subtitleLbl
+        
         NSLayoutConstraint.activate([
-            subtitleLbl.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 5),
+            subtitleLbl.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 10),
             subtitleLbl.leadingAnchor.constraint(equalTo: titleLbl.leadingAnchor),
-            subtitleLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
+            subtitleLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
         
-        let rightIconImgV = UIImageView(image: UIImage(systemName: "chevron.right")!)
+        let rightIconImgV = UIImageView(image: UIImage(named: "forward")!)
         rightIconImgV.contentMode = .scaleAspectFit
         contentView.addSubview(rightIconImgV)
         rightIconImgV.translatesAutoresizingMaskIntoConstraints = false
@@ -579,9 +585,14 @@ class LayersListItemCell: UITableViewCell {
         NSLayoutConstraint.activate([
             rightIconImgV.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             rightIconImgV.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            rightIconImgV.heightAnchor.constraint(equalToConstant: 16),
-            rightIconImgV.widthAnchor.constraint(equalToConstant: 16)
+            rightIconImgV.heightAnchor.constraint(equalToConstant: 22),
+            rightIconImgV.widthAnchor.constraint(equalToConstant: 22)
         ])
+    }
+    
+    func setUpUI(title: String, subtitle: String) {
+        titleLbl.text = title
+        subtitleLbl.text = subtitle
     }
 }
 
@@ -608,11 +619,12 @@ class ToggleView: UIView {
     func setUpUI() {
         let titleLbl = UILabel()
         titleLbl.text = self.title
-        titleLbl.font = .systemFont(ofSize: 15, weight: .semibold)
+        titleLbl.font = .sfProText.semiBold.ofSize(size: .regular)
         titleLbl.textAlignment = .left
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         
         let toggleBtn = UISwitch()
+        toggleBtn.onTintColor = .init(hex: "#339E82")
         toggleBtn.addTarget(self, action: #selector(self.toggleChanged), for: .touchUpInside)
         self.toggleBtn = toggleBtn
         toggleBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -640,11 +652,16 @@ class MapStyleItemCell: UICollectionViewCell {
     static let identifier: String = "MapStyleItemCell"
     
     private weak var imageView: UIImageView!
-    private weak var styleLbl: UILabel?
-
-    func setUpUI(image: UIImage, styleName: String, isSelected: Bool) {
+    private weak var styleLbl: UILabel!
+    private var tikMarkImgV: UIImageView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    func commonInit() {
         let imageView = UIImageView()
-        imageView.image = image
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 10
         contentView.addSubview(imageView)
@@ -654,47 +671,69 @@ class MapStyleItemCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 110),
-            imageView.widthAnchor.constraint(equalToConstant: 110)
+            imageView.heightAnchor.constraint(equalToConstant: 100),
+            imageView.widthAnchor.constraint(equalToConstant: 105)
         ])
-        
+
         let styleLbl = UILabel()
-        styleLbl.text = styleName
         styleLbl.font = .sfProText.medium.ofSize(size: .small)
         styleLbl.textAlignment = .center
+        styleLbl.numberOfLines = 0
         contentView.addSubview(styleLbl)
         styleLbl.translatesAutoresizingMaskIntoConstraints = false
         self.styleLbl = styleLbl
         
         NSLayoutConstraint.activate([
             styleLbl.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
-            styleLbl.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            styleLbl.heightAnchor.constraint(equalToConstant: 15)
+            styleLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            styleLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            styleLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+        
+        setTikMarkView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUpUI(image: UIImage, styleName: String, isSelected: Bool) {
+        imageView.image = image
+        
+        styleLbl.text = styleName
 
         if isSelected {
-            print(styleName)
             showBorder()
         }else{
-            print(styleName)
             removeBorder()
         }
     }
     
+    func setTikMarkView() {
+        let markImgV = UIImageView(image: UIImage(named: "tik mark"))
+        markImgV.contentMode = .scaleAspectFit
+        markImgV.translatesAutoresizingMaskIntoConstraints = false
+        imageView.addSubview(markImgV)
+        
+        self.tikMarkImgV = markImgV
+        
+        NSLayoutConstraint.activate([
+            markImgV.heightAnchor.constraint(equalToConstant: 22),
+            markImgV.widthAnchor.constraint(equalToConstant: 22),
+            markImgV.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            markImgV.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -2)
+        ])
+    }
+    
     func showBorder() {
-        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderColor = UIColor(hex: "#339E82").cgColor
         imageView.layer.borderWidth = 1
+        tikMarkImgV.isHidden = false
     }
     
     func removeBorder() {
         imageView.layer.borderColor = nil
         imageView.layer.borderWidth = 0
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        styleLbl?.removeFromSuperview()
-        imageView.removeFromSuperview()
-        removeBorder()
+        tikMarkImgV?.isHidden = true
     }
 }
