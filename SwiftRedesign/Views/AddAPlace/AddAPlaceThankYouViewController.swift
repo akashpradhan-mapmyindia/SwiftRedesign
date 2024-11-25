@@ -72,7 +72,8 @@ class AddAPlaceThankYouViewController: UIViewController {
         
         let closeBtn = UIButton()
         closeBtn.setImage(UIImage(named: "clear"), for: .normal)
-        closeBtn.contentMode = .scaleAspectFit
+        closeBtn.contentVerticalAlignment = .fill
+        closeBtn.contentHorizontalAlignment = .fill
         closeBtn.addTarget(self, action: #selector(self.closeBtnClicked), for: .touchUpInside)
         closeBtn.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(closeBtn)

@@ -11,6 +11,7 @@ import SwiftUI
 
 class BaseViewController: UIViewController {
     var sheet: SheetViewController?
+    var sheetType: SheetType?
     var myLayersButton: UIButton!
     var gadgetsViewBtn: UIButton!
     var evFilterBtn: UIButton!
@@ -130,6 +131,7 @@ class BaseViewController: UIViewController {
             hostingView.sizingOptions = .preferredContentSize
         }
         sheet = showSheetController(options: sheetOptions, controller: hostingView, sheetSizes: [], from: self, in: self.view)
+        sheetType = .quickAccess
         sheet?.navigationController?.isNavigationBarHidden = true
         setDefaultSheetSize()
     }
@@ -196,15 +198,30 @@ class BaseViewController: UIViewController {
         return sheet
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if sheetType == .chooseOnMap {
+            view.layoutIfNeeded()
+            sheet?.updateIntrinsicHeight()
+        }
+    }
+    
+    func setSheetSizeBasedOnScreen() {
+        switch sheetType {
+        case .chooseOnMap:
+            break
+        case .gadgets:
+            gadgetsSetSheetSize()
+        case .postOnMapFixOnMap:
+            setPostOnMapFixOnMapSheetSize()
+        default:
+            setDefaultSheetSize()
+        }
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        if let sheet = sheet {
-            if let _ = sheet.childViewController as? MyGadgetsVC {
-                gadgetsSetSheetSize()
-            }else if let _ = sheet.childViewController as? ChooseOnMapViewController {
-                chooseOnMapSetSheetSize()
-            }else {
-                setDefaultSheetSize()
-            }
+        if let _ = sheet {
+            setSheetSizeBasedOnScreen()
         }
         if self.traitCollection.verticalSizeClass == .regular {
             NSLayoutConstraint.deactivate(gadgetsHeaderVLandscapeCons + addAPlaceLandspaceCons)

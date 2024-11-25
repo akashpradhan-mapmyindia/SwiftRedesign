@@ -72,7 +72,7 @@ class PostOnMapSubCategoryViewController: UIViewController {
         ])
         
         let backBtn = UIButton()
-        backBtn.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        backBtn.setImage(UIImage(named: "clear"), for: .normal)
         backBtn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
         backBtn.translatesAutoresizingMaskIntoConstraints = false
         topView.addSubview(backBtn)

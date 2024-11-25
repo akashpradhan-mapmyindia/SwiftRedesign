@@ -23,6 +23,7 @@ extension BaseViewController {
         
         let vc = ChooseOnMapViewController()
         sheet = showSheetController(options: sheetOptions, controller: vc, sheetSizes: [], from: self, in: view)
+        sheetType = .chooseOnMap
         chooseOnMapSetSheetSize()
     }
     

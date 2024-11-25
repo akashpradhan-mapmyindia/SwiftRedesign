@@ -105,7 +105,7 @@ class PostOnMapCategoryViewController: UIViewController {
         ])
         
         let backBtn = UIButton()
-        backBtn.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        backBtn.setImage(UIImage(named: "clear"), for: .normal)
         backBtn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
         backBtn.translatesAutoresizingMaskIntoConstraints = false
         topView.addSubview(backBtn)
@@ -125,12 +125,12 @@ class PostOnMapCategoryViewController: UIViewController {
     
     func setCategorySectionsData() {
         var section: [PostOnMapCategoryHashable] = []
-        section.append(.init(image: UIImage(systemName: "photo")!, title: "Har Ghar Triranga", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
-        section.append(.init(image: UIImage(systemName: "photo")!, title: "Swachh Bharat", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
-        section.append(.init(image: UIImage(systemName: "photo")!, title: "Aham Brahmasmi", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
-        section.append(.init(image: UIImage(systemName: "photo")!, title: "UNICEF School", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
-        section.append(.init(image: UIImage(systemName: "photo")!, title: "Safety", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
-        section.append(.init(image: UIImage(systemName: "photo")!, title: "Traffic", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
+        section.append(.init(image: UIImage(named: "fab-tringa")!, title: "Har Ghar Triranga", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
+        section.append(.init(image: UIImage(named: "Swachh-Bharat")!, title: "Swachh Bharat", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
+        section.append(.init(image: UIImage(named: "Aham-Brahmasmi")!, title: "Aham Brahmasmi", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
+        section.append(.init(image: UIImage(named: "UNICEF School")!, title: "UNICEF School", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
+        section.append(.init(image: UIImage(named: "safety")!, title: "Safety", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
+        section.append(.init(image: UIImage(named: "traffic")!, title: "Traffic", subCategories: [.init(title: "I hosted a flag"), .init(title: "This place hosted a flag")]))
         
         sections.append(section)
     }

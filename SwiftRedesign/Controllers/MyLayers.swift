@@ -721,7 +721,7 @@ class MapStyleItemCell: UICollectionViewCell {
             markImgV.heightAnchor.constraint(equalToConstant: 22),
             markImgV.widthAnchor.constraint(equalToConstant: 22),
             markImgV.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
-            markImgV.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -2)
+            markImgV.bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
         ])
     }
     

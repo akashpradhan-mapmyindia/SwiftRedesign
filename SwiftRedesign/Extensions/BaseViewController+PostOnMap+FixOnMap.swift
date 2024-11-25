@@ -39,8 +39,9 @@ extension BaseViewController {
         let vc = FixOnMapCategoryViewController()
         let navVC = UINavigationController(rootViewController: vc)
         sheet = showSheetController(options: sheetOptions, controller: navVC, sheetSizes: [], from: self, in: view)
+        sheetType = .postOnMapFixOnMap
         sheet?.handleScrollView(vc.categoryCollectionView)
-        setDefaultSheetSize()
+        setPostOnMapFixOnMapSheetSize()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.reportSuccessfullClicked), name: NotificationCenterConstants.reportSuccessful, object: nil)
     }
@@ -68,10 +69,37 @@ extension BaseViewController {
         let vc = PostOnMapCategoryViewController()
         let navVC = UINavigationController(rootViewController: vc)
         sheet = showSheetController(options: sheetOptions, controller: navVC, sheetSizes: [], from: self, in: view)
+        sheetType = .postOnMapFixOnMap
         sheet?.handleScrollView(vc.categoryCollectionView)
-        setDefaultSheetSize()
+        setPostOnMapFixOnMapSheetSize()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.postSuccessfullClicked(_:)), name: NotificationCenterConstants.postSuccessfull, object: nil)
+    }
+    
+    func setPostOnMapFixOnMapSheetSize() {
+        if traitCollection.verticalSizeClass == .regular {
+            sheet?.sizes = [.percent(0.6), .percent(0.9)]
+            DispatchQueue.main.async {
+                if self.sheet?.currentSize == .percent(1.0) {
+                    self.sheet?.resize(to: .percent(0.9))
+                }else if self.sheet?.currentSize == .percent(0.25) {
+                    self.sheet?.resize(to: .percent(0.6))
+                }else {
+                    self.sheet?.resize(to: .percent(0.6))
+                }
+            }
+        }else {
+            sheet?.sizes = [.percent(0.25), .percent(1.0)]
+            DispatchQueue.main.async {
+                if self.sheet?.currentSize == .percent(0.9) {
+                    self.sheet?.resize(to: .percent(1.0))
+                }else if self.sheet?.currentSize == .percent(0.6) {
+                    self.sheet?.resize(to: .percent(0.25))
+                }else {
+                    self.sheet?.resize(to: .percent(0.25))
+                }
+            }
+        }
     }
     
     @objc func postSuccessfullClicked(_ notification: NSNotification) {

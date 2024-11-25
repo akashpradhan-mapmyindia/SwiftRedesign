@@ -86,7 +86,7 @@ class FixOnMapCategoryViewController: UIViewController {
         ])
         
         let backBtn = UIButton()
-        backBtn.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        backBtn.setImage(UIImage(named: "clear"), for: .normal)
         backBtn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
         backBtn.translatesAutoresizingMaskIntoConstraints = false
         topView.addSubview(backBtn)
@@ -171,11 +171,11 @@ class FixOnMapCategoryViewController: UIViewController {
     }
     
     func setCategorySectionsData() {
-        section.append(.init(title: "New Road", image: UIImage(systemName: "photo")!))
-        section.append(.init(title: "Incorrect Name", image: UIImage(systemName: "photo")!))
-        section.append(.init(title: "Place Missing", image: UIImage(systemName: "photo")!))
-        section.append(.init(title: "Road Missing", image: UIImage(systemName: "photo")!))
-        section.append(.init(title: "Invalid Turn", image: UIImage(systemName: "photo")!))
+        section.append(.init(title: "New Road", image: UIImage(named: "new-road")!))
+        section.append(.init(title: "Incorrect Name", image: UIImage(named: "incorrect-name")!))
+        section.append(.init(title: "Place Missing", image: UIImage(named: "place-missing")!))
+        section.append(.init(title: "Road Missing", image: UIImage(named: "road-missing")!))
+        section.append(.init(title: "Invalid Turn", image: UIImage(named: "invalid-turn")!))
     }
     
     @objc func backBtnClicked() {

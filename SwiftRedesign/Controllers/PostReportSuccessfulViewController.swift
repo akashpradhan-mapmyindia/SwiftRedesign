@@ -32,9 +32,16 @@ class PostReportSuccessfulViewController: UIViewController {
         setUpUI()
     }
     
-    func setUpUI() {
-        view.backgroundColor = .init(hex: "#00000066")
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.view.backgroundColor = .clear
         
+        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseInOut) {
+            self.view.backgroundColor = .init(hex: "#00000066")
+        }
+    }
+    
+    func setUpUI() {
         containerView = UIView()
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 10
@@ -51,7 +58,7 @@ class PostReportSuccessfulViewController: UIViewController {
         ])
         
         let cancelBtn = UIButton()
-        cancelBtn.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        cancelBtn.setImage(UIImage(named: "clear"), for: .normal)
         cancelBtn.addTarget(self, action: #selector(self.cancelBtnClicked), for: .touchUpInside)
         cancelBtn.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(cancelBtn)
@@ -63,11 +70,8 @@ class PostReportSuccessfulViewController: UIViewController {
             cancelBtn.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15)
         ])
         
-        let checkMarkImgV = UIImageView(image: UIImage(systemName: "checkmark")?.withRenderingMode(.alwaysTemplate))
-        checkMarkImgV.tintColor = .white
-        checkMarkImgV.layer.cornerRadius = 45
+        let checkMarkImgV = UIImageView(image: UIImage(named: "successful-tick-mark"))
         checkMarkImgV.contentMode = .scaleAspectFit
-        checkMarkImgV.backgroundColor = .green
         checkMarkImgV.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(checkMarkImgV)
         
@@ -111,7 +115,7 @@ class PostReportSuccessfulViewController: UIViewController {
         containerVLandsCons.append(submittedLbl.topAnchor.constraint(equalTo: successfulLbl.bottomAnchor, constant: 5))
         
         NSLayoutConstraint.activate([
-            submittedLbl.widthAnchor.constraint(equalToConstant: 188),
+            submittedLbl.widthAnchor.constraint(equalToConstant: 220),
             submittedLbl.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ])
         

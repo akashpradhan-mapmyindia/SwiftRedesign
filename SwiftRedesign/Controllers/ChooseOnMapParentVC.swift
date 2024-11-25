@@ -141,4 +141,14 @@ class ChooseOnMapParentVC: UIViewController {
     @objc func backBtnClicked() {
         navigationController?.popViewController(animated: true)
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        view.layoutIfNeeded()
+        chooseOnMapSheet?.updateIntrinsicHeight()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        chooseOnMapSheet.updateIntrinsicHeight()
+    }
 }

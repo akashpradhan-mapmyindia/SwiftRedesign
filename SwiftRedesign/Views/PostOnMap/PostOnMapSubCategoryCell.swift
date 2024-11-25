@@ -45,7 +45,7 @@ class PostOnMapSubCategoryCell: UITableViewCell {
             titleLbl.leadingAnchor.constraint(equalTo: imgView.trailingAnchor, constant: 10)
         ])
         
-        nextImg = UIImageView(image: UIImage(systemName: "chevron.right"))
+        nextImg = UIImageView(image: UIImage(named: "forward"))
         nextImg.contentMode = .scaleAspectFit
         nextImg.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nextImg)

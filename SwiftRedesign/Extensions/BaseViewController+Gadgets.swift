@@ -253,6 +253,7 @@ extension BaseViewController {
         
         let gadgetsVC = MyGadgetsVC()
         sheet = showSheetController(options: sheetOptions, controller: gadgetsVC, sheetSizes: [], from: self, in: view)
+        sheetType = .gadgets
         sheet?.handleScrollView(gadgetsVC.gadgetTblView)
         gadgetsSetSheetSize()
     }

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3FB08AF09A83B95B22A6A7E1 /* Pods_SwiftRedesign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */; };
 		CC5DFC982CEB4B6200988E35 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC972CEB4B6200988E35 /* CustomButton.swift */; };
+		CC5DFC9A2CEDE24B00988E35 /* SheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC992CEDE24B00988E35 /* SheetType.swift */; };
+		CC5DFC9C2CF442B000988E35 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC9B2CF442B000988E35 /* UIImage+Extension.swift */; };
+		CC5DFC9E2CF45BA200988E35 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC9D2CF45BA200988E35 /* AddCommentViewController.swift */; };
+		CC5DFCA22CF49F4600988E35 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFCA12CF49F4600988E35 /* UILabel+Extension.swift */; };
 		CC90A9862CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9852CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift */; };
 		CC90A9882CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9872CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift */; };
 		CC90A98A2CDB333000CF4069 /* OpenHoursSelectTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90A9892CDB333000CF4069 /* OpenHoursSelectTimeCell.swift */; };
@@ -95,6 +99,10 @@
 		711D37F820307595B4C9FD6D /* Pods-SwiftRedesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.debug.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.debug.xcconfig"; sourceTree = "<group>"; };
 		A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRedesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC5DFC972CEB4B6200988E35 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		CC5DFC992CEDE24B00988E35 /* SheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetType.swift; sourceTree = "<group>"; };
+		CC5DFC9B2CF442B000988E35 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		CC5DFC9D2CF45BA200988E35 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		CC5DFCA12CF49F4600988E35 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		CC90A9852CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursSelectionViewController.swift; sourceTree = "<group>"; };
 		CC90A9872CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursWeekDayCell.swift; sourceTree = "<group>"; };
 		CC90A9892CDB333000CF4069 /* OpenHoursSelectTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHoursSelectTimeCell.swift; sourceTree = "<group>"; };
@@ -140,7 +148,7 @@
 		CCDF5FAE2CE36B3F00C7B0CD /* NotificationCenterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterConstants.swift; sourceTree = "<group>"; };
 		CCDF5FB02CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixOnMapCategoryViewController.swift; sourceTree = "<group>"; };
 		CCDF5FB72CE4715500C7B0CD /* PostOnMapCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapCategoryViewController.swift; sourceTree = "<group>"; };
-		CCDF5FB92CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapFixOnMapEnterDetailsViewController.swift; sourceTree = "<group>"; };
+		CCDF5FB92CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapFixOnMapEnterDetailsViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		CCDF5FBB2CE4719800C7B0CD /* PostOnMapSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOnMapSubCategoryViewController.swift; sourceTree = "<group>"; };
 		CCDF600E2CE5F36C00C7B0CD /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		CCDF600F2CE5F36C00C7B0CD /* DS-DIGIT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIT.TTF"; sourceTree = "<group>"; };
@@ -237,6 +245,7 @@
 				CC92856D2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift */,
 				CC90A9852CDA49FF00CF4069 /* OpenHoursSelectionViewController.swift */,
 				CCDF5FB02CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift */,
+				CC5DFC9D2CF45BA200988E35 /* AddCommentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +260,8 @@
 				CC933EEC2CCC82E900F8D51E /* String+Extension.swift */,
 				CC933EF72CCFBCC200F8D51E /* UIButton+Extension.swift */,
 				CCDF602A2CE6000400C7B0CD /* UIFont+Extension.swift */,
+				CC5DFC9B2CF442B000988E35 /* UIImage+Extension.swift */,
+				CC5DFCA12CF49F4600988E35 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				CCDF5FAE2CE36B3F00C7B0CD /* NotificationCenterConstants.swift */,
+				CC5DFC992CEDE24B00988E35 /* SheetType.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -565,6 +577,7 @@
 				CC933EE62CCA124F00F8D51E /* ChooseOnMapViewController.swift in Sources */,
 				CC90A9992CE1D72E00CF4069 /* PostOnMapFixOnMapCategoryItemCell.swift in Sources */,
 				CCDF5FB82CE4715500C7B0CD /* PostOnMapCategoryViewController.swift in Sources */,
+				CC5DFCA22CF49F4600988E35 /* UILabel+Extension.swift in Sources */,
 				CC90A98E2CDB6A6500CF4069 /* TimeRangePickerView.swift in Sources */,
 				CC933EFF2CD102E600F8D51E /* ChooseOnMapParentVC.swift in Sources */,
 				CCDF5FA12CE2258A00C7B0CD /* PostOnMapSubCategoryCell.swift in Sources */,
@@ -578,6 +591,7 @@
 				CCDF5FB12CE37DD400C7B0CD /* FixOnMapCategoryViewController.swift in Sources */,
 				CCDF5FBA2CE4717B00C7B0CD /* PostOnMapFixOnMapEnterDetailsViewController.swift in Sources */,
 				CC933EC42CC0E8FE00F8D51E /* UIColor+Extension.swift in Sources */,
+				CC5DFC9C2CF442B000988E35 /* UIImage+Extension.swift in Sources */,
 				CC933EE02CC923AD00F8D51E /* AddAPlaceViewController.swift in Sources */,
 				CCDF5FA32CE22F3600C7B0CD /* CommonTableHeaderFooterView.swift in Sources */,
 				CC933EC92CC232C200F8D51E /* GadgetsHandler.swift in Sources */,
@@ -589,6 +603,7 @@
 				CCDF5FA72CE3642100C7B0CD /* BaseViewController+PostOnMap+FixOnMap.swift in Sources */,
 				CC933ED32CC7826700F8D51E /* EVFilterViewController.swift in Sources */,
 				CC933EEB2CCB9A0300F8D51E /* AddAPlaceEditLocationOnMapCell.swift in Sources */,
+				CC5DFC9E2CF45BA200988E35 /* AddCommentViewController.swift in Sources */,
 				CC933EE22CC9FC8800F8D51E /* BaseViewController+Gadgets.swift in Sources */,
 				CC90A9882CDB2BF900CF4069 /* OpenHoursWeekDayCell.swift in Sources */,
 				CC933EC72CC2179100F8D51E /* GadgetsStatusCell.swift in Sources */,
@@ -601,6 +616,7 @@
 				CCDF5FAF2CE36B3F00C7B0CD /* NotificationCenterConstants.swift in Sources */,
 				CC933EDE2CC8DA4D00F8D51E /* EVFilterFooterLineSupplementaryView.swift in Sources */,
 				CC90A9922CDCE15600CF4069 /* AddAPlaceThankYouViewController.swift in Sources */,
+				CC5DFC9A2CEDE24B00988E35 /* SheetType.swift in Sources */,
 				CC92856E2CD9FE6900098174 /* AddAPlaceSubCategoryViewController.swift in Sources */,
 				CC90A98C2CDB472400CF4069 /* CollectionViewSupplementaryItemTextView.swift in Sources */,
 				CCDF5FA52CE35EEC00C7B0CD /* PostReportSuccessfulViewController.swift in Sources */,
@@ -746,11 +762,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HT94Y2D6B3;
+				DEVELOPMENT_TEAM = 3TGUQLGG52;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftRedesign/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "photo library permission needed";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -763,8 +781,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.app.SwiftRedesign;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -776,11 +795,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HT94Y2D6B3;
+				DEVELOPMENT_TEAM = 3TGUQLGG52;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftRedesign/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "photo library permission needed";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -793,8 +814,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.app.SwiftRedesign;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

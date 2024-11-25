@@ -437,7 +437,7 @@ class OpenHoursSelectionViewController: UIViewController {
         view.addSubview(addHoursBtn)
         
         NSLayoutConstraint.activate([
-            addHoursBtn.topAnchor.constraint(equalTo: self.weekDaysCollectionView.bottomAnchor, constant: 20),
+            addHoursBtn.topAnchor.constraint(equalTo: self.weekDaysCollectionView.bottomAnchor),
             addHoursBtn.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             addHoursBtn.heightAnchor.constraint(equalToConstant: 44),
             addHoursBtn.widthAnchor.constraint(equalToConstant: 165)

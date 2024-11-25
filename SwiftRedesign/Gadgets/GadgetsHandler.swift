@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 class GadgetsHandler: NSObject {
     
     static let shared: GadgetsHandler = GadgetsHandler()
