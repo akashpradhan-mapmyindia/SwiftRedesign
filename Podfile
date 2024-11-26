@@ -6,5 +6,5 @@ target 'SwiftRedesign' do
   use_frameworks!
 
   # Pods for SwiftRedesign
-  pod 'FittedSheets',                     :path => 'externals/FittedSheets/'
+pod 'FittedSheets'
 end
