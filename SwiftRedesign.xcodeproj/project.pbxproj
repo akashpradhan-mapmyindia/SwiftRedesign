@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FB08AF09A83B95B22A6A7E1 /* Pods_SwiftRedesign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */; };
+		8D1E9D28923BDE0EBC9053FD /* Pods_SwiftRedesign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0F3F2F996D2701FCAAB57E /* Pods_SwiftRedesign.framework */; };
 		CC5DFC982CEB4B6200988E35 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC972CEB4B6200988E35 /* CustomButton.swift */; };
 		CC5DFC9A2CEDE24B00988E35 /* SheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC992CEDE24B00988E35 /* SheetType.swift */; };
 		CC5DFC9C2CF442B000988E35 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC9B2CF442B000988E35 /* UIImage+Extension.swift */; };
@@ -95,9 +95,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3AB1500F7479C27ADA22F888 /* Pods-SwiftRedesign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.release.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.release.xcconfig"; sourceTree = "<group>"; };
-		711D37F820307595B4C9FD6D /* Pods-SwiftRedesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.debug.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.debug.xcconfig"; sourceTree = "<group>"; };
-		A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRedesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C0F3F2F996D2701FCAAB57E /* Pods_SwiftRedesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRedesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8AD76D6D65FD8E2A91F9881 /* Pods-SwiftRedesign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.release.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.release.xcconfig"; sourceTree = "<group>"; };
 		CC5DFC972CEB4B6200988E35 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CC5DFC992CEDE24B00988E35 /* SheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetType.swift; sourceTree = "<group>"; };
 		CC5DFC9B2CF442B000988E35 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -184,6 +183,7 @@
 		CCF633C42CBCE700006FDE35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCF633C62CBCE700006FDE35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCF633CC2CBCE7D6006FDE35 /* MyGadgetsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGadgetsVC.swift; sourceTree = "<group>"; };
+		D670CB91351693A5516218D4 /* Pods-SwiftRedesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.debug.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,13 +191,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FB08AF09A83B95B22A6A7E1 /* Pods_SwiftRedesign.framework in Frameworks */,
+				8D1E9D28923BDE0EBC9053FD /* Pods_SwiftRedesign.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E788E2A411E28ABE0643ECA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C0F3F2F996D2701FCAAB57E /* Pods_SwiftRedesign.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CC90A9972CE1D71900CF4069 /* PostOnMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,7 +389,7 @@
 				CCF633B72CBCE6FF006FDE35 /* SwiftRedesign */,
 				CCF633B62CBCE6FF006FDE35 /* Products */,
 				DDFDB0A0AA32219FB4234625 /* Pods */,
-				FD0A7643A568E0B8407D5601 /* Frameworks */,
+				6E788E2A411E28ABE0643ECA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -415,18 +423,10 @@
 		DDFDB0A0AA32219FB4234625 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				711D37F820307595B4C9FD6D /* Pods-SwiftRedesign.debug.xcconfig */,
-				3AB1500F7479C27ADA22F888 /* Pods-SwiftRedesign.release.xcconfig */,
+				D670CB91351693A5516218D4 /* Pods-SwiftRedesign.debug.xcconfig */,
+				C8AD76D6D65FD8E2A91F9881 /* Pods-SwiftRedesign.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		FD0A7643A568E0B8407D5601 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,11 +436,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCF633C92CBCE700006FDE35 /* Build configuration list for PBXNativeTarget "SwiftRedesign" */;
 			buildPhases = (
-				D3EBDC264051423799C216FF /* [CP] Check Pods Manifest.lock */,
+				60A32AC68B9F5584055A3897 /* [CP] Check Pods Manifest.lock */,
 				CCF633B12CBCE6FF006FDE35 /* Sources */,
 				CCF633B22CBCE6FF006FDE35 /* Frameworks */,
 				CCF633B32CBCE6FF006FDE35 /* Resources */,
-				39516E2F50E9F7DE513C6DA3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -523,24 +522,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39516E2F50E9F7DE513C6DA3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D3EBDC264051423799C216FF /* [CP] Check Pods Manifest.lock */ = {
+		60A32AC68B9F5584055A3897 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -758,7 +740,7 @@
 		};
 		CCF633CA2CBCE700006FDE35 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 711D37F820307595B4C9FD6D /* Pods-SwiftRedesign.debug.xcconfig */;
+			baseConfigurationReference = D670CB91351693A5516218D4 /* Pods-SwiftRedesign.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -791,7 +773,7 @@
 		};
 		CCF633CB2CBCE700006FDE35 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AB1500F7479C27ADA22F888 /* Pods-SwiftRedesign.release.xcconfig */;
+			baseConfigurationReference = C8AD76D6D65FD8E2A91F9881 /* Pods-SwiftRedesign.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
