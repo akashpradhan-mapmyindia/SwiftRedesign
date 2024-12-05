@@ -206,8 +206,6 @@ class PostReportSuccessfulViewController: UIViewController {
     }
     
     @objc func cancelBtnClicked() {
-        if let sheetViewController = sheetViewController {
-            sheetViewController.attemptDismiss(animated: true)
-        }
+        customDismiss(animated: true)
     }
 }

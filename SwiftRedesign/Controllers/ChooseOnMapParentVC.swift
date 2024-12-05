@@ -8,13 +8,13 @@
 import UIKit
 import FittedSheets
 
-protocol ChooseOnMapParentViewControllerDelegate: AnyObject {
-    func addressSelected(with location: String)
+protocol ChooseOnMapParentViewControllerDelegate: Sendable {
+    func addressSelected(with location: String) async
 }
 
 class ChooseOnMapParentVC: UIViewController {
     
-    weak var delegate: ChooseOnMapParentViewControllerDelegate?
+    var delegate: ChooseOnMapParentViewControllerDelegate?
     
     var topBar: UIView!
     var chooseOnMapSheet: SheetViewController!
@@ -124,7 +124,9 @@ class ChooseOnMapParentVC: UIViewController {
     
     @objc func addressSelected() {
         navigationController?.popViewController(animated: true)
-        delegate?.addressSelected(with: "")
+        Task {
+            await delegate?.addressSelected(with: "")
+        }
     }
     
     func setSheetSize() {

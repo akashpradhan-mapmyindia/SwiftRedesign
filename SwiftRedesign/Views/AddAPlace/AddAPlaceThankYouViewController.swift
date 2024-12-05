@@ -272,10 +272,7 @@ class AddAPlaceThankYouViewController: UIViewController {
     }
     
     @objc func closeBtnClicked() {
-        if let sheetViewController = sheetViewController {
-            sheetViewController.attemptDismiss(animated: true)
-        }else {
-            navigationController?.popViewController(animated: true)
-        }
+        navigationController?.popToRootViewController(animated: true)
+        NotificationCenter.default.post(name: NotificationCenterConstants.addAPlaceSuccessfull, object: nil)
     }
 }

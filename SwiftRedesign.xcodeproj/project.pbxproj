@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FB08AF09A83B95B22A6A7E1 /* Pods_SwiftRedesign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */; };
+		CC111F1F2CFECA5E009F6910 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC111F1E2CFECA5E009F6910 /* UIViewController+Extension.swift */; };
 		CC5DFC982CEB4B6200988E35 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC972CEB4B6200988E35 /* CustomButton.swift */; };
 		CC5DFC9A2CEDE24B00988E35 /* SheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC992CEDE24B00988E35 /* SheetType.swift */; };
 		CC5DFC9C2CF442B000988E35 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DFC9B2CF442B000988E35 /* UIImage+Extension.swift */; };
@@ -98,6 +99,7 @@
 		3AB1500F7479C27ADA22F888 /* Pods-SwiftRedesign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.release.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.release.xcconfig"; sourceTree = "<group>"; };
 		711D37F820307595B4C9FD6D /* Pods-SwiftRedesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRedesign.debug.xcconfig"; path = "Target Support Files/Pods-SwiftRedesign/Pods-SwiftRedesign.debug.xcconfig"; sourceTree = "<group>"; };
 		A01E1E613A82407E2B7BC6E0 /* Pods_SwiftRedesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRedesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC111F1E2CFECA5E009F6910 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CC5DFC972CEB4B6200988E35 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CC5DFC992CEDE24B00988E35 /* SheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetType.swift; sourceTree = "<group>"; };
 		CC5DFC9B2CF442B000988E35 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				CCDF602A2CE6000400C7B0CD /* UIFont+Extension.swift */,
 				CC5DFC9B2CF442B000988E35 /* UIImage+Extension.swift */,
 				CC5DFCA12CF49F4600988E35 /* UILabel+Extension.swift */,
+				CC111F1E2CFECA5E009F6910 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				CCDF5FA32CE22F3600C7B0CD /* CommonTableHeaderFooterView.swift in Sources */,
 				CC933EC92CC232C200F8D51E /* GadgetsHandler.swift in Sources */,
 				CC933EE92CCB73D400F8D51E /* AddAPlaceCollectionViewInfoCell.swift in Sources */,
+				CC111F1F2CFECA5E009F6910 /* UIViewController+Extension.swift in Sources */,
 				CC933ED02CC6626A00F8D51E /* NewGadgetView.swift in Sources */,
 				CC933EED2CCC82E900F8D51E /* String+Extension.swift in Sources */,
 				CC933EF82CCFBCC200F8D51E /* UIButton+Extension.swift in Sources */,

@@ -576,13 +576,7 @@ class PostOnMapFixOnMapEnterDetailsViewController: UIViewController {
     }
     
     @objc func backBtnClicked() {
-        if let sheetViewController = sheetViewController {
-            sheetViewController.attemptDismiss(animated: true)
-        }else if let navigationController = navigationController {
-            navigationController.popViewController(animated: true)
-        }else {
-            dismiss(animated: true)
-        }
+        customDismiss(animated: true)
     }
 }
 

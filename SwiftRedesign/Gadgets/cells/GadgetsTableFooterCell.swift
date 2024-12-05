@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol GadgetsTableFooterCellDelegate: AnyObject {
-    func addNewGadgetBtnClicked()
+protocol GadgetsTableFooterCellDelegate: Sendable {
+    func addNewGadgetBtnClicked() async
 }
 
 class GadgetsTableFooterCell: UITableViewCell {
     
     static let identifier: String = "GadgetsTableFooterCell"
     
-    weak var delegate: GadgetsTableFooterCellDelegate?
+    var delegate: GadgetsTableFooterCellDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -94,7 +94,9 @@ class GadgetsTableFooterCell: UITableViewCell {
     }
     
     @objc func addNewGadgetBtnClicked() {
-        self.delegate?.addNewGadgetBtnClicked()
+        Task {
+            await self.delegate?.addNewGadgetBtnClicked()
+        }
     }
 }
 

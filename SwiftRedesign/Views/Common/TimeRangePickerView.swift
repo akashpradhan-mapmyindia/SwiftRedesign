@@ -125,13 +125,6 @@ class TimeRangePickerView: UIViewController {
     }
     
     @objc func cancelBtnClicked() {
-        if let sheetViewController = sheetViewController {
-            sheetViewController.attemptDismiss(animated: true)
-            return
-        }else if let navigationController = navigationController {
-            navigationController.popViewController(animated: true)
-        }else {
-            dismiss(animated: true)
-        }
+        customDismiss(animated: true)
     }
 }

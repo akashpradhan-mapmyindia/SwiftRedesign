@@ -163,12 +163,16 @@ class BaseViewController: UIViewController {
     }
     
     @objc func evFilterBtnClicked(_ sender: UIButton) {
-        self.navigationController?.pushViewController(EVFilterViewController(), animated: true)
+        let vc = EVFilterViewController()
+        vc.modalPresentationStyle = .fullScreen
+        
+        present(vc, animated: true)
     }
     
     @objc func setUpMyLayersUI() {
         let layersVC = MyLayersVC()
-        self.navigationController?.pushViewController(layersVC, animated: true)
+        layersVC.modalPresentationStyle = .fullScreen
+        present(layersVC, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {

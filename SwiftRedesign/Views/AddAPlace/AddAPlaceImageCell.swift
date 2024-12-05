@@ -7,20 +7,21 @@
 
 import UIKit
 
-protocol AddAPlaceImageCellDelegte: AnyObject {
-    func addImageClicked()
-    func deleteImageClicked()
+protocol AddAPlaceImageCellDelegte: Sendable {
+    func addImageClicked() async
+    func deleteImageClicked(for itemIdentifier: String) async
 }
 
 class AddAPlaceImageCell: UICollectionViewCell {
     
     static let identifier: String = "AddAPlaceImageCell"
     
-    weak var delegate: AddAPlaceImageCellDelegte?
+    var delegate: AddAPlaceImageCellDelegte?
     
     var imageView: UIImageView!
     var eraseBtn: UIButton!
     var addImgBtn: UIButton!
+    var itemIdentifier: String!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +36,7 @@ class AddAPlaceImageCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = UIColor(hex: "#DDDDDD").cgColor
         contentView.layer.borderWidth = 1
+        contentView.layer.masksToBounds = true
         
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "add image")!, for: .normal)
@@ -58,7 +60,7 @@ class AddAPlaceImageCell: UICollectionViewCell {
         button.alignVerticalCenter(padding: 10)
         
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.isHidden = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
@@ -89,9 +91,7 @@ class AddAPlaceImageCell: UICollectionViewCell {
     }
     
     func setUpUI(for item: AddAPlaceDetailsCollectionViewHashable, isAddImageCell: Bool = false) {
-        contentView.layer.cornerRadius = 10
-        contentView.layer.borderColor = UIColor(hex: "#DDDDDD").cgColor
-        contentView.layer.borderWidth = 1
+        self.itemIdentifier = item.title.string
         
         if isAddImageCell {
             addImgBtn.isHidden = false
@@ -109,10 +109,14 @@ class AddAPlaceImageCell: UICollectionViewCell {
     }
     
     @objc func deleteImageClicked() {
-        delegate?.deleteImageClicked()
+        Task {
+            await delegate?.deleteImageClicked(for: itemIdentifier)
+        }
     }
     
     @objc func addImageClicked() {
-        delegate?.addImageClicked()
+        Task {
+            await delegate?.addImageClicked()
+        }
     }
 }

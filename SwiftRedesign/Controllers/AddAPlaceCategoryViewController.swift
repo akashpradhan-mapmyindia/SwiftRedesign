@@ -8,9 +8,9 @@
 import UIKit
 import FittedSheets
 
-class AddAPlaceCategoryTableViewHashable: Hashable {
+struct AddAPlaceCategoryTableViewHashable: Hashable, Sendable {
     
-    class SubCategoryHashable: Hashable {
+    struct SubCategoryHashable: Hashable, Sendable {
         var title: String
         
         init(title: String) {

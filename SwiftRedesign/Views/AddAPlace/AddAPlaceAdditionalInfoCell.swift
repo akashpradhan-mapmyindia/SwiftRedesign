@@ -11,7 +11,7 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
     
     static let identifer: String = "AddAPlaceAdditionalInfoCell"
     
-    weak var delegate: AddAPlaceCollectionViewInfoCellDelegate?
+    var delegate: AddAPlaceCollectionViewInfoCellDelegate?
     var titleLbl: UILabel!
     var txtView: UITextView!
     var nextBtn: UIButton?
@@ -102,12 +102,25 @@ class AddAPlaceAdditionalInfoCell: UICollectionViewCell {
     }
     
     @objc func nextBtnClicked() {
-        delegate?.nextBtnClicked?(forTitle: titleLbl.text ?? "")
+        Task {
+            await delegate?.nextBtnClicked(forTitle: titleLbl.text ?? "")
+        }
     }
 }
 
 extension AddAPlaceAdditionalInfoCell: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        delegate?.textFieldDidChange(textView.text, forTitle: titleLbl.text ?? "")
+        Task {
+            await delegate?.textFieldDidChange(textView.text, forTitle: titleLbl.text ?? "")
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        
+        return true
     }
 }

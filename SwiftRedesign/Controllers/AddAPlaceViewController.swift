@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class AddAPlaceDetailsCollectionViewHashable: Hashable {
     
@@ -13,7 +14,7 @@ class AddAPlaceDetailsCollectionViewHashable: Hashable {
     var title: NSMutableAttributedString
     var icon: UIImage?
     
-    init(cellIdentifier: String, title: NSMutableAttributedString = .init(string: ""), icon: UIImage? = nil) {
+    init(cellIdentifier: String, title: NSMutableAttributedString = .init(string: UUID().uuidString), icon: UIImage? = nil) {
         self.title = title
         self.icon = icon
         self.cellIdentifier = cellIdentifier
@@ -46,6 +47,7 @@ class AddAPlaceViewController: UIViewController {
         case openHours = "Open hours"
     }
     
+    var imagePickerController: UIImagePickerController!
     var topBar: UIView!
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Int, AddAPlaceDetailsCollectionViewHashable>?
@@ -62,6 +64,10 @@ class AddAPlaceViewController: UIViewController {
     
     func setUpUI() {
         view.backgroundColor = .white
+        
+        imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
         
         setUpSectionsData()
         setTopBar()
@@ -159,13 +165,7 @@ class AddAPlaceViewController: UIViewController {
         
         section = []
         section.append(.init(cellIdentifier: AddAPlaceImageCell.identifier))
-        section.append(.init(cellIdentifier: AddAPlaceImageCell.identifier, icon: UIImage(systemName: "photo.fill")!))
-        section.append(.init(cellIdentifier: AddAPlaceImageCell.identifier, icon: UIImage(systemName: "photo.fill")!))
-        section.append(.init(cellIdentifier: AddAPlaceImageCell.identifier, icon: UIImage(systemName: "photo.fill")!))
-        section.append(.init(cellIdentifier: AddAPlaceImageCell.identifier, icon: UIImage(systemName: "photo.fill")!))
-        section.append(.init(cellIdentifier: AddAPlaceImageCell.identifier, icon: UIImage(systemName: "photo.fill")!))
-        section.append(.init(cellIdentifier: AddAPlaceImageCell.identifier, icon: UIImage(systemName: "photo.fill")!))
-
+        
         sections.append(section)
         
         section = []
@@ -317,6 +317,35 @@ class AddAPlaceViewController: UIViewController {
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+        
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height , right: 0.0)
+        collectionView.contentInset = contentInsets
+        collectionView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        
+        collectionView.contentInset = contentInsets
+        collectionView.scrollIndicatorInsets = contentInsets
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 }
 
 extension AddAPlaceViewController: AddAPlaceCollectionViewInfoCellDelegate, AddAPlaceImageCellDelegte, ChooseOnMapParentViewControllerDelegate {
@@ -339,14 +368,64 @@ extension AddAPlaceViewController: AddAPlaceCollectionViewInfoCellDelegate, AddA
     }
     
     func addImageClicked() {
-        
+        if #available(iOS 14, *) {
+            PHPhotoLibrary.requestAuthorization(for: .readWrite) { authorizationStatus in
+                switch authorizationStatus {
+                case .authorized:
+                    DispatchQueue.main.async {
+                        self.present(self.imagePickerController, animated: true)
+                    }
+                default:
+                    break
+                }
+            }
+        }else {
+            PHPhotoLibrary.requestAuthorization { authorizationStatus in
+                switch authorizationStatus {
+                case .authorized:
+                    DispatchQueue.main.async {
+                        self.present(self.imagePickerController, animated: true)
+                    }
+                default:
+                    break
+                }
+            }
+        }
     }
     
-    func deleteImageClicked() {
-        
+    func deleteImageClicked(for itemIdentifier: String) async {
+        for (index, item) in sections[1].enumerated() {
+            if item.title.string == itemIdentifier {
+                sections[1].remove(at: index)
+                
+                guard var snapshot = dataSource?.snapshot() else {return}
+                snapshot.deleteItems([item])
+                
+                dataSource?.apply(snapshot)
+            }
+        }
     }
     
     func textFieldDidChange(_ text: String, forTitle: String) {
         collectionView.collectionViewLayout.invalidateLayout()
+    }
+}
+
+extension AddAPlaceViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let imagePicked = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        
+        if let image = imagePicked {
+            guard var snapshot = dataSource?.snapshot() else {return}
+            
+            let item: AddAPlaceDetailsCollectionViewHashable = AddAPlaceDetailsCollectionViewHashable(cellIdentifier: AddAPlaceImageCell.identifier, icon: image)
+            
+            self.sections[1].append(item)
+            
+            snapshot.appendItems([item], toSection: 1)
+            dataSource?.apply(snapshot)
+        }
+        
+        imagePickerController.dismiss(animated: true)
     }
 }

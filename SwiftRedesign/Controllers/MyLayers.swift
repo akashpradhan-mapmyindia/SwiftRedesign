@@ -201,19 +201,19 @@ extension MyLayersVC: MyLayersTopComponentDelegate {
     }
     
     func closeBtnPressed() {
-        self.navigationController?.popViewController(animated: true)
+        customDismiss(animated: true)
     }
 }
 
-protocol MyLayersTopComponentDelegate: AnyObject {
-    func infoBtnPressed(for title: String)
-    func closeBtnPressed()
+protocol MyLayersTopComponentDelegate: Sendable {
+    func infoBtnPressed(for title: String) async
+    func closeBtnPressed() async
 }
 
 class MyLayersTopComponent: UITableViewCell {
     static let identifier: String = "MyLayersTopComponent"
     
-    weak var delegate: MyLayersTopComponentDelegate?
+    var delegate: MyLayersTopComponentDelegate?
     
     var titleLbl: UILabel!
     var closeBtn: UIButton!
@@ -281,11 +281,15 @@ class MyLayersTopComponent: UITableViewCell {
     }
     
     @objc func infoBtnPressed() {
-        delegate?.infoBtnPressed(for: titleLbl.text ?? "")
+        Task {
+            await delegate?.infoBtnPressed(for: titleLbl.text ?? "")
+        }
     }
     
     @objc func closeBtnPressed() {
-        delegate?.closeBtnPressed()
+        Task {
+            await delegate?.closeBtnPressed()
+        }
     }
 }
 
@@ -596,13 +600,13 @@ class LayersListItemCell: UITableViewCell {
     }
 }
 
-protocol ToggleViewDelegate: AnyObject {
-    func toggleChanged(isOn: Bool)
+protocol ToggleViewDelegate: Sendable {
+    func toggleChanged(isOn: Bool) async
 }
 
 class ToggleView: UIView {
     
-    weak var delegate: ToggleViewDelegate?
+    var delegate: ToggleViewDelegate?
     var toggleBtn: UISwitch!
     var title: String
     
@@ -644,7 +648,9 @@ class ToggleView: UIView {
     }
     
     @objc func toggleChanged() {
-        delegate?.toggleChanged(isOn: toggleBtn.isOn)
+        Task {
+            await delegate?.toggleChanged(isOn: toggleBtn.isOn)
+        }
     }
 }
 

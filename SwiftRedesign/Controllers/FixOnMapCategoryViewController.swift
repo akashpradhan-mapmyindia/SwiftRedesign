@@ -179,9 +179,7 @@ class FixOnMapCategoryViewController: UIViewController {
     }
     
     @objc func backBtnClicked() {
-        if let sheetViewController = sheetViewController {
-            sheetViewController.attemptDismiss(animated: true)
-        }
+        customDismiss(animated: true)
     }
 }
 

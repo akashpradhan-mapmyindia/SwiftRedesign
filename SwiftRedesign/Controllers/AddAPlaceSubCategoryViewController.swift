@@ -8,13 +8,13 @@
 import UIKit
 import FittedSheets
 
-protocol AddAPlaceSubCategoryViewControllerDelegate: AnyObject {
-    func didSelectSubCategory(_ category: AddAPlaceCategoryTableViewHashable.SubCategoryHashable)
+protocol AddAPlaceSubCategoryViewControllerDelegate: Sendable {
+    func didSelectSubCategory(_ category: AddAPlaceCategoryTableViewHashable.SubCategoryHashable) async
 }
 
 class AddAPlaceSubCategoryViewController: UIViewController {
     
-    weak var delegate: AddAPlaceSubCategoryViewControllerDelegate?
+    var delegate: AddAPlaceSubCategoryViewControllerDelegate?
     
     var tblView: UITableView!
     var titleLbl: UILabel!
@@ -102,16 +102,15 @@ class AddAPlaceSubCategoryViewController: UIViewController {
     }
     
     @objc func cancelBtnClicked() {
-        if let sheetViewController = sheetViewController {
-            sheetViewController.attemptDismiss(animated: true)
-        }else {
-            navigationController?.popViewController(animated: true)
-        }
+        customDismiss(animated: true)
     }
 }
 
 extension AddAPlaceSubCategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didSelectSubCategory(category.subCategories[indexPath.row])
+        Task {
+            let subCat = category.subCategories[indexPath.row]
+            await delegate?.didSelectSubCategory(subCat)
+        }
     }
 }

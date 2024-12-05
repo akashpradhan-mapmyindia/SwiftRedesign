@@ -25,11 +25,14 @@ extension BaseViewController {
         sheet = showSheetController(options: sheetOptions, controller: vc, sheetSizes: [], from: self, in: view)
         sheetType = .chooseOnMap
         chooseOnMapSetSheetSize()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.hideAddAPlaceView), name: NotificationCenterConstants.addAPlaceSuccessfull, object: nil)
     }
     
-    func hideAddAPlaceView() {
+    @objc func hideAddAPlaceView() {
         addAPlaceTopView?.isHidden = true
         sheet?.attemptDismiss(animated: true)
+        NotificationCenter.default.removeObserver(self, name: NotificationCenterConstants.addAPlaceSuccessfull, object: nil)
     }
     
     func setAddAPlaceTopView() {

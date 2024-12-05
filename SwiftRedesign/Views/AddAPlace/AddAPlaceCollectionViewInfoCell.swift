@@ -7,15 +7,15 @@
 
 import UIKit
 
-@objc protocol AddAPlaceCollectionViewInfoCellDelegate: AnyObject {
-    func textFieldDidChange(_ text: String, forTitle: String)
-    @objc optional func nextBtnClicked(forTitle: String)
+protocol AddAPlaceCollectionViewInfoCellDelegate: Sendable {
+    func textFieldDidChange(_ text: String, forTitle: String) async
+    func nextBtnClicked(forTitle: String) async
 }
 
 class AddAPlaceCollectionViewInfoCell: UICollectionViewCell {
     static let identifier: String = "AddAPlaceCollectionViewInfoCell"
     
-    weak var delegate: AddAPlaceCollectionViewInfoCellDelegate?
+    var delegate: AddAPlaceCollectionViewInfoCellDelegate?
     var titleLbl: UILabel!
     var iconImgV: UIImageView!
     var txtView: UITextView!
@@ -118,12 +118,25 @@ class AddAPlaceCollectionViewInfoCell: UICollectionViewCell {
     }
     
     @objc func nextBtnClicked() {
-        delegate?.nextBtnClicked?(forTitle: titleLbl.text ?? "")
+        Task {
+            await delegate?.nextBtnClicked(forTitle: titleLbl.text ?? "")
+        }
     }
 }
 
 extension AddAPlaceCollectionViewInfoCell: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        delegate?.textFieldDidChange(textView.text, forTitle: titleLbl.text ?? "")
+        Task {
+            await delegate?.textFieldDidChange(textView.text, forTitle: titleLbl.text ?? "")
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        
+        return true
     }
 }

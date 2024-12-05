@@ -7,16 +7,16 @@
 
 import UIKit
 
-protocol NewGadgetViewDelegate: AnyObject {
-    func addNewGadgetBtnClicked()
-    func buyNowBtnClicked()
-    func callSupportBtnClicked()
-    func writeToUseBtnClicked()
+protocol NewGadgetViewDelegate: Sendable {
+    func addNewGadgetBtnClicked() async
+    func buyNowBtnClicked() async
+    func callSupportBtnClicked() async
+    func writeToUseBtnClicked() async
 }
 
 class NewGadgetView: UIView {
     
-    weak var delegate: NewGadgetViewDelegate?
+    var delegate: NewGadgetViewDelegate?
     
     var scrollView: UIScrollView!
     
@@ -153,19 +153,27 @@ class NewGadgetView: UIView {
     }
     
     @objc func addNewBtnClicked() {
-        delegate?.addNewGadgetBtnClicked()
+        Task {
+            await delegate?.addNewGadgetBtnClicked()
+        }
     }
     
     @objc func buyNowClicked() {
-        delegate?.buyNowBtnClicked()
+        Task {
+            await delegate?.buyNowBtnClicked()
+        }
     }
     
     @objc func callSupportClicked() {
-        delegate?.callSupportBtnClicked()
+        Task {
+            await delegate?.callSupportBtnClicked()
+        }
     }
     
     @objc func writeToUsClicked() {
-        delegate?.writeToUseBtnClicked()
+        Task {
+            await delegate?.writeToUseBtnClicked()
+        }
     }
     
     required init?(coder: NSCoder) {

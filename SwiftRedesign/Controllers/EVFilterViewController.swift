@@ -268,11 +268,20 @@ class EVFilterViewController: UIViewController {
     }
     
     @objc func resetBtnClicked() {
+        var snapshot = dataSource.snapshot()
         
+        snapshot.itemIdentifiers.forEach { item in
+            if item.isSelected {
+                item.isSelected = false
+                snapshot.reloadItems([item])
+            }
+        }
+        
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
     
     @objc func backBtnPressed() {
-        self.navigationController?.popViewController(animated: true)
+        customDismiss(animated: true)
     }
 }
 
